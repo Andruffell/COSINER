@@ -5,3 +5,4 @@ seqeval==1.2.2
 torch==2.2.0
 accelerate==0.23.0
 evaluate==0.4.1
+transformers-interpret==0.10.0
