@@ -4,7 +4,8 @@ import random
 import pandas as pd
 import numpy as np
 import datasets
-from datasets import load_dataset, ClassLabel
+from datasets import load_dataset
+import torch
 import evaluate
 import transformers
 from transformers import (
@@ -69,7 +70,8 @@ def compute_metrics(p):
 
 if __name__ == '__main__':
     args = utils.parse_args(sys.argv[1:])
-
+    device = "cuda:0" if torch.cuda.is_available() else "cpu"
+    print(device)
     print(args)
     model_type = args.model
     startingEpochs = args.epochs
@@ -161,7 +163,7 @@ if __name__ == '__main__':
     test_metrics = []
 
     trainer = Trainer(
-            model=model,
+            model=model.to(device),
             train_dataset= datasets.concatenate_datasets([train_dataset,counterfactual_set_tokenized]),
             tokenizer=tokenizer,
             data_collator=data_collator,
@@ -180,6 +182,8 @@ if __name__ == '__main__':
     raw_predictions, labels, metricTest = trainer.predict(predict_dataset, metric_key_prefix="test")
     test_metrics.append(metricTest)
     print(test_metrics)
+
+    utils.xai_model(model, tokenizer, train_dataset[10])
 
 
     train_keys = list(train_metrics[0].keys())

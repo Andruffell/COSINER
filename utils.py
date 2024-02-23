@@ -12,7 +12,7 @@ def parse_args(argv):
     parser.add_argument('-length', default=108, type=int, help="Dataset length reduction")
     parser.add_argument('-reverse', default=0, type=int, choices=[0, 1], help='0: max\n 1: min')
     parser.add_argument('-budget', default=0, type=int, help="0: tutti gli esempi generati (local-gen); 100-300-500 global")
-    parser.add_argument('-exr', default=10, type=int, help="numero di esempi generati per ciascuna entry con almeno una entità all'interno del dataset")
+    parser.add_argument('-exr', default=5, type=int, help="numero di esempi generati per ciascuna entry con almeno una entità all'interno del dataset")
     args = parser.parse_args(argv)
     return args
 
@@ -24,3 +24,4 @@ def xai_model(model, tokenizer, training_sample):
 
     word_attributions_no_aug = ner_explainer(training_sample, ignored_labels=['O'])
     ner_explainer.visualize("bert_ner_viz.html")
+    print(word_attributions_no_aug)
