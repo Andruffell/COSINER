@@ -6,7 +6,7 @@ Work in progress.
 
 Install requirements
 
-    !pip install -r requirements.txt
+    !pip install -r requirements.txt -f https://download.pytorch.org/whl/torch_stable.html
 
 Execute main
 

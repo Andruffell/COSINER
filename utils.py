@@ -17,11 +17,11 @@ def parse_args(argv):
     return args
 
 def xai_model(model, tokenizer, training_sample):
+    training_sample = ' '.join(training_sample['tokens'])
     ner_explainer = TokenClassificationExplainer(
         model,
         tokenizer,
     )
 
-    word_attributions_no_aug = ner_explainer(training_sample, ignored_labels=['O'])
+    ner_explainer(training_sample, ignored_labels=['O'])
     ner_explainer.visualize("bert_ner_viz.html")
-    print(word_attributions_no_aug)

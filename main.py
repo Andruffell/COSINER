@@ -72,6 +72,7 @@ if __name__ == '__main__':
     args = utils.parse_args(sys.argv[1:])
     device = "cuda:0" if torch.cuda.is_available() else "cpu"
     print(device)
+
     print(args)
     model_type = args.model
     startingEpochs = args.epochs
@@ -94,7 +95,7 @@ if __name__ == '__main__':
 
     samples_num = random.sample(range(len(raw_datasets['train'])), dataset_length)
     training_set = raw_datasets['train'].select(samples_num) if dataset_length > 0 else raw_datasets['train']
-
+    training_sample = training_set[4]
     label_to_id = {i: i for i in range(len(label_list))}
 
     b_to_i_label = []
@@ -183,8 +184,7 @@ if __name__ == '__main__':
     test_metrics.append(metricTest)
     print(test_metrics)
 
-    utils.xai_model(model, tokenizer, train_dataset[10])
-
+    utils.xai_model(model, tokenizer, training_sample)
 
     train_keys = list(train_metrics[0].keys())
     test_keys = list(test_metrics[0].keys())
