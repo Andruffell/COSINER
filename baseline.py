@@ -1,11 +1,12 @@
 import numpy as np
+import pandas as pd
 import copy 
 import random
 import datasets
 from datasets import ClassLabel, Dataset
 from nltk.corpus import wordnet as wn
 
-def syn_with_word_net(dataset):
+def syn_with_word_net(dataset, label_list):
     counterfactualExamples = []
     appendingIndex = len(dataset)
               
@@ -51,7 +52,7 @@ def single_word_generation(dataset, label):
     lexicon = list(lexicon)
     return lexicon
 
-def lwt_replacement(dataset):
+def lwt_replacement(dataset, label_list):
     counterfactualExamples = []
     appendingIndex = len(dataset)
     o_ontology = single_word_generation(dataset, 0)
@@ -85,7 +86,7 @@ def lwt_replacement(dataset):
     counterfactual_set = counterfactual_set.cast(new_features)
     return counterfactual_set
 
-def mention_replacement(dataset, ontology):
+def mention_replacement(dataset, ontology, label_list):
     counterfactualExamples = []
     appendingIndex = len(dataset)
 
