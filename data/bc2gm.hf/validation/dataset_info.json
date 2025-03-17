@@ -1,0 +1,76 @@
+{
+  "builder_name": "blurb",
+  "citation": "@article{article,\n          author = {Smith, Larry and Tanabe, Lorraine and Ando, Rie and Kuo, Cheng-Ju and Chung, I-Fang and Hsu, Chun-Nan and Lin, Yu-Shi and Klinger, Roman and Friedrich, Christoph and Ganchev, Kuzman and Torii, Manabu and Liu, Hongfang and Haddow, Barry and Struble, Craig and Povinelli, Richard and Vlachos, Andreas and Baumgartner Jr, William and Hunter, Lawrence and Carpenter, Bob and Wilbur, W.},\n          year = {2008},\n          month = {09},\n          pages = {S2},\n          title = {Overview of BioCreative II gene mention recognition},\n          volume = {9 Suppl 2},\n          journal = {Genome biology},\n          doi = {10.1186/gb-2008-9-s2-s2}\n          }",
+  "config_name": "BC2GM-IOB",
+  "dataset_name": "blurb",
+  "dataset_size": 9767850,
+  "description": "The BioCreative II Gene Mention task.\n                    The training corpus for the current task consists mainly of \n                    the training and testing corpora (text collections) from the \n                    BCI task, and the testing corpus for the current task \n                    consists of an additional 5,000 sentences that were held \n                    'in reserve' from the previous task.\n                    In the current corpus, tokenization is not provided; \n                    instead participants are asked to identify a gene mention \n                    in a sentence by giving its start and end characters. \n                    As before, the training set consists of a set of sentences, \n                    and for each sentence a set of gene mentions \n                    (GENE annotations).\n                    ",
+  "download_checksums": {
+    "https://github.com/cambridgeltl/MTL-Bioinformatics-2016/raw/master/data/BC2GM-IOB/train.tsv": {
+      "num_bytes": 2894167,
+      "checksum": null
+    },
+    "https://github.com/cambridgeltl/MTL-Bioinformatics-2016/raw/master/data/BC2GM-IOB/devel.tsv": {
+      "num_bytes": 577660,
+      "checksum": null
+    },
+    "https://github.com/cambridgeltl/MTL-Bioinformatics-2016/raw/master/data/BC2GM-IOB/test.tsv": {
+      "num_bytes": 1165057,
+      "checksum": null
+    }
+  },
+  "download_size": 4636884,
+  "features": {
+    "id": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "tokens": {
+      "feature": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "_type": "Sequence"
+    },
+    "ner_tags": {
+      "feature": {
+        "names": [
+          "O",
+          "B-GENE",
+          "I-GENE"
+        ],
+        "_type": "ClassLabel"
+      },
+      "_type": "Sequence"
+    }
+  },
+  "homepage": "https://biocreative.bioinformatics.udel.edu/tasks/biocreative-ii/task-1a-gene-mention-tagging/",
+  "license": "",
+  "size_in_bytes": 14404734,
+  "splits": {
+    "train": {
+      "name": "train",
+      "num_bytes": 6096398,
+      "num_examples": 12575,
+      "dataset_name": "blurb"
+    },
+    "validation": {
+      "name": "validation",
+      "num_bytes": 1216239,
+      "num_examples": 2520,
+      "dataset_name": "blurb"
+    },
+    "test": {
+      "name": "test",
+      "num_bytes": 2455213,
+      "num_examples": 5039,
+      "dataset_name": "blurb"
+    }
+  },
+  "version": {
+    "version_str": "1.0.0",
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  }
+}

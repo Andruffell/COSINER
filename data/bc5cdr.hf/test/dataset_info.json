@@ -1,0 +1,76 @@
+{
+  "builder_name": "blurb",
+  "citation": "@article{article,\n          author = {Li, Jiao and Sun, Yueping and Johnson, Robin and Sciaky, Daniela and Wei, Chih-Hsuan and Leaman, Robert and Davis, Allan Peter and Mattingly, Carolyn and Wiegers, Thomas and lu, Zhiyong},\n          year = {2016},\n          month = {05},\n          pages = {baw068},\n          title = {BioCreative V CDR task corpus: a resource for chemical disease relation extraction},\n          volume = {2016},\n          journal = {Database},\n          doi = {10.1093/database/baw068}\n          }",
+  "config_name": "BC5CDR-chem-IOB",
+  "dataset_name": "blurb",
+  "dataset_size": 6240844,
+  "description": "The corpus consists of three separate sets of \n                    articles with diseases, chemicals and their relations annotated. \n                    The training (500 articles) and development (500 articles) sets \n                    were released to task participants in advance to support text-mining \n                    method development. The test set (500 articles) was used for final \n                    system performance evaluation.",
+  "download_checksums": {
+    "https://github.com/cambridgeltl/MTL-Bioinformatics-2016/raw/master/data/BC5CDR-chem-IOB/train.tsv": {
+      "num_bytes": 983140,
+      "checksum": null
+    },
+    "https://github.com/cambridgeltl/MTL-Bioinformatics-2016/raw/master/data/BC5CDR-chem-IOB/devel.tsv": {
+      "num_bytes": 976029,
+      "checksum": null
+    },
+    "https://github.com/cambridgeltl/MTL-Bioinformatics-2016/raw/master/data/BC5CDR-chem-IOB/test.tsv": {
+      "num_bytes": 1023429,
+      "checksum": null
+    }
+  },
+  "download_size": 2982598,
+  "features": {
+    "id": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "tokens": {
+      "feature": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "_type": "Sequence"
+    },
+    "ner_tags": {
+      "feature": {
+        "names": [
+          "O",
+          "B-Chemical",
+          "I-Chemical"
+        ],
+        "_type": "ClassLabel"
+      },
+      "_type": "Sequence"
+    }
+  },
+  "homepage": "https://biocreative.bioinformatics.udel.edu/resources/corpora/biocreative-v-cdr-corpus",
+  "license": "",
+  "size_in_bytes": 9223442,
+  "splits": {
+    "train": {
+      "name": "train",
+      "num_bytes": 2050049,
+      "num_examples": 4561,
+      "dataset_name": "blurb"
+    },
+    "validation": {
+      "name": "validation",
+      "num_bytes": 2036872,
+      "num_examples": 4582,
+      "dataset_name": "blurb"
+    },
+    "test": {
+      "name": "test",
+      "num_bytes": 2153923,
+      "num_examples": 4798,
+      "dataset_name": "blurb"
+    }
+  },
+  "version": {
+    "version_str": "1.0.0",
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  }
+}
