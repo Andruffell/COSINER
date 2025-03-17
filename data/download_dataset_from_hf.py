@@ -4,6 +4,7 @@ from datasets import load_dataset
 ncbi = load_dataset("EMBO/BLURB", "NCBI-disease-IOB") #accessed Mar 17th 2025
 chems = load_dataset("EMBO/BLURB", "BC5CDR-chem-IOB") #accessed Mar 17th 2025
 genes = load_dataset("EMBO/BLURB", "BC2GM-IOB") #accessed Mar 17th 2025
+jnlpba = load_dataset("EMBO/BLURB", "JNLPBA") #accessed Mar 17th 2025
 
 
 ncbi.save_to_disk("./data/ncbi.hf")
@@ -22,6 +23,7 @@ ncbi.save_to_disk("./data/ncbi.hf")
           month = {feb},
           pages = {1–10},
           numpages = {10}}"""
+
 chems.save_to_disk("./data/bc5cdr.hf")
 """@article{article,
           author = {Li, Jiao and Sun, Yueping and Johnson, Robin and Sciaky, Daniela and Wei, Chih-Hsuan and Leaman, Robert and Davis, Allan Peter and Mattingly, Carolyn and Wiegers, Thomas and lu, Zhiyong},
@@ -33,6 +35,7 @@ chems.save_to_disk("./data/bc5cdr.hf")
           journal = {Database},
           doi = {10.1093/database/baw068}
           }"""
+
 genes.save_to_disk("./data/bc2gm.hf")
 """@article{article,
           author = {Smith, Larry and Tanabe, Lorraine and Ando, Rie and Kuo, Cheng-Ju and Chung, I-Fang and Hsu, Chun-Nan and Lin, Yu-Shi and Klinger, Roman and Friedrich, Christoph and Ganchev, Kuzman and Torii, Manabu and Liu, Hongfang and Haddow, Barry and Struble, Craig and Povinelli, Richard and Vlachos, Andreas and Baumgartner Jr, William and Hunter, Lawrence and Carpenter, Bob and Wilbur, W.},
@@ -43,4 +46,18 @@ genes.save_to_disk("./data/bc2gm.hf")
           volume = {9 Suppl 2},
           journal = {Genome biology},
           doi = {10.1186/gb-2008-9-s2-s2}
+          }"""
+
+jnlpba.save_to_disk("./data/jnlpba.hf")
+"""@inproceedings{collier-kim-2004-introduction,
+          title = "Introduction to the Bio-entity Recognition Task at {JNLPBA}",
+          author = "Collier, Nigel  and
+            Kim, Jin-Dong",
+          booktitle = "Proceedings of the International Joint Workshop on Natural Language Processing in Biomedicine and its Applications ({NLPBA}/{B}io{NLP})",
+          month = aug # " 28th and 29th",
+          year = "2004",
+          address = "Geneva, Switzerland",
+          publisher = "COLING",
+          url = "https://aclanthology.org/W04-1213",
+          pages = "73--78",
           }"""

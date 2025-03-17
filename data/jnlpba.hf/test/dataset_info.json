@@ -1,0 +1,84 @@
+{
+  "builder_name": "blurb",
+  "citation": "@inproceedings{collier-kim-2004-introduction,\n          title = \"Introduction to the Bio-entity Recognition Task at {JNLPBA}\",\n          author = \"Collier, Nigel  and\n            Kim, Jin-Dong\",\n          booktitle = \"Proceedings of the International Joint Workshop on Natural Language Processing in Biomedicine and its Applications ({NLPBA}/{B}io{NLP})\",\n          month = aug # \" 28th and 29th\",\n          year = \"2004\",\n          address = \"Geneva, Switzerland\",\n          publisher = \"COLING\",\n          url = \"https://aclanthology.org/W04-1213\",\n          pages = \"73--78\",\n          }",
+  "config_name": "JNLPBA",
+  "dataset_name": "blurb",
+  "dataset_size": 10667617,
+  "description": "The BioNLP / JNLPBA Shared Task 2004 involves the identification \n                    and classification of technical terms referring to concepts of interest to \n                    biologists in the domain of molecular biology. The task was organized by GENIA \n                    Project based on the annotations of the GENIA Term corpus (version 3.02). \n                    Corpus format: The JNLPBA corpus is distributed in IOB format, with each line \n                    containing a single token and its tag, separated by a tab character. \n                    Sentences are separated by blank lines.",
+  "download_checksums": {
+    "https://github.com/cambridgeltl/MTL-Bioinformatics-2016/raw/master/data/JNLPBA/train.tsv": {
+      "num_bytes": 4439893,
+      "checksum": null
+    },
+    "https://github.com/cambridgeltl/MTL-Bioinformatics-2016/raw/master/data/JNLPBA/devel.tsv": {
+      "num_bytes": 464143,
+      "checksum": null
+    },
+    "https://github.com/cambridgeltl/MTL-Bioinformatics-2016/raw/master/data/JNLPBA/test.tsv": {
+      "num_bytes": 996475,
+      "checksum": null
+    }
+  },
+  "download_size": 5900511,
+  "features": {
+    "id": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "tokens": {
+      "feature": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "_type": "Sequence"
+    },
+    "ner_tags": {
+      "feature": {
+        "names": [
+          "O",
+          "B-protein",
+          "I-protein",
+          "B-cell_type",
+          "I-cell_type",
+          "B-cell_line",
+          "I-cell_line",
+          "B-DNA",
+          "I-DNA",
+          "B-RNA",
+          "I-RNA"
+        ],
+        "_type": "ClassLabel"
+      },
+      "_type": "Sequence"
+    }
+  },
+  "homepage": "http://www.geniaproject.org/shared-tasks/bionlp-jnlpba-shared-task-2004",
+  "license": "",
+  "size_in_bytes": 16568128,
+  "splits": {
+    "train": {
+      "name": "train",
+      "num_bytes": 8003908,
+      "num_examples": 18608,
+      "dataset_name": "blurb"
+    },
+    "validation": {
+      "name": "validation",
+      "num_bytes": 846779,
+      "num_examples": 1940,
+      "dataset_name": "blurb"
+    },
+    "test": {
+      "name": "test",
+      "num_bytes": 1816930,
+      "num_examples": 4261,
+      "dataset_name": "blurb"
+    }
+  },
+  "version": {
+    "version_str": "1.0.0",
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  }
+}
