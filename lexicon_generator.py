@@ -1,8 +1,13 @@
 class LexiconGenerator():
-    def __init__(self, lexicon_generation_method:str):
-        self.lexicon_generation_method = lexicon_generation_method
+    def __init__(self, lexicon_generation_method:str = "cosiner"):
+        if lexicon_generation_method == "single":
+            self.lexicon_generation_method = self.singleWordLexiconGeneration
+        elif lexicon_generation_method == "multiple":
+            self.lexicon_generation_method = self.multipleLexiconsGeneration
+        else:
+            self.lexicon_generation_method = self.cosinerLexiconGeneration
 
-    def cosinerLexiconGeneration(dataset):
+    def cosinerLexiconGeneration(self, dataset):
         lexicon = {}
 
         for row in dataset:
@@ -50,7 +55,7 @@ class LexiconGenerator():
         print("The extracted lexicon contains {} entities".format(len(lexicon)))
         return lexicon
     
-    def multipleLexiconsGeneration(dataset, label_list):
+    def multipleLexiconsGeneration(self, dataset, label_list):
         entities_num = int((len(label_list)-1)/2)
         lexicons = []
         for x in range(entities_num):
@@ -87,7 +92,7 @@ class LexiconGenerator():
 
         return lexicons
     
-    def singleWordLexiconGeneration(dataset, label):
+    def singleWordLexiconGeneration(self, dataset, label):
         #0: O, 1: B-***, 2:I-***
         lexicon = set()
 

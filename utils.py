@@ -7,11 +7,12 @@ def parse_args(argv):
     parser.add_argument('-model', default="dmis-lab/biobert-v1.1", type=str, help="Model name")
     parser.add_argument('-epochs', default=5, type=int, help='Number of training epochs')
     parser.add_argument('-seed', default=100, type=int, help="Seed for randomicity")
-    parser.add_argument('-dataset', default=r'data\ncbi.hf', type=str, choices=[r"data\ncbi.hf", r"data\bc5cdr.hf", r"data\bc2gm.hf"], help="\nNCBI-disease-IOB: diseases dataset,\nBC5CDR-chem-IOB: chemical dataset,\nBC2GM-IOB: genetic dataset")
+    parser.add_argument('-dataset', default=r'data/ncbi.hf', type=str, choices=[r"data/ncbi.hf", r"data/bc5cdr.hf", r"data/bc2gm.hf"], help="\nNCBI-disease-IOB: diseases dataset,\nBC5CDR-chem-IOB: chemical dataset,\nBC2GM-IOB: genetic dataset")
     parser.add_argument('-length', default=108, type=int, help="Dataset length reduction")
     parser.add_argument('-reverse', default=0, type=int, choices=[0, 1], help='0: max\n 1: min')
     parser.add_argument('-budget', default=0, type=int, help="0: tutti gli esempi generati (local-gen); 100-300-500 global")
     parser.add_argument('-exr', default=5, type=int, help="numero di esempi generati per ciascuna entry con almeno una entità all'interno del dataset")
+    parser.add_argument('-xai', type=int, help="Sample to perform XAI on")
     args = parser.parse_args(argv)
     return args
 
@@ -75,25 +76,3 @@ def compute_metrics_wrapper(label_list, metric):
                 final_results[key] = value
         return final_results
     return compute_metrics
-
-def cosine_similarity(entityList, n, reverse=False):
-    predictedSimilarity = {}
-    for entity in entityList:
-        predictedSimilarity[entity] = entityList[entity]
-    
-    similarityLists = {}
-    for entity, embedding in predictedSimilarity.items():
-        entitiesSimilarityList = {}
-        for otherEntity, otherEmbedding in {k: predictedSimilarity[k] for k in set(list(predictedSimilarity.keys())) - set([entity])}.items():
-            entitiesSimilarityList[otherEntity] = float(np.dot(embedding,otherEmbedding)/(np.linalg.norm(embedding)*np.linalg.norm(otherEmbedding)))
-
-        entitiesSimilarityList = dict(sorted(entitiesSimilarityList.items(), key=lambda item: item[1], reverse=not reverse)[:n])
-        similarityLists[entity] = entitiesSimilarityList
-
-    return similarityLists
-
-def update_v_concept(V_concept, V_context, C_concept):
-    sim = max(0, np.dot(V_concept, V_context)/(np.linalg.norm(V_concept)*np.linalg.norm(V_context)))
-    lr = 1 / C_concept
-    V_concept += lr * (1-sim) * V_context
-    return V_concept

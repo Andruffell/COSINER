@@ -9,54 +9,6 @@ from transformers import (
 import datasets
 from datasets import ClassLabel, Dataset
 
-def lexiconGeneration(dataset):
-    lexicon = {}
-
-    for row in dataset:
-        id = row['id']
-        tokens = row['tokens']
-        ner_tags = row['ner_tags']
-        newEntity = []
-        tokens_len = len(tokens)-1
-        for idx, (token, ner_tag) in enumerate(zip(tokens, ner_tags)):
-            if ner_tag == 1: #"B-***"
-                if newEntity != []:
-                    if tuple(newEntity) in lexicon:
-                        lexicon[tuple(newEntity)][0] += 1
-                        lexicon[tuple(newEntity)][1].append(id)
-                    else:
-                        lexicon[tuple(newEntity)] = [1, [id]]
-                    newEntity = []
-                newEntity.append(token)      
-                if tokens_len == idx:
-                    if tuple(newEntity) in lexicon:
-                        lexicon[tuple(newEntity)][0] += 1
-                        lexicon[tuple(newEntity)][1].append(id)
-                    else:
-                        lexicon[tuple(newEntity)] = [1, [id]]
-                    newEntity = []
-            elif ner_tag == 2: #"I-***"
-                newEntity.append(token)
-                if tokens_len == idx:
-                    if tuple(newEntity) in lexicon:
-                        lexicon[tuple(newEntity)][0] += 1
-                        lexicon[tuple(newEntity)][1].append(id)
-                    else:
-                        lexicon[tuple(newEntity)] = [1, [id]]
-                    newEntity = []
-            else:
-                if (newEntity != []):
-                    if tuple(newEntity) in lexicon:
-                        lexicon[tuple(newEntity)][0] += 1
-                        lexicon[tuple(newEntity)][1].append(id)
-                    else:
-                        lexicon[tuple(newEntity)] = [1, [id]]
-                    newEntity = []
-
-    lexicon = dict(sorted(lexicon.items(), key=lambda item: item[1], reverse=True))
-    print("The extracted lexicon contains {} entities".format(len(lexicon)))
-    return lexicon
-
 def update_v_concept(V_concept, V_context, C_concept):
     sim = max(0, np.dot(V_concept, V_context)/(np.linalg.norm(V_concept)*np.linalg.norm(V_context)))
     lr = 1 / C_concept
