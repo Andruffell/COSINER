@@ -1,6 +1,5 @@
 import argparse
 import numpy as np
-from transformers import AutoModelForTokenClassification, AutoTokenizer
 from transformers_interpret import TokenClassificationExplainer
 
 def parse_args(argv):
@@ -8,7 +7,7 @@ def parse_args(argv):
     parser.add_argument('-model', default="dmis-lab/biobert-v1.1", type=str, help="Model name")
     parser.add_argument('-epochs', default=5, type=int, help='Number of training epochs')
     parser.add_argument('-seed', default=100, type=int, help="Seed for randomicity")
-    parser.add_argument('-dataset', default='NCBI-disease-IOB', type=str, choices=["NCBI-disease-IOB", "BC5CDR-chem-IOB", "BC2GM-IOB"], help="\nNCBI-disease-IOB: diseases dataset,\nBC5CDR-chem-IOB: chemical dataset,\nBC2GM-IOB: genetic dataset")
+    parser.add_argument('-dataset', default=r'data\ncbi.hf', type=str, choices=[r"data\ncbi.hf", r"data\bc5cdr.hf", r"data\bc2gm.hf"], help="\nNCBI-disease-IOB: diseases dataset,\nBC5CDR-chem-IOB: chemical dataset,\nBC2GM-IOB: genetic dataset")
     parser.add_argument('-length', default=108, type=int, help="Dataset length reduction")
     parser.add_argument('-reverse', default=0, type=int, choices=[0, 1], help='0: max\n 1: min')
     parser.add_argument('-budget', default=0, type=int, help="0: tutti gli esempi generati (local-gen); 100-300-500 global")
@@ -25,3 +24,76 @@ def xai_model(model, tokenizer, training_sample):
 
     ner_explainer(training_sample, ignored_labels=['O'])
     ner_explainer.visualize("bert_ner_viz.html")
+
+def tokenize_and_align_labels(examples, tokenizer, b_to_i_label):
+        tokenized_inputs = tokenizer(
+            examples['tokens'],
+            padding="max_length",
+            truncation=True,
+            max_length=512,
+            is_split_into_words=True,
+        )
+        labels = []
+
+        for i, label in enumerate(examples["ner_tags"]):
+            word_ids = tokenized_inputs.word_ids(batch_index=i)
+            previous_word_idx = None
+            label_ids = []
+            for word_idx in word_ids:
+                if word_idx is None:
+                    label_ids.append(-100)
+                elif word_idx != previous_word_idx:
+                    label_ids.append(label[word_idx])
+                else:
+                    label_ids.append(b_to_i_label[label[word_idx]])
+
+                previous_word_idx = word_idx
+            labels.append(label_ids)
+        tokenized_inputs["labels"] = labels
+        return tokenized_inputs
+
+def compute_metrics_wrapper(label_list, metric):
+    def compute_metrics(p):
+        predictions, labels = p
+        predictions = np.argmax(predictions, axis=2)
+
+        true_predictions = [
+            [label_list[p] for (p, l) in zip(prediction, label) if l != -100]
+            for prediction, label in zip(predictions, labels)
+        ]
+        true_labels = [
+            [label_list[l] for (p, l) in zip(prediction, label) if l != -100]
+            for prediction, label in zip(predictions, labels)
+        ]
+        results = metric.compute(predictions=true_predictions, references=true_labels)
+        final_results = {}
+        for key, value in results.items():
+            if isinstance(value, dict):
+                for n, v in value.items():
+                    final_results[f"{key}_{n}"] = v
+            else:
+                final_results[key] = value
+        return final_results
+    return compute_metrics
+
+def cosine_similarity(entityList, n, reverse=False):
+    predictedSimilarity = {}
+    for entity in entityList:
+        predictedSimilarity[entity] = entityList[entity]
+    
+    similarityLists = {}
+    for entity, embedding in predictedSimilarity.items():
+        entitiesSimilarityList = {}
+        for otherEntity, otherEmbedding in {k: predictedSimilarity[k] for k in set(list(predictedSimilarity.keys())) - set([entity])}.items():
+            entitiesSimilarityList[otherEntity] = float(np.dot(embedding,otherEmbedding)/(np.linalg.norm(embedding)*np.linalg.norm(otherEmbedding)))
+
+        entitiesSimilarityList = dict(sorted(entitiesSimilarityList.items(), key=lambda item: item[1], reverse=not reverse)[:n])
+        similarityLists[entity] = entitiesSimilarityList
+
+    return similarityLists
+
+def update_v_concept(V_concept, V_context, C_concept):
+    sim = max(0, np.dot(V_concept, V_context)/(np.linalg.norm(V_concept)*np.linalg.norm(V_context)))
+    lr = 1 / C_concept
+    V_concept += lr * (1-sim) * V_context
+    return V_concept

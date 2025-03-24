@@ -50,7 +50,7 @@ class LexiconGenerator():
         print("The extracted lexicon contains {} entities".format(len(lexicon)))
         return lexicon
     
-    def baselineLexiconGeneration(dataset, label_list):
+    def multipleLexiconsGeneration(dataset, label_list):
         entities_num = int((len(label_list)-1)/2)
         lexicons = []
         for x in range(entities_num):
