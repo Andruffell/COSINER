@@ -1,8 +1,8 @@
 class LexiconGenerator():
     def __init__(self, lexicon_generation_method:str = "cosiner"):
-        if lexicon_generation_method == "single":
+        if lexicon_generation_method == "lwtr" or lexicon_generation_method == "sr":
             self.lexicon_generation_method = self.singleWordLexiconGeneration
-        elif lexicon_generation_method == "multiple":
+        elif lexicon_generation_method == "mr":
             self.lexicon_generation_method = self.multipleLexiconsGeneration
         else:
             self.lexicon_generation_method = self.cosinerLexiconGeneration

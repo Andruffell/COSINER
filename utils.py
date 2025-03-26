@@ -13,6 +13,7 @@ def parse_args(argv):
     parser.add_argument('-budget', default=0, type=int, help="0: tutti gli esempi generati (local-gen); 100-300-500 global")
     parser.add_argument('-exr', default=5, type=int, help="numero di esempi generati per ciascuna entry con almeno una entità all'interno del dataset")
     parser.add_argument('-xai', type=int, help="Sample to perform XAI on")
+    parser.add_argument('-baseline', type=str, default=None, choices=[None, 'lwtr', 'sr', 'mr'])
     args = parser.parse_args(argv)
     return args
 
