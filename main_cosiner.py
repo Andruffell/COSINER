@@ -5,7 +5,7 @@ import torch
 import evaluate
 import random
 
-from datasets import load_from_disk
+from datasets import load_from_disk, concatenate_datasets
 from transformers import (AutoModelForTokenClassification, 
                           Trainer, 
                           AutoTokenizer, 
@@ -24,7 +24,7 @@ if __name__ == '__main__':
     print(device)
 
     print(args)
-    set_seed(args.seed)
+
     enable_full_determinism(args.seed)
     dataset_name = args.dataset.split('/')[-1].split('.')[0]
 
@@ -44,20 +44,15 @@ if __name__ == '__main__':
         else:
             b_to_i_label.append(idx)
 
+    # Dataset sampling for few-shot scenarios
     samples_num = random.sample(range(len(dataset['train'])), args.length)
     dataset['train'] = dataset['train'].select(samples_num) if args.length > 0 else dataset['train']
     print(dataset['train'])
 
+    # Counterfactual set generation
     lexicon = LexiconGenerator("cosiner").lexicon_generation_method(dataset['train']) #Lexicon generation using entities
     embeddings = cosiner.embedding_extraction(args.model, dataset['train'], lexicon)
     similarityList = cosiner.cosine_similarity(embeddings, args.exr, args.reverse)
-
-    eligible_rows = 0
-    for row_check in dataset['train']:
-        if row_check['ner_tags'].count(1)>0:
-            eligible_rows +=1
-    print("Eligible rows: {}".format(eligible_rows))
-
     counterfactual_set = cosiner.augment_dataset(dataset['train'], args.exr, similarityList, args.budget, args.reverse, label_list)
 
     model = AutoModelForTokenClassification.from_pretrained(
@@ -86,7 +81,7 @@ if __name__ == '__main__':
     
     data_collator = DataCollatorForTokenClassification(tokenizer)
 
-    train_dataset = dataset['train'].map(
+    train_dataset_tokenized = dataset['train'].map(
                         utils.tokenize_and_align_labels,
                         batched=True,
                         desc="Running tokenizer on train dataset", 
@@ -100,7 +95,7 @@ if __name__ == '__main__':
                     fn_kwargs={"tokenizer": tokenizer, "b_to_i_label": b_to_i_label}
                 ).remove_columns(['ner_tags', 'id', 'tokens'])
 
-    predict_dataset = dataset['test'].map(
+    test_dataset_tokenized = dataset['test'].map(
                     utils.tokenize_and_align_labels,
                     batched=True,
                     desc="Running tokenizer on prediction dataset",
@@ -109,7 +104,7 @@ if __name__ == '__main__':
     
     trainer = Trainer(
             model=model.to("cuda:0"),
-            train_dataset=train_dataset,
+            train_dataset=concatenate_datasets([train_dataset_tokenized, counterfactual_set_tokenized]),
             tokenizer=tokenizer,
             data_collator=data_collator,
             compute_metrics=utils.compute_metrics_wrapper(label_list, metric),
@@ -119,14 +114,14 @@ if __name__ == '__main__':
     train_metrics = []
     test_metrics = []
     train_result = trainer.train()
-    print(train_result)
+
     metrics = train_result.metrics
     train_metrics.append(train_result.metrics)
 
-    max_train_samples = len(train_dataset)
-    metrics["train_samples"] = min(max_train_samples, len(train_dataset))
+    max_train_samples = len(train_dataset_tokenized)
+    metrics["train_samples"] = min(max_train_samples, len(train_dataset_tokenized))
 
-    raw_predictions, labels, metricTest = trainer.predict(predict_dataset, metric_key_prefix="test")
+    raw_predictions, labels, metricTest = trainer.predict(test_dataset_tokenized, metric_key_prefix="test")
     test_metrics.append(metricTest)
     print(test_metrics)
 
