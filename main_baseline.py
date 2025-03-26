@@ -5,7 +5,6 @@ import torch
 import evaluate
 import random
 
-import nltk
 from datasets import load_from_disk, concatenate_datasets
 from transformers import (AutoModelForTokenClassification, 
                           Trainer, 
@@ -14,9 +13,7 @@ from transformers import (AutoModelForTokenClassification,
                           TrainingArguments, 
                           enable_full_determinism)
 
-from lexicon_generator import LexiconGenerator
-import cosiner
-import baseline
+from baseline import Baseline
 import utils
 
 if __name__ == '__main__':
@@ -25,7 +22,7 @@ if __name__ == '__main__':
     print(device)
 
     print(args)
-    print(args.baseline)
+
     enable_full_determinism(args.seed)
     dataset_name = args.dataset.split('/')[-1].split('.')[0]
 
@@ -52,20 +49,13 @@ if __name__ == '__main__':
 
     counterfactual_set = None
 
-    if args.baseline == 'lwtr':
-        counterfactual_set = baseline.lwt_replacement(dataset['train'], label_list)
-    elif args.baseline == 'mr':
-        lexicon = baseline.lexiconGeneration(dataset['train'], label_list)
-        counterfactual_set = baseline.mention_replacement(dataset['train'], lexicon, label_list)
-    elif args.baseline == 'sr':
-        nltk.download('wordnet')
-        counterfactual_set = baseline.syn_with_word_net(dataset['train'], label_list)
-    elif args.baseline == 'style_ner':
+    if args.baseline == 'style_ner':
         pass
     elif args.baseline == 'melm':
         pass
     else:
-        pass
+        print(args.baseline)
+        counterfactual_set = Baseline(args.baseline, dataset['train'], label_list).generate_counterfactual_set()
 
     model = AutoModelForTokenClassification.from_pretrained(
                                                         args.model,
@@ -75,8 +65,7 @@ if __name__ == '__main__':
                                                         label2id=label2id,
                                                         token=None,
                                                         )
-    
-    
+
 
     trainer_args = TrainingArguments(
                                 optim="adamw_torch",
@@ -92,16 +81,16 @@ if __name__ == '__main__':
                                               local_files_only=True, 
                                               padding=True, 
                                               num_labels=len(label_list))
-    
+
     train_dataset_tokenized = dataset['train'].map(
                         utils.tokenize_and_align_labels,
                         batched=True,
                         desc="Running tokenizer on train dataset", 
                         fn_kwargs={"tokenizer": tokenizer, "b_to_i_label": b_to_i_label}
         ).remove_columns(['ner_tags', 'id', 'tokens'])
-    
+
     data_collator = DataCollatorForTokenClassification(tokenizer)
-    
+
     counterfactual_set_tokenized = counterfactual_set.map(
                     utils.tokenize_and_align_labels,
                     batched=True,
@@ -115,7 +104,7 @@ if __name__ == '__main__':
                     desc="Running tokenizer on prediction dataset",
                     fn_kwargs={"tokenizer": tokenizer, "b_to_i_label": b_to_i_label}
                 ).remove_columns(['ner_tags', 'id', 'tokens'])
-    
+
     trainer = Trainer(
             model=model.to("cuda:0"),
             train_dataset=concatenate_datasets([train_dataset_tokenized, counterfactual_set_tokenized]),
@@ -145,6 +134,7 @@ if __name__ == '__main__':
     train_keys = list(train_metrics[0].keys())
     test_keys = list(test_metrics[0].keys())
     train_metrics_byKeys = {}
+    
     for key in train_keys:
         train_metrics_byKeys[key] = []
 
