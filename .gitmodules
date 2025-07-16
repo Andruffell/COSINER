@@ -1,0 +1,3 @@
+[submodule "MELM/MELM-COSINER"]
+	path = MELM/MELM-COSINER
+	url = https://github.com/Andruffell/MELM-COSINER.git

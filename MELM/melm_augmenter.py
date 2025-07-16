@@ -5,7 +5,7 @@ class MELMAugmenter():
         self.labels = {0: 'O', 1: 'B', 2: 'I'}
         self.inverse_label = {'O': 0, 'B': 1, 'I': 2}
         self.seed = seed
-        os.chdir('MELM')
+        os.chdir('MELM-COSINER')
         with open("data/train.txt", "w") as f_out:
             for line in train_data:
                 for txt, tag in zip(line["tokens"], line["ner_tags"]):
@@ -20,12 +20,12 @@ class MELMAugmenter():
         os.chdir('..')
 
     def fit(self):
-        os.chdir('MELM')
+        os.chdir('MELM-COSINER')
         os.system("01_train.sh")
         os.chdir('..')
 
     def augment_dataset(self):
-        os.chdir('MELM')
+        os.chdir('MELM-COSINER')
         os.system("02_generate.sh {}".format(self.seed))
         final_json = []
         with open('data/aug.entity', 'r') as outfile:

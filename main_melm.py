@@ -172,8 +172,10 @@ if __name__ == '__main__':
     metricTest = trainer.evaluate(tokenized_dataset['test'], metric_key_prefix="test")
     test_metrics.append(metricTest)
 
-    if os.path.exists(r"MELM/MELM/data/aug.entity"):
-        os.remove(r"MELM/MELM/data/aug.entity")
+    if os.path.exists(r"MELM/MELM-COSINER/data/aug.entity") and os.path.exists(r"MELM/MELM-COSINER/data/train.txt") and os.path.exists(r"MELM/MELM-COSINER/data/dev.txt"):
+        os.remove(r"MELM/MELM-COSINER/data/aug.entity")
+        os.remove(r"MELM/MELM-COSINER/data/train.txt")
+        os.remove(r"MELM/MELM-COSINER/data/dev.txt")
 
     train_keys = list(train_metrics[0].keys())
     test_keys = list(test_metrics[0].keys())
