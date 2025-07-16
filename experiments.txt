@@ -3,92 +3,92 @@
 ####STRATEGY: LOCAL
 #####SIMILARITY: MAX
 ######BUDGET: SMALL
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 2 -budget 0 -reverse 0 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 2 -budget 0 -reverse 0 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 2 -budget 0 -reverse 0 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 2 -budget 0 -reverse 0 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 2 -budget 0 -reverse 0 -seed 500 
+python3 main_cosiner.py 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 2 -budget 0 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 2 -budget 0 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 2 -budget 0 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 2 -budget 0 -reverse 0 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 5  -budget 0 -reverse 0 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 5  -budget 0 -reverse 0 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 5  -budget 0 -reverse 0 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 5  -budget 0 -reverse 0 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 5  -budget 0 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 5  -budget 0 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 5  -budget 0 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 5  -budget 0 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 5  -budget 0 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 5  -budget 0 -reverse 0 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 0 -reverse 0 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 0 -reverse 0 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 0 -reverse 0 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 0 -reverse 0 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 0 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10  -budget 0 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10  -budget 0 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10  -budget 0 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10  -budget 0 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10  -budget 0 -reverse 0 -seed 500 
 
 #####SIMILARITY: MIN 
 ######BUDGET: SMALL
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 2 -budget 0 -reverse 1 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 2 -budget 0 -reverse 1 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 2 -budget 0 -reverse 1 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 2 -budget 0 -reverse 1 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 2 -budget 0 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 2 -budget 0 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 2 -budget 0 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 2 -budget 0 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 2 -budget 0 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 2 -budget 0 -reverse 1 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 5  -budget 0 -reverse 1 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 5  -budget 0 -reverse 1 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 5  -budget 0 -reverse 1 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 5  -budget 0 -reverse 1 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 5  -budget 0 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 5  -budget 0 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 5  -budget 0 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 5  -budget 0 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 5  -budget 0 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 5  -budget 0 -reverse 1 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 0 -reverse 1 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 0 -reverse 1 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 0 -reverse 1 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 0 -reverse 1 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 0 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10  -budget 0 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10  -budget 0 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10  -budget 0 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10  -budget 0 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10  -budget 0 -reverse 1 -seed 500 
 
 ####STRATEGY: GLOBAL
 #####SIMILARITY: MAX
 ######BUDGET: SMALL
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10 -budget 100 -reverse 0 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10 -budget 100 -reverse 0 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10 -budget 100 -reverse 0 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10 -budget 100 -reverse 0 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10 -budget 100 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10 -budget 100 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10 -budget 100 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10 -budget 100 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10 -budget 100 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10 -budget 100 -reverse 0 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 300 -reverse 0 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 300 -reverse 0 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 300 -reverse 0 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 300 -reverse 0 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 300 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10  -budget 300 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10  -budget 300 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10  -budget 300 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10  -budget 300 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10  -budget 300 -reverse 0 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 500 -reverse 0 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 500 -reverse 0 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 500 -reverse 0 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 500 -reverse 0 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 500 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10  -budget 500 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10  -budget 500 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10  -budget 500 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10  -budget 500 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10  -budget 500 -reverse 0 -seed 500 
 
 #####SIMILARITY: MIN
 ######BUDGET: SMALL
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10 -budget 100 -reverse 1 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10 -budget 100 -reverse 1 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10 -budget 100 -reverse 1 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10 -budget 100 -reverse 1 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10 -budget 100 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10 -budget 100 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10 -budget 100 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10 -budget 100 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10 -budget 100 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10 -budget 100 -reverse 1 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 300 -reverse 1 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 300 -reverse 1 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 300 -reverse 1 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 300 -reverse 1 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 300 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10  -budget 300 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10  -budget 300 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10  -budget 300 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10  -budget 300 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10  -budget 300 -reverse 1 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 500 -reverse 1 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 500 -reverse 1 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 500 -reverse 1 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 500 -reverse 1 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 500 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10  -budget 500 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10  -budget 500 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10  -budget 500 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10  -budget 500 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 108 -exr 10  -budget 500 -reverse 1 -seed 500 
 
 
 
@@ -98,92 +98,92 @@ python3 main.py -dataset NCBI-disease-IOB -length 108 -exr 10  -budget 500 -reve
 ####STRATEGY: LOCAL
 #####SIMILARITY: MAX
 ######BUDGET: SMALL
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 2 -budget 0 -reverse 0 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 2 -budget 0 -reverse 0 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 2 -budget 0 -reverse 0 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 2 -budget 0 -reverse 0 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 2 -budget 0 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 2 -budget 0 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 2 -budget 0 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 2 -budget 0 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 2 -budget 0 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 2 -budget 0 -reverse 0 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 5  -budget 0 -reverse 0 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 5  -budget 0 -reverse 0 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 5  -budget 0 -reverse 0 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 5  -budget 0 -reverse 0 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 5  -budget 0 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 5  -budget 0 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 5  -budget 0 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 5  -budget 0 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 5  -budget 0 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 5  -budget 0 -reverse 0 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 0 -reverse 0 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 0 -reverse 0 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 0 -reverse 0 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 0 -reverse 0 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 0 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10  -budget 0 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10  -budget 0 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10  -budget 0 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10  -budget 0 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10  -budget 0 -reverse 0 -seed 500 
 
 #####SIMILARITY: MIN 
 ######BUDGET: SMALL
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 2 -budget 0 -reverse 1 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 2 -budget 0 -reverse 1 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 2 -budget 0 -reverse 1 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 2 -budget 0 -reverse 1 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 2 -budget 0 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 2 -budget 0 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 2 -budget 0 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 2 -budget 0 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 2 -budget 0 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 2 -budget 0 -reverse 1 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 5  -budget 0 -reverse 1 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 5  -budget 0 -reverse 1 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 5  -budget 0 -reverse 1 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 5  -budget 0 -reverse 1 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 5  -budget 0 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 5  -budget 0 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 5  -budget 0 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 5  -budget 0 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 5  -budget 0 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 5  -budget 0 -reverse 1 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 0 -reverse 1 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 0 -reverse 1 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 0 -reverse 1 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 0 -reverse 1 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 0 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10  -budget 0 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10  -budget 0 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10  -budget 0 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10  -budget 0 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10  -budget 0 -reverse 1 -seed 500 
 
 ####STRATEGY: GLOBAL
 #####SIMILARITY: MAX
 ######BUDGET: SMALL
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10 -budget 100 -reverse 0 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10 -budget 100 -reverse 0 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10 -budget 100 -reverse 0 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10 -budget 100 -reverse 0 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10 -budget 100 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10 -budget 100 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10 -budget 100 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10 -budget 100 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10 -budget 100 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10 -budget 100 -reverse 0 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 300 -reverse 0 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 300 -reverse 0 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 300 -reverse 0 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 300 -reverse 0 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 300 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10  -budget 300 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10  -budget 300 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10  -budget 300 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10  -budget 300 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10  -budget 300 -reverse 0 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 500 -reverse 0 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 500 -reverse 0 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 500 -reverse 0 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 500 -reverse 0 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 500 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10  -budget 500 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10  -budget 500 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10  -budget 500 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10  -budget 500 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10  -budget 500 -reverse 0 -seed 500 
 
 #####SIMILARITY: MIN
 ######BUDGET: SMALL
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10 -budget 100 -reverse 1 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10 -budget 100 -reverse 1 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10 -budget 100 -reverse 1 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10 -budget 100 -reverse 1 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10 -budget 100 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10 -budget 100 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10 -budget 100 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10 -budget 100 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10 -budget 100 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10 -budget 100 -reverse 1 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 300 -reverse 1 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 300 -reverse 1 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 300 -reverse 1 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 300 -reverse 1 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 300 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10  -budget 300 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10  -budget 300 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10  -budget 300 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10  -budget 300 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10  -budget 300 -reverse 1 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 500 -reverse 1 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 500 -reverse 1 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 500 -reverse 1 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 500 -reverse 1 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 500 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10  -budget 500 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10  -budget 500 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10  -budget 500 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10  -budget 500 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 271 -exr 10  -budget 500 -reverse 1 -seed 500 
 
 
 
@@ -194,92 +194,92 @@ python3 main.py -dataset NCBI-disease-IOB -length 271 -exr 10  -budget 500 -reve
 ####STRATEGY: LOCAL
 #####SIMILARITY: MAX
 ######BUDGET: SMALL
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 2 -budget 0 -reverse 0 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 2 -budget 0 -reverse 0 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 2 -budget 0 -reverse 0 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 2 -budget 0 -reverse 0 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 2 -budget 0 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 2 -budget 0 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 2 -budget 0 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 2 -budget 0 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 2 -budget 0 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 2 -budget 0 -reverse 0 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 5  -budget 0 -reverse 0 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 5  -budget 0 -reverse 0 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 5  -budget 0 -reverse 0 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 5  -budget 0 -reverse 0 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 5  -budget 0 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 5  -budget 0 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 5  -budget 0 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 5  -budget 0 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 5  -budget 0 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 5  -budget 0 -reverse 0 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 0 -reverse 0 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 0 -reverse 0 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 0 -reverse 0 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 0 -reverse 0 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 0 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10  -budget 0 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10  -budget 0 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10  -budget 0 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10  -budget 0 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10  -budget 0 -reverse 0 -seed 500 
 
 #####SIMILARITY: MIN 
 ######BUDGET: SMALL
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 2 -budget 0 -reverse 1 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 2 -budget 0 -reverse 1 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 2 -budget 0 -reverse 1 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 2 -budget 0 -reverse 1 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 2 -budget 0 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 2 -budget 0 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 2 -budget 0 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 2 -budget 0 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 2 -budget 0 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 2 -budget 0 -reverse 1 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 5  -budget 0 -reverse 1 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 5  -budget 0 -reverse 1 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 5  -budget 0 -reverse 1 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 5  -budget 0 -reverse 1 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 5  -budget 0 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 5  -budget 0 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 5  -budget 0 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 5  -budget 0 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 5  -budget 0 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 5  -budget 0 -reverse 1 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 0 -reverse 1 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 0 -reverse 1 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 0 -reverse 1 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 0 -reverse 1 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 0 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10  -budget 0 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10  -budget 0 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10  -budget 0 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10  -budget 0 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10  -budget 0 -reverse 1 -seed 500 
 
 ####STRATEGY: GLOBAL
 #####SIMILARITY: MAX
 ######BUDGET: SMALL
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10 -budget 100 -reverse 0 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10 -budget 100 -reverse 0 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10 -budget 100 -reverse 0 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10 -budget 100 -reverse 0 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10 -budget 100 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10 -budget 100 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10 -budget 100 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10 -budget 100 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10 -budget 100 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10 -budget 100 -reverse 0 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 300 -reverse 0 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 300 -reverse 0 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 300 -reverse 0 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 300 -reverse 0 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 300 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10  -budget 300 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10  -budget 300 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10  -budget 300 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10  -budget 300 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10  -budget 300 -reverse 0 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 500 -reverse 0 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 500 -reverse 0 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 500 -reverse 0 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 500 -reverse 0 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 500 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10  -budget 500 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10  -budget 500 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10  -budget 500 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10  -budget 500 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10  -budget 500 -reverse 0 -seed 500 
 
 #####SIMILARITY: MIN
 ######BUDGET: SMALL
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10 -budget 100 -reverse 1 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10 -budget 100 -reverse 1 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10 -budget 100 -reverse 1 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10 -budget 100 -reverse 1 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10 -budget 100 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10 -budget 100 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10 -budget 100 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10 -budget 100 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10 -budget 100 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10 -budget 100 -reverse 1 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 300 -reverse 1 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 300 -reverse 1 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 300 -reverse 1 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 300 -reverse 1 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 300 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10  -budget 300 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10  -budget 300 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10  -budget 300 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10  -budget 300 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10  -budget 300 -reverse 1 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 500 -reverse 1 -seed 100 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 500 -reverse 1 -seed 200 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 500 -reverse 1 -seed 300 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 500 -reverse 1 -seed 400 
-python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 500 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10  -budget 500 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10  -budget 500 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10  -budget 500 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10  -budget 500 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/ncbi.hf -length 542 -exr 10  -budget 500 -reverse 1 -seed 500 
 
 
 
@@ -290,92 +290,92 @@ python3 main.py -dataset NCBI-disease-IOB -length 542 -exr 10  -budget 500 -reve
 ####STRATEGY: LOCAL
 #####SIMILARITY: MAX
 ######BUDGET: SMALL
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 2 -budget 0 -reverse 0 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 2 -budget 0 -reverse 0 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 2 -budget 0 -reverse 0 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 2 -budget 0 -reverse 0 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 2 -budget 0 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 2 -budget 0 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 2 -budget 0 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 2 -budget 0 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 2 -budget 0 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 2 -budget 0 -reverse 0 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 5  -budget 0 -reverse 0 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 5  -budget 0 -reverse 0 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 5  -budget 0 -reverse 0 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 5  -budget 0 -reverse 0 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 5  -budget 0 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 5  -budget 0 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 5  -budget 0 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 5  -budget 0 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 5  -budget 0 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 5  -budget 0 -reverse 0 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 0 -reverse 0 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 0 -reverse 0 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 0 -reverse 0 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 0 -reverse 0 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 0 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10  -budget 0 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10  -budget 0 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10  -budget 0 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10  -budget 0 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10  -budget 0 -reverse 0 -seed 500 
 
 #####SIMILARITY: MIN 
 ######BUDGET: SMALL
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 2 -budget 0 -reverse 1 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 2 -budget 0 -reverse 1 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 2 -budget 0 -reverse 1 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 2 -budget 0 -reverse 1 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 2 -budget 0 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 2 -budget 0 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 2 -budget 0 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 2 -budget 0 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 2 -budget 0 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 2 -budget 0 -reverse 1 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 5  -budget 0 -reverse 1 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 5  -budget 0 -reverse 1 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 5  -budget 0 -reverse 1 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 5  -budget 0 -reverse 1 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 5  -budget 0 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 5  -budget 0 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 5  -budget 0 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 5  -budget 0 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 5  -budget 0 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 5  -budget 0 -reverse 1 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 0 -reverse 1 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 0 -reverse 1 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 0 -reverse 1 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 0 -reverse 1 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 0 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10  -budget 0 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10  -budget 0 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10  -budget 0 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10  -budget 0 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10  -budget 0 -reverse 1 -seed 500 
 
 ####STRATEGY: GLOBAL
 #####SIMILARITY: MAX
 ######BUDGET: SMALL
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10 -budget 100 -reverse 0 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10 -budget 100 -reverse 0 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10 -budget 100 -reverse 0 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10 -budget 100 -reverse 0 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10 -budget 100 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10 -budget 100 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10 -budget 100 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10 -budget 100 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10 -budget 100 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10 -budget 100 -reverse 0 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 300 -reverse 0 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 300 -reverse 0 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 300 -reverse 0 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 300 -reverse 0 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 300 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10  -budget 300 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10  -budget 300 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10  -budget 300 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10  -budget 300 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10  -budget 300 -reverse 0 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 500 -reverse 0 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 500 -reverse 0 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 500 -reverse 0 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 500 -reverse 0 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 500 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10  -budget 500 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10  -budget 500 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10  -budget 500 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10  -budget 500 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10  -budget 500 -reverse 0 -seed 500 
 
 #####SIMILARITY: MIN
 ######BUDGET: SMALL
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10 -budget 100 -reverse 1 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10 -budget 100 -reverse 1 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10 -budget 100 -reverse 1 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10 -budget 100 -reverse 1 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10 -budget 100 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10 -budget 100 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10 -budget 100 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10 -budget 100 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10 -budget 100 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10 -budget 100 -reverse 1 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 300 -reverse 1 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 300 -reverse 1 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 300 -reverse 1 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 300 -reverse 1 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 300 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10  -budget 300 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10  -budget 300 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10  -budget 300 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10  -budget 300 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10  -budget 300 -reverse 1 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 500 -reverse 1 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 500 -reverse 1 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 500 -reverse 1 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 500 -reverse 1 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 500 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10  -budget 500 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10  -budget 500 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10  -budget 500 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10  -budget 500 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 91 -exr 10  -budget 500 -reverse 1 -seed 500 
 
 
 
@@ -390,92 +390,92 @@ python3 main.py -dataset BC5CDR-chem-IOB -length 91 -exr 10  -budget 500 -revers
 ####STRATEGY: LOCAL
 #####SIMILARITY: MAX
 ######BUDGET: SMALL
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 2 -budget 0 -reverse 0 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 2 -budget 0 -reverse 0 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 2 -budget 0 -reverse 0 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 2 -budget 0 -reverse 0 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 2 -budget 0 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 2 -budget 0 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 2 -budget 0 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 2 -budget 0 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 2 -budget 0 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 2 -budget 0 -reverse 0 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 5  -budget 0 -reverse 0 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 5  -budget 0 -reverse 0 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 5  -budget 0 -reverse 0 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 5  -budget 0 -reverse 0 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 5  -budget 0 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 5  -budget 0 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 5  -budget 0 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 5  -budget 0 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 5  -budget 0 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 5  -budget 0 -reverse 0 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 0 -reverse 0 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 0 -reverse 0 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 0 -reverse 0 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 0 -reverse 0 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 0 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10  -budget 0 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10  -budget 0 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10  -budget 0 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10  -budget 0 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10  -budget 0 -reverse 0 -seed 500 
 
 #####SIMILARITY: MIN 
 ######BUDGET: SMALL
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 2 -budget 0 -reverse 1 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 2 -budget 0 -reverse 1 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 2 -budget 0 -reverse 1 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 2 -budget 0 -reverse 1 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 2 -budget 0 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 2 -budget 0 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 2 -budget 0 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 2 -budget 0 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 2 -budget 0 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 2 -budget 0 -reverse 1 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 5  -budget 0 -reverse 1 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 5  -budget 0 -reverse 1 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 5  -budget 0 -reverse 1 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 5  -budget 0 -reverse 1 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 5  -budget 0 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 5  -budget 0 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 5  -budget 0 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 5  -budget 0 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 5  -budget 0 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 5  -budget 0 -reverse 1 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 0 -reverse 1 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 0 -reverse 1 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 0 -reverse 1 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 0 -reverse 1 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 0 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10  -budget 0 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10  -budget 0 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10  -budget 0 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10  -budget 0 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10  -budget 0 -reverse 1 -seed 500 
 
 ####STRATEGY: GLOBAL
 #####SIMILARITY: MAX
 ######BUDGET: SMALL
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10 -budget 100 -reverse 0 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10 -budget 100 -reverse 0 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10 -budget 100 -reverse 0 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10 -budget 100 -reverse 0 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10 -budget 100 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10 -budget 100 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10 -budget 100 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10 -budget 100 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10 -budget 100 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10 -budget 100 -reverse 0 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 300 -reverse 0 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 300 -reverse 0 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 300 -reverse 0 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 300 -reverse 0 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 300 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10  -budget 300 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10  -budget 300 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10  -budget 300 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10  -budget 300 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10  -budget 300 -reverse 0 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 500 -reverse 0 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 500 -reverse 0 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 500 -reverse 0 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 500 -reverse 0 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 500 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10  -budget 500 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10  -budget 500 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10  -budget 500 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10  -budget 500 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10  -budget 500 -reverse 0 -seed 500 
 
 #####SIMILARITY: MIN
 ######BUDGET: SMALL
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10 -budget 100 -reverse 1 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10 -budget 100 -reverse 1 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10 -budget 100 -reverse 1 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10 -budget 100 -reverse 1 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10 -budget 100 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10 -budget 100 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10 -budget 100 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10 -budget 100 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10 -budget 100 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10 -budget 100 -reverse 1 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 300 -reverse 1 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 300 -reverse 1 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 300 -reverse 1 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 300 -reverse 1 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 300 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10  -budget 300 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10  -budget 300 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10  -budget 300 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10  -budget 300 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10  -budget 300 -reverse 1 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 500 -reverse 1 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 500 -reverse 1 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 500 -reverse 1 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 500 -reverse 1 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 500 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10  -budget 500 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10  -budget 500 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10  -budget 500 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10  -budget 500 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 228 -exr 10  -budget 500 -reverse 1 -seed 500 
 
 
 
@@ -487,92 +487,92 @@ python3 main.py -dataset BC5CDR-chem-IOB -length 228 -exr 10  -budget 500 -rever
 ####STRATEGY: LOCAL
 #####SIMILARITY: MAX
 ######BUDGET: SMALL
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 2 -budget 0 -reverse 0 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 2 -budget 0 -reverse 0 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 2 -budget 0 -reverse 0 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 2 -budget 0 -reverse 0 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 2 -budget 0 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 2 -budget 0 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 2 -budget 0 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 2 -budget 0 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 2 -budget 0 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 2 -budget 0 -reverse 0 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 5  -budget 0 -reverse 0 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 5  -budget 0 -reverse 0 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 5  -budget 0 -reverse 0 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 5  -budget 0 -reverse 0 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 5  -budget 0 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 5  -budget 0 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 5  -budget 0 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 5  -budget 0 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 5  -budget 0 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 5  -budget 0 -reverse 0 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 0 -reverse 0 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 0 -reverse 0 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 0 -reverse 0 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 0 -reverse 0 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 0 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10  -budget 0 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10  -budget 0 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10  -budget 0 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10  -budget 0 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10  -budget 0 -reverse 0 -seed 500 
 
 #####SIMILARITY: MIN 
 ######BUDGET: SMALL
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 2 -budget 0 -reverse 1 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 2 -budget 0 -reverse 1 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 2 -budget 0 -reverse 1 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 2 -budget 0 -reverse 1 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 2 -budget 0 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 2 -budget 0 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 2 -budget 0 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 2 -budget 0 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 2 -budget 0 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 2 -budget 0 -reverse 1 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 5  -budget 0 -reverse 1 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 5  -budget 0 -reverse 1 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 5  -budget 0 -reverse 1 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 5  -budget 0 -reverse 1 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 5  -budget 0 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 5  -budget 0 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 5  -budget 0 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 5  -budget 0 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 5  -budget 0 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 5  -budget 0 -reverse 1 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 0 -reverse 1 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 0 -reverse 1 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 0 -reverse 1 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 0 -reverse 1 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 0 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10  -budget 0 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10  -budget 0 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10  -budget 0 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10  -budget 0 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10  -budget 0 -reverse 1 -seed 500 
 
 ####STRATEGY: GLOBAL
 #####SIMILARITY: MAX
 ######BUDGET: SMALL
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10 -budget 100 -reverse 0 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10 -budget 100 -reverse 0 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10 -budget 100 -reverse 0 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10 -budget 100 -reverse 0 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10 -budget 100 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10 -budget 100 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10 -budget 100 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10 -budget 100 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10 -budget 100 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10 -budget 100 -reverse 0 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 300 -reverse 0 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 300 -reverse 0 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 300 -reverse 0 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 300 -reverse 0 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 300 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10  -budget 300 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10  -budget 300 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10  -budget 300 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10  -budget 300 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10  -budget 300 -reverse 0 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 500 -reverse 0 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 500 -reverse 0 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 500 -reverse 0 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 500 -reverse 0 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 500 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10  -budget 500 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10  -budget 500 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10  -budget 500 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10  -budget 500 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10  -budget 500 -reverse 0 -seed 500 
 
 #####SIMILARITY: MIN
 ######BUDGET: SMALL
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10 -budget 100 -reverse 1 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10 -budget 100 -reverse 1 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10 -budget 100 -reverse 1 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10 -budget 100 -reverse 1 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10 -budget 100 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10 -budget 100 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10 -budget 100 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10 -budget 100 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10 -budget 100 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10 -budget 100 -reverse 1 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 300 -reverse 1 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 300 -reverse 1 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 300 -reverse 1 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 300 -reverse 1 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 300 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10  -budget 300 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10  -budget 300 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10  -budget 300 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10  -budget 300 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10  -budget 300 -reverse 1 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 500 -reverse 1 -seed 100 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 500 -reverse 1 -seed 200 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 500 -reverse 1 -seed 300 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 500 -reverse 1 -seed 400 
-python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 500 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10  -budget 500 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10  -budget 500 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10  -budget 500 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10  -budget 500 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc5cdr.hf -length 456 -exr 10  -budget 500 -reverse 1 -seed 500 
 
 
 
@@ -584,92 +584,92 @@ python3 main.py -dataset BC5CDR-chem-IOB -length 456 -exr 10  -budget 500 -rever
 ####STRATEGY: LOCAL
 #####SIMILARITY: MAX
 ######BUDGET: SMALL
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 2 -budget 0 -reverse 0 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 2 -budget 0 -reverse 0 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 2 -budget 0 -reverse 0 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 2 -budget 0 -reverse 0 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 2 -budget 0 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 2 -budget 0 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 2 -budget 0 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 2 -budget 0 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 2 -budget 0 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 2 -budget 0 -reverse 0 -seed 500
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 5  -budget 0 -reverse 0 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 5  -budget 0 -reverse 0 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 5  -budget 0 -reverse 0 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 5  -budget 0 -reverse 0 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 5  -budget 0 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 5  -budget 0 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 5  -budget 0 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 5  -budget 0 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 5  -budget 0 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 5  -budget 0 -reverse 0 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 0 -reverse 0 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 0 -reverse 0 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 0 -reverse 0 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 0 -reverse 0 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 0 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10  -budget 0 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10  -budget 0 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10  -budget 0 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10  -budget 0 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10  -budget 0 -reverse 0 -seed 500 
 
 #####SIMILARITY: MIN 
 ######BUDGET: SMALL
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 2 -budget 0 -reverse 1 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 2 -budget 0 -reverse 1 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 2 -budget 0 -reverse 1 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 2 -budget 0 -reverse 1 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 2 -budget 0 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 2 -budget 0 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 2 -budget 0 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 2 -budget 0 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 2 -budget 0 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 2 -budget 0 -reverse 1 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 5  -budget 0 -reverse 1 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 5  -budget 0 -reverse 1 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 5  -budget 0 -reverse 1 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 5  -budget 0 -reverse 1 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 5  -budget 0 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 5  -budget 0 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 5  -budget 0 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 5  -budget 0 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 5  -budget 0 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 5  -budget 0 -reverse 1 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 0 -reverse 1 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 0 -reverse 1 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 0 -reverse 1 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 0 -reverse 1 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 0 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10  -budget 0 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10  -budget 0 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10  -budget 0 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10  -budget 0 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10  -budget 0 -reverse 1 -seed 500 
 
 ####STRATEGY: GLOBAL
 #####SIMILARITY: MAX
 ######BUDGET: SMALL
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10 -budget 100 -reverse 0 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10 -budget 100 -reverse 0 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10 -budget 100 -reverse 0 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10 -budget 100 -reverse 0 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10 -budget 100 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10 -budget 100 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10 -budget 100 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10 -budget 100 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10 -budget 100 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10 -budget 100 -reverse 0 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 300 -reverse 0 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 300 -reverse 0 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 300 -reverse 0 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 300 -reverse 0 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 300 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10  -budget 300 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10  -budget 300 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10  -budget 300 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10  -budget 300 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10  -budget 300 -reverse 0 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 500 -reverse 0 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 500 -reverse 0 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 500 -reverse 0 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 500 -reverse 0 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 500 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10  -budget 500 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10  -budget 500 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10  -budget 500 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10  -budget 500 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10  -budget 500 -reverse 0 -seed 500 
 
 #####SIMILARITY: MIN
 ######BUDGET: SMALL
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10 -budget 100 -reverse 1 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10 -budget 100 -reverse 1 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10 -budget 100 -reverse 1 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10 -budget 100 -reverse 1 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10 -budget 100 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10 -budget 100 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10 -budget 100 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10 -budget 100 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10 -budget 100 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10 -budget 100 -reverse 1 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 300 -reverse 1 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 300 -reverse 1 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 300 -reverse 1 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 300 -reverse 1 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 300 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10  -budget 300 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10  -budget 300 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10  -budget 300 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10  -budget 300 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10  -budget 300 -reverse 1 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 500 -reverse 1 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 500 -reverse 1 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 500 -reverse 1 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 500 -reverse 1 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 500 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10  -budget 500 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10  -budget 500 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10  -budget 500 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10  -budget 500 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 251 -exr 10  -budget 500 -reverse 1 -seed 500 
 
 
 
@@ -679,92 +679,92 @@ python3 main.py -dataset BC2GM-IOB -length 251 -exr 10  -budget 500 -reverse 1 -
 ####STRATEGY: LOCAL
 #####SIMILARITY: MAX
 ######BUDGET: SMALL
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 2 -budget 0 -reverse 0 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 2 -budget 0 -reverse 0 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 2 -budget 0 -reverse 0 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 2 -budget 0 -reverse 0 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 2 -budget 0 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 2 -budget 0 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 2 -budget 0 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 2 -budget 0 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 2 -budget 0 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 2 -budget 0 -reverse 0 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 5  -budget 0 -reverse 0 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 5  -budget 0 -reverse 0 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 5  -budget 0 -reverse 0 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 5  -budget 0 -reverse 0 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 5  -budget 0 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 5  -budget 0 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 5  -budget 0 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 5  -budget 0 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 5  -budget 0 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 5  -budget 0 -reverse 0 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 0 -reverse 0 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 0 -reverse 0 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 0 -reverse 0 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 0 -reverse 0 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 0 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10  -budget 0 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10  -budget 0 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10  -budget 0 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10  -budget 0 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10  -budget 0 -reverse 0 -seed 500 
 
 #####SIMILARITY: MIN 
 ######BUDGET: SMALL
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 2 -budget 0 -reverse 1 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 2 -budget 0 -reverse 1 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 2 -budget 0 -reverse 1 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 2 -budget 0 -reverse 1 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 2 -budget 0 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 2 -budget 0 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 2 -budget 0 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 2 -budget 0 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 2 -budget 0 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 2 -budget 0 -reverse 1 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 5  -budget 0 -reverse 1 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 5  -budget 0 -reverse 1 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 5  -budget 0 -reverse 1 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 5  -budget 0 -reverse 1 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 5  -budget 0 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 5  -budget 0 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 5  -budget 0 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 5  -budget 0 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 5  -budget 0 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 5  -budget 0 -reverse 1 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 0 -reverse 1 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 0 -reverse 1 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 0 -reverse 1 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 0 -reverse 1 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 0 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10  -budget 0 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10  -budget 0 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10  -budget 0 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10  -budget 0 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10  -budget 0 -reverse 1 -seed 500 
 
 ####STRATEGY: GLOBAL
 #####SIMILARITY: MAX
 ######BUDGET: SMALL
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10 -budget 100 -reverse 0 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10 -budget 100 -reverse 0 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10 -budget 100 -reverse 0 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10 -budget 100 -reverse 0 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10 -budget 100 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10 -budget 100 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10 -budget 100 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10 -budget 100 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10 -budget 100 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10 -budget 100 -reverse 0 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 300 -reverse 0 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 300 -reverse 0 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 300 -reverse 0 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 300 -reverse 0 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 300 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10  -budget 300 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10  -budget 300 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10  -budget 300 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10  -budget 300 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10  -budget 300 -reverse 0 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 500 -reverse 0 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 500 -reverse 0 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 500 -reverse 0 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 500 -reverse 0 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 500 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10  -budget 500 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10  -budget 500 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10  -budget 500 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10  -budget 500 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10  -budget 500 -reverse 0 -seed 500 
 
 #####SIMILARITY: MIN
 ######BUDGET: SMALL
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10 -budget 100 -reverse 1 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10 -budget 100 -reverse 1 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10 -budget 100 -reverse 1 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10 -budget 100 -reverse 1 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10 -budget 100 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10 -budget 100 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10 -budget 100 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10 -budget 100 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10 -budget 100 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10 -budget 100 -reverse 1 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 300 -reverse 1 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 300 -reverse 1 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 300 -reverse 1 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 300 -reverse 1 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 300 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10  -budget 300 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10  -budget 300 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10  -budget 300 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10  -budget 300 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10  -budget 300 -reverse 1 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 500 -reverse 1 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 500 -reverse 1 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 500 -reverse 1 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 500 -reverse 1 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 500 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10  -budget 500 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10  -budget 500 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10  -budget 500 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10  -budget 500 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 628 -exr 10  -budget 500 -reverse 1 -seed 500 
 
 
 
@@ -775,90 +775,90 @@ python3 main.py -dataset BC2GM-IOB -length 628 -exr 10  -budget 500 -reverse 1 -
 ####STRATEGY: LOCAL
 #####SIMILARITY: MAX
 ######BUDGET: SMALL
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 2 -budget 0 -reverse 0 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 2 -budget 0 -reverse 0 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 2 -budget 0 -reverse 0 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 2 -budget 0 -reverse 0 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 2 -budget 0 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 2 -budget 0 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 2 -budget 0 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 2 -budget 0 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 2 -budget 0 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 2 -budget 0 -reverse 0 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 5  -budget 0 -reverse 0 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 5  -budget 0 -reverse 0 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 5  -budget 0 -reverse 0 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 5  -budget 0 -reverse 0 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 5  -budget 0 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 5  -budget 0 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 5  -budget 0 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 5  -budget 0 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 5  -budget 0 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 5  -budget 0 -reverse 0 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10  -budget 0 -reverse 0 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10  -budget 0 -reverse 0 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10  -budget 0 -reverse 0 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10  -budget 0 -reverse 0 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10  -budget 0 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10  -budget 0 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10  -budget 0 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10  -budget 0 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10  -budget 0 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10  -budget 0 -reverse 0 -seed 500 
 
 #####SIMILARITY: MIN 
 ######BUDGET: SMALL
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 2 -budget 0 -reverse 1 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 2 -budget 0 -reverse 1 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 2 -budget 0 -reverse 1 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 2 -budget 0 -reverse 1 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 2 -budget 0 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 2 -budget 0 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 2 -budget 0 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 2 -budget 0 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 2 -budget 0 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 2 -budget 0 -reverse 1 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 5  -budget 0 -reverse 1 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 5  -budget 0 -reverse 1 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 5  -budget 0 -reverse 1 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 5  -budget 0 -reverse 1 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 5  -budget 0 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 5  -budget 0 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 5  -budget 0 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 5  -budget 0 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 5  -budget 0 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 5  -budget 0 -reverse 1 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10  -budget 0 -reverse 1 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10  -budget 0 -reverse 1 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10  -budget 0 -reverse 1 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10  -budget 0 -reverse 1 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10  -budget 0 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10  -budget 0 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10  -budget 0 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10  -budget 0 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10  -budget 0 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10  -budget 0 -reverse 1 -seed 500 
 
 ####STRATEGY: GLOBAL
 #####SIMILARITY: MAX
 ######BUDGET: SMALL
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10 -budget 100 -reverse 0 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10 -budget 100 -reverse 0 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10 -budget 100 -reverse 0 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10 -budget 100 -reverse 0 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10 -budget 100 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10 -budget 100 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10 -budget 100 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10 -budget 100 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10 -budget 100 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10 -budget 100 -reverse 0 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10  -budget 300 -reverse 0 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10  -budget 300 -reverse 0 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10  -budget 300 -reverse 0 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10  -budget 300 -reverse 0 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10  -budget 300 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10  -budget 300 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10  -budget 300 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10  -budget 300 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10  -budget 300 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10  -budget 300 -reverse 0 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10  -budget 500 -reverse 0 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10  -budget 500 -reverse 0 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10  -budget 500 -reverse 0 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10  -budget 500 -reverse 0 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10  -budget 500 -reverse 0 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10  -budget 500 -reverse 0 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10  -budget 500 -reverse 0 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10  -budget 500 -reverse 0 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10  -budget 500 -reverse 0 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10  -budget 500 -reverse 0 -seed 500 
 
 #####SIMILARITY: MIN
 ######BUDGET: SMALL
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10 -budget 100 -reverse 1 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10 -budget 100 -reverse 1 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10 -budget 100 -reverse 1 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10 -budget 100 -reverse 1 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10 -budget 100 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10 -budget 100 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10 -budget 100 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10 -budget 100 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10 -budget 100 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10 -budget 100 -reverse 1 -seed 500 
 
 ######BUDGET: MEDIUM
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10  -budget 300 -reverse 1 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10  -budget 300 -reverse 1 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10  -budget 300 -reverse 1 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10  -budget 300 -reverse 1 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10  -budget 300 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10  -budget 300 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10  -budget 300 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10  -budget 300 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10  -budget 300 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10  -budget 300 -reverse 1 -seed 500 
 
 ######BUDGET: LARGE
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10  -budget 500 -reverse 1 -seed 100 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10  -budget 500 -reverse 1 -seed 200 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10  -budget 500 -reverse 1 -seed 300 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10  -budget 500 -reverse 1 -seed 400 
-python3 main.py -dataset BC2GM-IOB -length 1257 -exr 10  -budget 500 -reverse 1 -seed 500 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10  -budget 500 -reverse 1 -seed 100 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10  -budget 500 -reverse 1 -seed 200 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10  -budget 500 -reverse 1 -seed 300 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10  -budget 500 -reverse 1 -seed 400 
+python3 main_cosiner.py -dataset data/bc2gm.hf -length 1257 -exr 10  -budget 500 -reverse 1 -seed 500 
 

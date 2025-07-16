@@ -11,7 +11,6 @@ from transformers import (AutoModelForTokenClassification,
                           AutoTokenizer, 
                           DataCollatorForTokenClassification, 
                           TrainingArguments, 
-                          set_seed,
                           enable_full_determinism)
 
 from lexicon_generator import LexiconGenerator
@@ -20,11 +19,9 @@ import utils
 
 if __name__ == '__main__':
     args = utils.parse_args(sys.argv[1:])
-    device = "cuda" if torch.cuda.is_available() else "cpu"
+    device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
     print(device)
-
     print(args)
-
     enable_full_determinism(args.seed)
     dataset_name = args.dataset.split('/')[-1].split('.')[0]
 
@@ -103,8 +100,8 @@ if __name__ == '__main__':
                 ).remove_columns(['ner_tags', 'id', 'tokens'])
     
     trainer = Trainer(
-            model=model.to("cuda:0"),
-            train_dataset=concatenate_datasets([train_dataset_tokenized, counterfactual_set_tokenized]),
+            model=model.to(device),
+            train_dataset=concatenate_datasets([train_dataset_tokenized, counterfactual_set_tokenized]).shuffle(args.seed),
             tokenizer=tokenizer,
             data_collator=data_collator,
             compute_metrics=utils.compute_metrics_wrapper(label_list, metric),

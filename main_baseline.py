@@ -18,10 +18,10 @@ import utils
 
 if __name__ == '__main__':
     args = utils.parse_args(sys.argv[1:])
-    device = "cuda" if torch.cuda.is_available() else "cpu"
+    device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
     print(device)
     print(args)
-    
+
     baseline = args.baseline if args.baseline != None else "mr"
 
     enable_full_determinism(args.seed)
@@ -107,8 +107,8 @@ if __name__ == '__main__':
                 ).remove_columns(['ner_tags', 'id', 'tokens'])
 
     trainer = Trainer(
-            model=model.to("cuda:0"),
-            train_dataset=concatenate_datasets([train_dataset_tokenized, counterfactual_set_tokenized]),
+            model=model.to(device),
+            train_dataset=concatenate_datasets([train_dataset_tokenized, counterfactual_set_tokenized]).shuffle(args.seed),
             tokenizer=tokenizer,
             data_collator=data_collator,
             compute_metrics=utils.compute_metrics_wrapper(label_list, metric),
@@ -128,9 +128,6 @@ if __name__ == '__main__':
     raw_predictions, labels, metricTest = trainer.predict(test_dataset_tokenized, metric_key_prefix="test")
     test_metrics.append(metricTest)
     print(test_metrics)
-
-    if args.xai:
-        utils.xai_model(model, tokenizer, dataset['train'][args.xai])
 
     train_keys = list(train_metrics[0].keys())
     test_keys = list(test_metrics[0].keys())
