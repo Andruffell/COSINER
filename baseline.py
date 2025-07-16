@@ -12,14 +12,16 @@ class Baseline():
     def __init__(self, baseline, dataset, label_list):
         if baseline == "sr":
             nltk.download('wordnet')
-            self.generate_counterfactual_set = self.syn_with_word_net(dataset, label_list)
+            self.generate_counterfactual_set = lambda: self.syn_with_word_net(dataset, label_list)
         elif baseline == "lwtr":
-            self.generate_counterfactual_set = self.lwt_replacement(dataset, label_list)
+            self.generate_counterfactual_set = lambda: self.lwt_replacement(dataset, label_list)
         elif baseline == "mr":
-            self.generate_counterfactual_set = self.mention_replacement(dataset, label_list)
+            self.generate_counterfactual_set = lambda: self.mention_replacement(dataset, label_list)
+        else:
+            print("Baseline not specified. Using MR")
+            self.generate_counterfactual_set = lambda: self.mention_replacement(dataset, label_list)
 
-
-    def syn_with_word_net(dataset, label_list):
+    def syn_with_word_net(self, dataset, label_list):
         counterfactualExamples = []
         appendingIndex = len(dataset)
                 
@@ -45,7 +47,7 @@ class Baseline():
         counterfactual_set = counterfactual_set.cast(new_features)
         return counterfactual_set
 
-    def lwt_replacement(dataset, label_list):
+    def lwt_replacement(self, dataset, label_list):
         
         counterfactualExamples = []
         appendingIndex = len(dataset)
@@ -78,7 +80,7 @@ class Baseline():
         counterfactual_set = counterfactual_set.cast(new_features)
         return counterfactual_set
 
-    def mention_replacement(dataset, label_list):
+    def mention_replacement(self, dataset, label_list):
         lexicon = lexicon_generator.LexiconGenerator().multipleLexiconsGeneration(dataset, label_list)
         counterfactualExamples = []
         appendingIndex = len(dataset)

@@ -20,13 +20,14 @@ if __name__ == '__main__':
     args = utils.parse_args(sys.argv[1:])
     device = "cuda" if torch.cuda.is_available() else "cpu"
     print(device)
-
     print(args)
+    
+    baseline = args.baseline if args.baseline != None else "mr"
 
     enable_full_determinism(args.seed)
     dataset_name = args.dataset.split('/')[-1].split('.')[0]
 
-    xlsxoutput = f"{dataset_name}_{str(args.length)}_{str(args.exr)}_{str(args.budget)}_{str(args.reverse)}_{str(args.seed)}.xlsx"
+    xlsxoutput = f"{dataset_name}_{baseline}_{str(args.length)}_{str(args.exr)}_{str(args.budget)}_{str(args.reverse)}_{str(args.seed)}.xlsx"
     metric = evaluate.load("seqeval")
 
     dataset = load_from_disk(args.dataset)
@@ -155,6 +156,7 @@ if __name__ == '__main__':
     train_df=pd.DataFrame(train_metrics_byKeys)
     test_df=pd.DataFrame(test_metrics_byKeys)
 
-    with pd.ExcelWriter(f"results/cosiner/{dataset_name}/{xlsxoutput}") as writer:  
+    with pd.ExcelWriter(f"results/baselines/{dataset_name}/{xlsxoutput}") as writer:  
         train_df.to_excel(writer, sheet_name='train')
         test_df.to_excel(writer, sheet_name='test')
+        print(f"Value saved in {xlsxoutput}")
