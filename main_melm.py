@@ -18,8 +18,6 @@ import os
 
 from MELM.melm_augmenter import MELMAugmenter
 
-    # Tokenizing and Alignment function
-
 def compute_metrics(p):
     predictions, labels = p
     predictions = np.argmax(predictions, axis=2)
