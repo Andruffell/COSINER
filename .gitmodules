@@ -1,3 +1,6 @@
 [submodule "MELM/MELM-COSINER"]
 	path = MELM/MELM-COSINER
 	url = https://github.com/Andruffell/MELM-COSINER.git
+[submodule "style_NER/style_NER"]
+	path = style_NER/style_NER
+	url = https://github.com/Andruffell/style_NER.git
