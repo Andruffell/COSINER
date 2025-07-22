@@ -99,7 +99,7 @@ if __name__ == '__main__':
                     utils.tokenize_and_align_labels,
                     batched=True,
                     desc="Running tokenizer on prediction dataset",
-                    fn_kwargs={"toke-nizer": tokenizer, "b_to_i_label": b_to_i_label}
+                    fn_kwargs={"tokenizer": tokenizer, "b_to_i_label": b_to_i_label}
                 ).remove_columns(['ner_tags', 'id', 'tokens'])
 
     trainer = Trainer(
