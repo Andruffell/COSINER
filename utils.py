@@ -1,3 +1,4 @@
+import os
 import argparse
 import numpy as np
 from transformers_interpret import TokenClassificationExplainer
@@ -77,3 +78,14 @@ def compute_metrics_wrapper(label_list, metric):
                 final_results[key] = value
         return final_results
     return compute_metrics
+
+def clear_folder(folder):
+    for filename in os.listdir(folder):
+        path = os.path.join(folder, filename)
+        try:
+            if os.path.isfile(path) or os.path.islink(path):
+                os.remove(path)
+            elif os.path.isdir(path):
+                os.removedirs(path)
+        except Exception as e:
+            print(f"Error deleting {path}: {e}")

@@ -16,6 +16,7 @@ from transformers import (AutoModelForTokenClassification,
 from lexicon_generator import LexiconGenerator
 import cosiner
 import utils
+import time
 
 if __name__ == '__main__':
     args = utils.parse_args(sys.argv[1:])
@@ -47,10 +48,12 @@ if __name__ == '__main__':
     print(dataset['train'])
 
     # Counterfactual set generation
+    start_time = time.time()
     lexicon = LexiconGenerator("cosiner").lexicon_generation_method(dataset['train']) #Lexicon generation using entities
     embeddings = cosiner.embedding_extraction(args.model, dataset['train'], lexicon)
     similarityList = cosiner.cosine_similarity(embeddings, args.exr, args.reverse)
     counterfactual_set = cosiner.augment_dataset(dataset['train'], args.exr, similarityList, args.budget, args.reverse, label_list)
+    augmentation_time = time.time() - start_time
 
     model = AutoModelForTokenClassification.from_pretrained(
                                                         args.model,
@@ -119,8 +122,8 @@ if __name__ == '__main__':
     metrics["train_samples"] = min(max_train_samples, len(train_dataset_tokenized))
 
     raw_predictions, labels, metricTest = trainer.predict(test_dataset_tokenized, metric_key_prefix="test")
+    metricTest["AUGMENTATION_TIME"] = augmentation_time
     test_metrics.append(metricTest)
-    print(test_metrics)
 
     if args.xai:
         utils.xai_model(model, tokenizer, dataset['train'][args.xai])

@@ -17,7 +17,7 @@ from datasets import concatenate_datasets
 import os
 import time
 
-from MELM.melm_augmenter import MELMAugmenter
+from style_NER.sner_augmenter import SNER_Augmenter
 
 def compute_metrics(p):
     predictions, labels = p
@@ -56,6 +56,23 @@ if __name__ == '__main__':
     enable_full_determinism(args.seed)
     dataset_name = args.dataset.split('/')[-1].split('.')[0]
 
+    if args.dataset == "data/ncbi.hf":
+        source_dataset = "data/bc5cdr_disease.hf"
+        source_name = "bc5cdr_disease"
+        target_name = "ncbi"
+    elif args.dataset == "data/bc5cdr.hf":
+        source_dataset = "data/chemdner.hf"
+        source_name = "chemdner"
+        target_name = "bc5cdr"
+    elif args.dataset == "data/bc2gm.hf":
+        source_dataset = "data/jnlpba.hf"
+        source_name = "jnlpba"
+        target_name = "bc2gm"
+    else:
+        print("No source dataset found")
+        sys.exit(0)
+    
+    print(f"[style_NER] transfer from {source_name} to {target_name}")
     xlsxoutput = f"{dataset_name}_{str(args.length)}_{str(args.seed)}.xlsx"
     metric = evaluate.load("seqeval")
 
@@ -70,6 +87,7 @@ if __name__ == '__main__':
         else:
             b_to_i_label.append(idx)
 
+    source_dataset = load_from_disk(source_dataset)
     dataset = load_from_disk(args.dataset)
     features = dataset["train"].features
     samples_num = random.sample(range(len(dataset['train'])), args.length)
@@ -116,9 +134,7 @@ if __name__ == '__main__':
 
 
     # Splitting in training and validation
-    splitted = dataset['train'].train_test_split(test_size=0.3)
-    dataset['train_reduced'] = splitted['train']
-    dataset['valid_reduced'] = splitted['test']
+    splitted_target = dataset['train'].train_test_split(test_size=0.5)
 
     # Tokenization
     tokenized_dataset = dataset.map(utils.tokenize_and_align_labels,
@@ -128,13 +144,14 @@ if __name__ == '__main__':
         )
 
     # Generation of the augmented pool
-    os.chdir('MELM')
+    os.chdir('style_NER')
     start_time = time.time()
-    data_augmenter = MELMAugmenter(args.seed, dataset['train_reduced'], dataset['valid_reduced'])
+    data_augmenter = SNER_Augmenter(args.seed, source_dataset, splitted_target, source_name, target_name)
     data_augmenter.fit()
     augmented_pool = data_augmenter.augment_dataset()
     augmentation_time = time.time() - start_time
     os.chdir("..")
+    print("New sentences: ", len(augmented_pool))
 
     augmented_pool = Dataset.from_pandas(pd.DataFrame.from_dict(augmented_pool))
     tokenized_augmented_pool = augmented_pool.map(utils.tokenize_and_align_labels,
@@ -172,11 +189,6 @@ if __name__ == '__main__':
     metricTest["AUGMENTATION_TIME"] = augmentation_time
     test_metrics.append(metricTest)
 
-    if os.path.exists(r"MELM/MELM-COSINER/data/aug.entity") and os.path.exists(r"MELM/MELM-COSINER/data/train.txt") and os.path.exists(r"MELM/MELM-COSINER/data/dev.txt"):
-        os.remove(r"MELM/MELM-COSINER/data/aug.entity")
-        os.remove(r"MELM/MELM-COSINER/data/train.txt")
-        os.remove(r"MELM/MELM-COSINER/data/dev.txt")
-
     train_keys = list(train_metrics[0].keys())
     test_keys = list(test_metrics[0].keys())
     train_metrics_byKeys = {}
@@ -200,7 +212,7 @@ if __name__ == '__main__':
     train_df=pd.DataFrame(train_metrics_byKeys)
     test_df=pd.DataFrame(test_metrics_byKeys)
 
-    with pd.ExcelWriter(f"results/melm/{xlsxoutput}") as writer:  
+    with pd.ExcelWriter(f"results/style_NER/{xlsxoutput}") as writer:  
         train_df.to_excel(writer, sheet_name='train')
         test_df.to_excel(writer, sheet_name='test')
 

@@ -1,4 +1,5 @@
 import sys
+import time
 
 import pandas as pd
 import torch
@@ -48,15 +49,10 @@ if __name__ == '__main__':
     dataset['train'] = dataset['train'].select(samples_num) if args.length > 0 else dataset['train']
     print(dataset['train'])
 
-    counterfactual_set = None
-
-    if args.baseline == 'style_ner':
-        pass
-    elif args.baseline == 'melm':
-        pass
-    else:
-        print(args.baseline)
-        counterfactual_set = Baseline(args.baseline, dataset['train'], label_list).generate_counterfactual_set()
+    start_time = time.time()
+    print(args.baseline)
+    counterfactual_set = Baseline(args.baseline, dataset['train'], label_list).generate_counterfactual_set()
+    augmentation_time = time.time() - start_time
 
     model = AutoModelForTokenClassification.from_pretrained(
                                                         args.model,
@@ -103,7 +99,7 @@ if __name__ == '__main__':
                     utils.tokenize_and_align_labels,
                     batched=True,
                     desc="Running tokenizer on prediction dataset",
-                    fn_kwargs={"tokenizer": tokenizer, "b_to_i_label": b_to_i_label}
+                    fn_kwargs={"toke-nizer": tokenizer, "b_to_i_label": b_to_i_label}
                 ).remove_columns(['ner_tags', 'id', 'tokens'])
 
     trainer = Trainer(
@@ -126,6 +122,7 @@ if __name__ == '__main__':
     metrics["train_samples"] = min(max_train_samples, len(train_dataset_tokenized))
 
     raw_predictions, labels, metricTest = trainer.predict(test_dataset_tokenized, metric_key_prefix="test")
+    metricTest["AUGMENTATION_TIME"] = augmentation_time
     test_metrics.append(metricTest)
     print(test_metrics)
 
