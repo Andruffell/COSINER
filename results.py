@@ -1,0 +1,67 @@
+import matplotlib.pyplot as plt
+import os
+import pandas as pd
+import numpy as np
+import scipy.stats as st
+from matplotlib.ticker import MaxNLocator
+
+def confidence_intervals(path, files, confidence=0.95):
+    xlsx = [pd.ExcelFile(os.path.join(path, f'{x}')) for x in files]
+    test = [pd.read_excel(xlsx[x], 1) for x in range(len(files))]
+
+    df_test_concat = pd.concat(test)
+
+    mean_recall = np.mean(df_test_concat['test_overall_recall'])
+    recall = st.t.interval(confidence, len(df_test_concat['test_overall_recall'])-1, loc=mean_recall, scale=st.sem(df_test_concat['test_overall_recall']))
+    recall_interval = recall[1]-mean_recall
+
+    mean_precision = np.mean(df_test_concat['test_overall_precision'])
+    precision = st.t.interval(confidence, len(df_test_concat['test_overall_precision'])-1, loc=mean_precision, scale=st.sem(df_test_concat['test_overall_precision']))
+    precision_interval = precision[1]-mean_precision
+
+    mean_f1 = np.mean(df_test_concat['test_overall_f1'])
+    f1 = st.t.interval(confidence, len(df_test_concat['test_overall_f1'])-1, loc=mean_f1, scale=st.sem(df_test_concat['test_overall_f1']))
+    f1_interval = f1[1]-mean_f1
+
+    mean_augmentation_time = np.mean(df_test_concat['AUGMENTATION_TIME'])
+    augmentation_time = st.t.interval(confidence, len(df_test_concat['AUGMENTATION_TIME'])-1, loc=mean_augmentation_time, scale=st.sem(df_test_concat['AUGMENTATION_TIME']))
+    augmentation_time_interval = augmentation_time[1]-mean_augmentation_time
+
+    return (round(mean_recall, 3), round(recall_interval, 3)), (round(mean_precision, 3), round(precision_interval, 3)), (round(mean_f1, 3), round(f1_interval, 3)), (round(mean_augmentation_time, 3), round(augmentation_time_interval, 3))
+
+if __name__=="__main__":
+    base_directory = os.getcwd()
+    results_path = os.path.join(base_directory, "results")
+    ## COSINER
+    path = os.path.join(results_path, "cosiner")
+    os.chdir(path)
+    datasets = os.listdir()
+    for dataset in datasets:
+        dataset_path = os.path.join(path, dataset)
+        os.chdir(dataset_path)
+        files = os.listdir()
+        if ".gitignore" in files: files.remove(".gitignore")
+
+        ### For baselines there is also baseline name
+        dataset_name = list(set([x.split("_")[0] for x in files]))                   # dataset name
+        dataset_length = sorted(list(set([x.split("_")[1] for x in files])))    # few-shot scenario
+        exr = [2, 5, 10]                                                        # example per entity
+        budget = [0, 100, 300, 500]                                             # local-global
+        reverse = [0, 1]                                                        # max similarity - min similarity
+
+        print(dataset_name, dataset_length, exr, budget, reverse)
+
+        for d in dataset_name:
+            for l in dataset_length:
+                for b in budget:
+                    exr_values = exr if b == 0 else [10] # global augmentation works always with exr = 10
+                    for e in exr_values:
+                            for r in reverse:
+                                file_name = f"{d}_{l}_{e}_{b}_{r}_"
+                                print(file_name)
+                                found = [f for f in files if file_name in f]
+                                recall, precision, f1, augmentation_time = confidence_intervals(dataset_path, found)
+                                print(f"Recall: {recall}")
+                                print(f"Precision: {precision}")
+                                print(f"F1: {f1}")
+                                print(f"Augmentation time: {augmentation_time} seconds")

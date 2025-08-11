@@ -212,7 +212,7 @@ if __name__ == '__main__':
     train_df=pd.DataFrame(train_metrics_byKeys)
     test_df=pd.DataFrame(test_metrics_byKeys)
 
-    with pd.ExcelWriter(f"results/style_NER/{xlsxoutput}") as writer:  
+    with pd.ExcelWriter(f"results/style_NER/{dataset_name}/{xlsxoutput}") as writer:  
         train_df.to_excel(writer, sheet_name='train')
         test_df.to_excel(writer, sheet_name='test')
 
