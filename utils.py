@@ -7,7 +7,7 @@ def parse_args(argv):
     parser = argparse.ArgumentParser()
     parser.add_argument('-model', default="dmis-lab/biobert-v1.1", type=str, help="Model name")
     parser.add_argument('-epochs', default=5, type=int, help='Number of training epochs')
-    parser.add_argument('-seed', default=100, type=int, help="Seed for randomicity")
+    parser.add_argument('-seed', default=100, type=int, help="Seed for reproducibility")
     parser.add_argument('-dataset', default=r'data/ncbi.hf', type=str, choices=[r"data/ncbi.hf", r"data/bc5cdr.hf", r"data/bc2gm.hf"], help="\nNCBI-disease-IOB: diseases dataset,\nBC5CDR-chem-IOB: chemical dataset,\nBC2GM-IOB: genetic dataset")
     parser.add_argument('-length', default=108, type=int, help="Dataset length reduction")
     parser.add_argument('-reverse', default=0, type=int, choices=[0, 1], help='0: max\n 1: min')

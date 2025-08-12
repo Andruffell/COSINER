@@ -28,7 +28,7 @@ if __name__ == '__main__':
     enable_full_determinism(args.seed)
     dataset_name = args.dataset.split('/')[-1].split('.')[0]
 
-    xlsxoutput = f"{dataset_name}_{baseline}_{str(args.length)}_{str(args.exr)}_{str(args.budget)}_{str(args.reverse)}_{str(args.seed)}.xlsx"
+    xlsxoutput = f"{dataset_name}_{baseline}_{str(args.length)}_{str(args.seed)}.xlsx"
     metric = evaluate.load("seqeval")
 
     dataset = load_from_disk(args.dataset)
@@ -50,8 +50,8 @@ if __name__ == '__main__':
     print(dataset['train'])
 
     start_time = time.time()
-    print(args.baseline)
-    counterfactual_set = Baseline(args.baseline, dataset['train'], label_list).generate_counterfactual_set()
+    print(baseline)
+    counterfactual_set = Baseline(baseline, dataset['train'], label_list).generate_counterfactual_set()
     augmentation_time = time.time() - start_time
 
     model = AutoModelForTokenClassification.from_pretrained(

@@ -32,24 +32,24 @@ def confidence_intervals(path, files, confidence=0.95):
 if __name__=="__main__":
     base_directory = os.getcwd()
     results_path = os.path.join(base_directory, "results")
-    ## COSINER
-    path = os.path.join(results_path, "cosiner")
-    os.chdir(path)
+    
+    ### COSINER
+    print("COSINER results")
+    cosiner_path = os.path.join(results_path, "cosiner")
+    os.chdir(cosiner_path)
     datasets = os.listdir()
     for dataset in datasets:
-        dataset_path = os.path.join(path, dataset)
+        dataset_path = os.path.join(cosiner_path, dataset)
         os.chdir(dataset_path)
         files = os.listdir()
         if ".gitignore" in files: files.remove(".gitignore")
 
         ### For baselines there is also baseline name
-        dataset_name = list(set([x.split("_")[0] for x in files]))                   # dataset name
+        dataset_name = list(set([x.split("_")[0] for x in files]))              # dataset name
         dataset_length = sorted(list(set([x.split("_")[1] for x in files])))    # few-shot scenario
-        exr = [2, 5, 10]                                                        # example per entity
-        budget = [0, 100, 300, 500]                                             # local-global
+        exr = [2, 5, 10]                                                        # new examples per sentence
+        budget = [0, 100, 300, 500]                                             # local 0 - global 100, 300, 500
         reverse = [0, 1]                                                        # max similarity - min similarity
-
-        print(dataset_name, dataset_length, exr, budget, reverse)
 
         for d in dataset_name:
             for l in dataset_length:
@@ -65,3 +65,81 @@ if __name__=="__main__":
                                 print(f"Precision: {precision}")
                                 print(f"F1: {f1}")
                                 print(f"Augmentation time: {augmentation_time} seconds")
+
+    ### MELM
+    print("MELM results")
+    melm_path = os.path.join(results_path, "melm")
+    os.chdir(melm_path)
+    datasets = os.listdir()
+    for dataset in datasets:
+        dataset_path = os.path.join(melm_path, dataset)
+        os.chdir(dataset_path)
+        files = os.listdir()
+        if ".gitignore" in files: files.remove(".gitignore")
+        
+        dataset_name = list(set([x.split("_")[0] for x in files]))              # dataset name
+        dataset_length = sorted(list(set([x.split("_")[1] for x in files])))    # few-shot scenario
+
+        for d in dataset_name:
+            for l in dataset_length:
+                file_name = f"{d}_{l}_"
+                print(file_name)
+                found = [f for f in files if file_name in f]
+                recall, precision, f1, augmentation_time = confidence_intervals(dataset_path, found)
+                print(f"Recall: {recall}")
+                print(f"Precision: {precision}")
+                print(f"F1: {f1}")
+                print(f"Augmentation time: {augmentation_time} seconds")
+
+    ### Style_NER
+    print("Style_NER results")
+    style_path = os.path.join(results_path, "style_NER")
+    os.chdir(style_path)
+    datasets = os.listdir()
+    for dataset in datasets:
+        dataset_path = os.path.join(style_path, dataset)
+        os.chdir(dataset_path)
+        files = os.listdir()
+        if ".gitignore" in files: files.remove(".gitignore")
+        
+        dataset_name = list(set([x.split("_")[0] for x in files]))              # dataset name
+        dataset_length = sorted(list(set([x.split("_")[1] for x in files])))    # few-shot scenario
+
+        for d in dataset_name:
+            for l in dataset_length:
+                file_name = f"{d}_{l}_"
+                print(file_name)
+                found = [f for f in files if file_name in f]
+                recall, precision, f1, augmentation_time = confidence_intervals(dataset_path, found)
+                print(f"Recall: {recall}")
+                print(f"Precision: {precision}")
+                print(f"F1: {f1}")
+                print(f"Augmentation time: {augmentation_time} seconds")
+
+    ### LWTR; MR; SR
+    print("Baselines results")
+    baseline_path = os.path.join(results_path, "baselines")
+    os.chdir(baseline_path)
+    datasets = os.listdir()
+    for dataset in datasets:
+        dataset_path = os.path.join(baseline_path, dataset)
+        os.chdir(dataset_path)
+        files = os.listdir()
+        if ".gitignore" in files: files.remove(".gitignore")
+        
+        dataset_name = list(set([x.split("_")[0] for x in files]))              # dataset name
+        baseline_name = ["lwtr", "mr", "sr"]
+        dataset_length = sorted(list(set([x.split("_")[2] for x in files])))    # few-shot scenario
+
+        for d in dataset_name:
+            for bs in baseline_name:
+                for l in dataset_length:
+                    file_name = f"{d}_{bs}_{l}_"
+                    print(file_name)
+                    found = [f for f in files if file_name in f]
+                    recall, precision, f1, augmentation_time = confidence_intervals(dataset_path, found)
+                    print(f"Recall: {recall}")
+                    print(f"Precision: {precision}")
+                    print(f"F1: {f1}")
+                    print(f"Augmentation time: {augmentation_time} seconds")
+        
