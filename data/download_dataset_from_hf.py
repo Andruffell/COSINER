@@ -5,7 +5,7 @@ ncbi = load_dataset("EMBO/BLURB", "NCBI-disease-IOB", trust_remote_code=True) #a
 chems = load_dataset("EMBO/BLURB", "BC5CDR-chem-IOB", trust_remote_code=True) #accessed Mar 17th 2025
 genes = load_dataset("EMBO/BLURB", "BC2GM-IOB", trust_remote_code=True) #accessed Mar 17th 2025
 bc5cdr_disease = load_dataset("EMBO/BLURB", "BC5CDR-disease-IOB", trust_remote_code=True) #accessed Mar 17th 2025
-chemdner = load_dataset("bigbio/chemdner", trust_remote_code=True) #accessed Mar 17th 2025
+chemdner = load_dataset("jablonkagroup/chemdner", "raw_data", trust_remote_code=True) #accessed Mar 17th 2025
 jnlpba = load_dataset("EMBO/BLURB", "JNLPBA", trust_remote_code=True) #accessed Mar 17th 2025
 
 ncbi.save_to_disk("./data/ncbi.hf")

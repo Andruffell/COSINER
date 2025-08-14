@@ -1,103 +1,69 @@
 {
-  "builder_name": "chemdner",
-  "citation": "@article{Krallinger2015,\n  title        = {The CHEMDNER corpus of chemicals and drugs and its annotation principles},\n  author       = {\n    Krallinger, Martin and Rabal, Obdulia and Leitner, Florian and Vazquez,\n    Miguel and Salgado, David and Lu, Zhiyong and Leaman, Robert and Lu, Yanan\n    and Ji, Donghong and Lowe, Daniel M. and Sayle, Roger A. and\n    Batista-Navarro, Riza Theresa and Rak, Rafal and Huber, Torsten and\n    Rockt{\"a}schel, Tim and Matos, S{'e}rgio and Campos, David and Tang,\n    Buzhou and Xu, Hua and Munkhdalai, Tsendsuren and Ryu, Keun Ho and Ramanan,\n    S. V. and Nathan, Senthil and {\u000b{Z}}itnik, Slavko and Bajec, Marko and\n    Weber, Lutz and Irmer, Matthias and Akhondi, Saber A. and Kors, Jan A. and\n    Xu, Shuo and An, Xin and Sikdar, Utpal Kumar and Ekbal, Asif and Yoshioka,\n    Masaharu and Dieb, Thaer M. and Choi, Miji and Verspoor, Karin and Khabsa,\n    Madian and Giles, C. Lee and Liu, Hongfang and Ravikumar, Komandur\n    Elayavilli and Lamurias, Andre and Couto, Francisco M. and Dai, Hong-Jie\n    and Tsai, Richard Tzong-Han and Ata, Caglar and Can, Tolga and Usi{'e},\n    Anabel and Alves, Rui and Segura-Bedmar, Isabel and Mart{'i}nez, Paloma\n    and Oyarzabal, Julen and Valencia, Alfonso\n  },\n  year         = 2015,\n  month        = {Jan},\n  day          = 19,\n  journal      = {Journal of Cheminformatics},\n  volume       = 7,\n  number       = 1,\n  pages        = {S2},\n  doi          = {10.1186/1758-2946-7-S1-S2},\n  issn         = {1758-2946},\n  url          = {https://doi.org/10.1186/1758-2946-7-S1-S2},\n  abstract     = {\n    The automatic extraction of chemical information from text requires the\n    recognition of chemical entity mentions as one of its key steps. When\n    developing supervised named entity recognition (NER) systems, the\n    availability of a large, manually annotated text corpus is desirable.\n    Furthermore, large corpora permit the robust evaluation and comparison of\n    different approaches that detect chemicals in documents. We present the\n    CHEMDNER corpus, a collection of 10,000 PubMed abstracts that contain a\n    total of 84,355 chemical entity mentions labeled manually by expert\n    chemistry literature curators, following annotation guidelines specifically\n    defined for this task. The abstracts of the CHEMDNER corpus were selected\n    to be representative for all major chemical disciplines. Each of the\n    chemical entity mentions was manually labeled according to its\n    structure-associated chemical entity mention (SACEM) class: abbreviation,\n    family, formula, identifier, multiple, systematic and trivial. The\n    difficulty and consistency of tagging chemicals in text was measured using\n    an agreement study between annotators, obtaining a percentage agreement of\n    91. For a subset of the CHEMDNER corpus (the test set of 3,000 abstracts)\n    we provide not only the Gold Standard manual annotations, but also mentions\n    automatically detected by the 26 teams that participated in the BioCreative\n    IV CHEMDNER chemical mention recognition task. In addition, we release the\n    CHEMDNER silver standard corpus of automatically extracted mentions from\n    17,000 randomly selected PubMed abstracts. A version of the CHEMDNER corpus\n    in the BioC format has been generated as well. We propose a standard for\n    required minimum information about entity annotations for the construction\n    of domain specific corpora on chemical and drug entities. The CHEMDNER\n    corpus and annotation guidelines are available at:\n    ttp://www.biocreative.org/resources/biocreative-iv/chemdner-corpus/\n  }\n}\n",
-  "config_name": "chemdner_source",
+  "builder_name": "parquet",
+  "citation": "",
+  "config_name": "raw_data",
   "dataset_name": "chemdner",
-  "dataset_size": 20847052,
-  "description": "We present the CHEMDNER corpus, a collection of 10,000 PubMed abstracts that\ncontain a total of 84,355 chemical entity mentions labeled manually by expert\nchemistry literature curators, following annotation guidelines specifically\ndefined for this task. The abstracts of the CHEMDNER corpus were selected to be\nrepresentative for all major chemical disciplines. Each of the chemical entity\nmentions was manually labeled according to its structure-associated chemical\nentity mention (SACEM) class: abbreviation, family, formula, identifier,\nmultiple, systematic and trivial.\n",
+  "dataset_size": 14462735,
+  "description": "",
   "download_checksums": {
-    "https://ftp.ncbi.nlm.nih.gov/pub/lu/BC7-NLM-Chem-track/BC7T2-CHEMDNER-corpus_v2.BioC.xml.gz": {
-      "num_bytes": 39403520,
+    "hf://datasets/jablonkagroup/chemdner@f7d968f964bffec023d813b42c66c629099b5128/raw_data/train-00000-of-00001.parquet": {
+      "num_bytes": 5930974,
+      "checksum": null
+    },
+    "hf://datasets/jablonkagroup/chemdner@f7d968f964bffec023d813b42c66c629099b5128/raw_data/val-00000-of-00001.parquet": {
+      "num_bytes": 1267216,
+      "checksum": null
+    },
+    "hf://datasets/jablonkagroup/chemdner@f7d968f964bffec023d813b42c66c629099b5128/raw_data/test-00000-of-00001.parquet": {
+      "num_bytes": 1292058,
       "checksum": null
     }
   },
-  "download_size": 39403520,
+  "download_size": 8490248,
   "features": {
-    "passages": [
-      {
-        "document_id": {
-          "dtype": "string",
-          "_type": "Value"
-        },
-        "type": {
-          "dtype": "string",
-          "_type": "Value"
-        },
-        "text": {
-          "dtype": "string",
-          "_type": "Value"
-        },
-        "offset": {
-          "dtype": "int32",
-          "_type": "Value"
-        },
-        "entities": [
-          {
-            "id": {
-              "dtype": "string",
-              "_type": "Value"
-            },
-            "offsets": [
-              [
-                {
-                  "dtype": "int32",
-                  "_type": "Value"
-                }
-              ]
-            ],
-            "text": [
-              {
-                "dtype": "string",
-                "_type": "Value"
-              }
-            ],
-            "type": {
-              "dtype": "string",
-              "_type": "Value"
-            },
-            "normalized": [
-              {
-                "db_name": {
-                  "dtype": "string",
-                  "_type": "Value"
-                },
-                "db_id": {
-                  "dtype": "string",
-                  "_type": "Value"
-                }
-              }
-            ]
-          }
-        ]
-      }
-    ]
+    "sentence": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "matched_words": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "split": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "__index_level_0__": {
+      "dtype": "int64",
+      "_type": "Value"
+    }
   },
-  "homepage": "https://biocreative.bioinformatics.udel.edu/resources/biocreative-iv/chemdner-corpus/",
-  "license": "License information unavailable",
-  "size_in_bytes": 60250572,
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 22952983,
   "splits": {
     "train": {
       "name": "train",
-      "num_bytes": 7305748,
-      "num_examples": 3500,
+      "num_bytes": 10108024,
+      "num_examples": 13608,
+      "dataset_name": "chemdner"
+    },
+    "val": {
+      "name": "val",
+      "num_bytes": 2148419,
+      "num_examples": 2916,
       "dataset_name": "chemdner"
     },
     "test": {
       "name": "test",
-      "num_bytes": 6252573,
-      "num_examples": 3000,
-      "dataset_name": "chemdner"
-    },
-    "validation": {
-      "name": "validation",
-      "num_bytes": 7288731,
-      "num_examples": 3500,
+      "num_bytes": 2206292,
+      "num_examples": 2915,
       "dataset_name": "chemdner"
     }
   },
   "version": {
-    "version_str": "1.0.0",
-    "major": 1,
+    "version_str": "0.0.0",
+    "major": 0,
     "minor": 0,
     "patch": 0
   }
