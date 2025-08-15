@@ -143,7 +143,7 @@ if __name__ == '__main__':
                         fn_kwargs={"tokenizer": tokenizer, "b_to_i_label": b_to_i_label}
         )
     tokenized_augmented_pool = tokenized_augmented_pool.cast_column("ner_tags", Sequence(feature=tokenized_dataset['train'].features['ner_tags'].feature))
-
+    print(f"Tokenized pool augmented: {len(tokenized_augmented_pool)}")
     ##################
     #### TRAINING ####
     ##################

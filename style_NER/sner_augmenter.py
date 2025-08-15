@@ -1,6 +1,55 @@
 import os
 import json
 import utils
+from datasets import Dataset
+
+def convert_chemdner(dataset):
+    train_tokens = []
+    train_ner_tags = []
+    test_tokens = []
+    test_ner_tags = []
+
+    for line in dataset["train"]:
+        matched_words = line["entities"]
+        sentence = line["text"].split()
+        labels = [0] * len(sentence)
+
+        for entity in matched_words:
+            words = entity.split()
+            if len(words) == 1:
+                for word in sentence:
+                    if entity in word:
+                        labels[sentence.index(word)] = 1
+            else:
+                i=0
+                for entity in words:
+                    try:
+                        for word in sentence:
+                            if entity in word:
+                                if i == 0:
+                                    labels[sentence.index(word)] = 1
+                                else:
+                                    labels[sentence.index(word)] = 2
+                                i+=1
+                    except:
+                        pass
+        if len(sentence) == len(labels):
+            if line["split"] == "train":
+                train_tokens.append(sentence)
+                train_ner_tags.append(labels)
+            else:
+                test_tokens.append(sentence)
+                test_ner_tags.append(labels)
+        else:
+            print(len(sentence))
+            print(len(labels))
+            print("Error")
+
+
+    train_dataset = Dataset.from_dict({"tokens": train_tokens, "ner_tags": train_ner_tags})
+    test_dataset = Dataset.from_dict({"tokens": test_tokens, "ner_tags": test_ner_tags})
+
+    return train_dataset, test_dataset
 
 class SNER_Augmenter():
     def __init__(self, seed, source_dataset, target_dataset, source_name, target_name):
@@ -9,28 +58,62 @@ class SNER_Augmenter():
         self.seed = seed
         self.source_name = source_name
         self.target_name = target_name
+        
+        if source_name == "chemdner":
+            source_dataset['train'], source_dataset['test'] = convert_chemdner(source_dataset)
 
         os.chdir('style_NER')
-        with open(f"data/ner/{source_name}/train.txt", "w") as f_out:
+        with open(f"data/ner/{source_name}/train.txt", "w", encoding="utf-8") as f_out:
             for line in source_dataset['train']:
                 for txt, tag in zip(line["tokens"], line["ner_tags"]):
+                    if tag % 2 == 0 and tag != 0: tag = 2 
+                    elif tag % 2 == 1 and tag != 0: tag = 1
                     print("{}\t{}".format(txt, self.labels[tag]), file=f_out)
                 print(file=f_out)
 
-        with open(f"data/ner/{source_name}/dev.txt", "w") as f_out:
+        with open(f"data/ner/{source_name}/dev.txt", "w", encoding="utf-8") as f_out:
+            for line in source_dataset['train']:
+                for txt, tag in zip(line["tokens"], line["ner_tags"]):
+                    if tag % 2 == 0 and tag != 0: tag = 2 
+                    elif tag % 2 == 1 and tag != 0: tag = 1
+                    print("{}\t{}".format(txt, self.labels[tag]), file=f_out)
+                print(file=f_out)
+
+        with open(f"data/ner/{source_name}/test.txt", "w", encoding="utf-8") as f_out:
+            for line in source_dataset['test']:
+                for txt, tag in zip(line["tokens"], line["ner_tags"]):
+                    if tag % 2 == 0 and tag != 0: tag = 2 
+                    elif tag % 2 == 1 and tag != 0: tag = 1
+                    print("{}\t{}".format(txt, self.labels[tag]), file=f_out)
+                print(file=f_out)
+
+        with open(f"data/ner/{target_name}/train.txt", "w") as f_out:
             for line in target_dataset['train']:
                 for txt, tag in zip(line["tokens"], line["ner_tags"]):
+                    if tag % 2 == 0 and tag != 0: tag = 2 
+                    elif tag % 2 == 1 and tag != 0: tag = 1
                     print("{}\t{}".format(txt, self.labels[tag]), file=f_out)
                 print(file=f_out)
 
-        with open(f"data/ner/{source_name}/test.txt", "w") as f_out:
+        with open(f"data/ner/{target_name}/dev.txt", "w") as f_out:
+            for line in target_dataset['train']:
+                for txt, tag in zip(line["tokens"], line["ner_tags"]):
+                    if tag % 2 == 0 and tag != 0: tag = 2 
+                    elif tag % 2 == 1 and tag != 0: tag = 1
+                    print("{}\t{}".format(txt, self.labels[tag]), file=f_out)
+                print(file=f_out)
+
+        with open(f"data/ner/{target_name}/test.txt", "w") as f_out:
             for line in target_dataset['test']:
                 for txt, tag in zip(line["tokens"], line["ner_tags"]):
+                    if tag % 2 == 0 and tag != 0: tag = 2 
+                    elif tag % 2 == 1 and tag != 0: tag = 1
                     print("{}\t{}".format(txt, self.labels[tag]), file=f_out)
                 print(file=f_out)
         os.chdir('..')
 
         os.system(f"python -m style_NER.src.commons.preproc_domain --input_dir ner/{source_name} --output_file linearized_domain/{source_name}")
+        os.system(f"python -m style_NER.src.commons.preproc_domain --input_dir ner/{target_name} --output_file linearized_domain/{target_name}")
 
     def fit(self):
 

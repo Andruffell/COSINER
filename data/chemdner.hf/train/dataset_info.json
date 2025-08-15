@@ -1,64 +1,43 @@
 {
   "builder_name": "parquet",
   "citation": "",
-  "config_name": "raw_data",
-  "dataset_name": "chemdner",
-  "dataset_size": 14462735,
+  "config_name": "default",
+  "dataset_name": "chemnlp-chemdner",
+  "dataset_size": 14376666,
   "description": "",
   "download_checksums": {
-    "hf://datasets/jablonkagroup/chemdner@f7d968f964bffec023d813b42c66c629099b5128/raw_data/train-00000-of-00001.parquet": {
-      "num_bytes": 5930974,
-      "checksum": null
-    },
-    "hf://datasets/jablonkagroup/chemdner@f7d968f964bffec023d813b42c66c629099b5128/raw_data/val-00000-of-00001.parquet": {
-      "num_bytes": 1267216,
-      "checksum": null
-    },
-    "hf://datasets/jablonkagroup/chemdner@f7d968f964bffec023d813b42c66c629099b5128/raw_data/test-00000-of-00001.parquet": {
-      "num_bytes": 1292058,
+    "hf://datasets/kjappelbaum/chemnlp-chemdner@7ef3561c2950adf5f490887a5bad586700767e67/data/train-00000-of-00001-884f67b49594bedb.parquet": {
+      "num_bytes": 8033115,
       "checksum": null
     }
   },
-  "download_size": 8490248,
+  "download_size": 8033115,
   "features": {
-    "sentence": {
-      "dtype": "string",
-      "_type": "Value"
+    "entities": {
+      "feature": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "_type": "Sequence"
     },
-    "matched_words": {
+    "text": {
       "dtype": "string",
       "_type": "Value"
     },
     "split": {
       "dtype": "string",
       "_type": "Value"
-    },
-    "__index_level_0__": {
-      "dtype": "int64",
-      "_type": "Value"
     }
   },
   "homepage": "",
   "license": "",
-  "size_in_bytes": 22952983,
+  "size_in_bytes": 22409781,
   "splits": {
     "train": {
       "name": "train",
-      "num_bytes": 10108024,
-      "num_examples": 13608,
-      "dataset_name": "chemdner"
-    },
-    "val": {
-      "name": "val",
-      "num_bytes": 2148419,
-      "num_examples": 2916,
-      "dataset_name": "chemdner"
-    },
-    "test": {
-      "name": "test",
-      "num_bytes": 2206292,
-      "num_examples": 2915,
-      "dataset_name": "chemdner"
+      "num_bytes": 14376666,
+      "num_examples": 19440,
+      "dataset_name": "chemnlp-chemdner"
     }
   },
   "version": {
