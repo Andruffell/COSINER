@@ -20,10 +20,9 @@ import utils
 if __name__ == '__main__':
     args = utils.parse_args(sys.argv[1:])
     device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
-    print(device)
-    print(args)
 
-    baseline = args.baseline if args.baseline != None else "mr"
+    baseline = args.baseline if args.baseline != None else "bert"
+    train_model = args.model if args.baseline != "bert" else "bert-base-uncased"
 
     enable_full_determinism(args.seed)
     dataset_name = args.dataset.split('/')[-1].split('.')[0]
@@ -51,11 +50,11 @@ if __name__ == '__main__':
 
     start_time = time.time()
     print(baseline)
-    counterfactual_set = Baseline(baseline, dataset['train'], label_list).generate_counterfactual_set()
+    counterfactual_set = Baseline(baseline, dataset['train'], label_list).generate_counterfactual_set() if baseline != "bert" and baseline != "biobert" else []
     augmentation_time = time.time() - start_time
 
     model = AutoModelForTokenClassification.from_pretrained(
-                                                        args.model,
+                                                        train_model,
                                                         cache_dir=None,
                                                         num_labels=len(label_list), 
                                                         id2label=id2label, 
@@ -74,7 +73,7 @@ if __name__ == '__main__':
                                 seed=args.seed,
                                 full_determinism=True)
     
-    tokenizer = AutoTokenizer.from_pretrained(args.model, 
+    tokenizer = AutoTokenizer.from_pretrained(train_model, 
                                               local_files_only=True, 
                                               padding=True, 
                                               num_labels=len(label_list))
@@ -93,7 +92,7 @@ if __name__ == '__main__':
                     batched=True,
                     desc="Running tokenizer on validation dataset",
                     fn_kwargs={"tokenizer": tokenizer, "b_to_i_label": b_to_i_label}
-                ).remove_columns(['ner_tags', 'id', 'tokens'])
+                ).remove_columns(['ner_tags', 'id', 'tokens']) if baseline != "bert" and baseline != "biobert" else []
 
     test_dataset_tokenized = dataset['test'].map(
                     utils.tokenize_and_align_labels,
@@ -104,7 +103,7 @@ if __name__ == '__main__':
 
     trainer = Trainer(
             model=model.to(device),
-            train_dataset=concatenate_datasets([train_dataset_tokenized, counterfactual_set_tokenized]).shuffle(args.seed),
+            train_dataset=concatenate_datasets([train_dataset_tokenized, counterfactual_set_tokenized]).shuffle(args.seed) if baseline != "bert" and baseline != "biobert" else train_dataset_tokenized,
             tokenizer=tokenizer,
             data_collator=data_collator,
             compute_metrics=utils.compute_metrics_wrapper(label_list, metric),

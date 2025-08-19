@@ -3,7 +3,20 @@ import os
 import pandas as pd
 import numpy as np
 import scipy.stats as st
-from matplotlib.ticker import MaxNLocator
+class Result:
+    def __init__(self, method:str, dataset:str, scenario:int, precision:tuple, recall:tuple, f1:tuple, time:tuple, budget=0, exr=0, reverse=0):
+        self.result_dict = {
+                       "method": method, 
+                       "dataset": dataset, 
+                       "scenario": scenario, 
+                       "precision": precision, 
+                       "recall": recall,
+                       "f1": f1,
+                       "time": time,
+                       "budget": budget, 
+                       "exr": exr, 
+                       "max_min_similarity": "max" if reverse == 0 else "min"
+                       }
 
 def confidence_intervals(path, files, confidence=0.95):
     xlsx = [pd.ExcelFile(os.path.join(path, f'{x}')) for x in files]
@@ -35,6 +48,7 @@ if __name__=="__main__":
     
     ### COSINER
     print("COSINER results")
+    cosiner_results = []
     cosiner_path = os.path.join(results_path, "cosiner")
     os.chdir(cosiner_path)
     datasets = os.listdir()
@@ -58,16 +72,16 @@ if __name__=="__main__":
                     for e in exr_values:
                             for r in reverse:
                                 file_name = f"{d}_{l}_{e}_{b}_{r}_"
-                                print(file_name)
                                 found = [f for f in files if file_name in f]
+                                scenario = 2 if l == min(dataset_length) else 10 if l == max(dataset_length) else 5
                                 recall, precision, f1, augmentation_time = confidence_intervals(dataset_path, found)
-                                print(f"Recall: {recall}")
-                                print(f"Precision: {precision}")
-                                print(f"F1: {f1}")
-                                print(f"Augmentation time: {augmentation_time} seconds")
+                                x = Result("cosiner", d, scenario, list(precision), list(recall), list(f1), list(augmentation_time), b, e, r).result_dict
+                                print(x)
+                                cosiner_results.append(x)
 
     ### MELM
     print("MELM results")
+    melm_results = []
     melm_path = os.path.join(results_path, "melm")
     os.chdir(melm_path)
     datasets = os.listdir()
@@ -85,14 +99,19 @@ if __name__=="__main__":
                 file_name = f"{d}_{l}_"
                 print(file_name)
                 found = [f for f in files if file_name in f]
+                scenario = 2 if l == min(dataset_length) else 10 if l == max(dataset_length) else 5
                 recall, precision, f1, augmentation_time = confidence_intervals(dataset_path, found)
                 print(f"Recall: {recall}")
                 print(f"Precision: {precision}")
                 print(f"F1: {f1}")
                 print(f"Augmentation time: {augmentation_time} seconds")
+                x = Result("melm", d, scenario, list(precision), list(recall), list(f1), list(augmentation_time), 0, 0, 0).result_dict
+                print(x)
+                melm_results.append(x)
 
     ### Style_NER
     print("Style_NER results")
+    styleNER_results = []
     style_path = os.path.join(results_path, "style_NER")
     os.chdir(style_path)
     datasets = os.listdir()
@@ -110,14 +129,19 @@ if __name__=="__main__":
                 file_name = f"{d}_{l}_"
                 print(file_name)
                 found = [f for f in files if file_name in f]
+                scenario = 2 if l == min(dataset_length) else 10 if l == max(dataset_length) else 5
                 recall, precision, f1, augmentation_time = confidence_intervals(dataset_path, found)
                 print(f"Recall: {recall}")
                 print(f"Precision: {precision}")
                 print(f"F1: {f1}")
                 print(f"Augmentation time: {augmentation_time} seconds")
+                x = Result("style_NER", d, scenario, list(precision), list(recall), list(f1), list(augmentation_time), 0, 0, 0).result_dict
+                print(x)
+                styleNER_results.append(x)
 
     ### LWTR; MR; SR
     print("Baselines results")
+    baseline_results = []
     baseline_path = os.path.join(results_path, "baselines")
     os.chdir(baseline_path)
     datasets = os.listdir()
@@ -137,9 +161,18 @@ if __name__=="__main__":
                     file_name = f"{d}_{bs}_{l}_"
                     print(file_name)
                     found = [f for f in files if file_name in f]
+                    scenario = 2 if l == min(dataset_length) else 10 if l == max(dataset_length) else 5
                     recall, precision, f1, augmentation_time = confidence_intervals(dataset_path, found)
                     print(f"Recall: {recall}")
                     print(f"Precision: {precision}")
                     print(f"F1: {f1}")
                     print(f"Augmentation time: {augmentation_time} seconds")
-        
+                    x = Result(bs, d, scenario, list(precision), list(recall), list(f1), list(augmentation_time), 0, 0, 0).result_dict
+                    print(x)
+                    baseline_results.append(x)
+    
+    cosiner_results.extend(melm_results)
+    cosiner_results.extend(styleNER_results)
+    cosiner_results.extend(baseline_results)
+    
+    df = pd.DataFrame.from_records(cosiner_results)

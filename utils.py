@@ -5,7 +5,7 @@ from transformers_interpret import TokenClassificationExplainer
 
 def parse_args(argv):
     parser = argparse.ArgumentParser()
-    parser.add_argument('-model', default="dmis-lab/biobert-v1.1", type=str, help="Model name")
+    parser.add_argument('-model', default="dmis-lab/biobert-v1.1", choices=["bert-base-uncased", "dmis-lab/biobert-v1.1"], type=str, help="Model name")
     parser.add_argument('-epochs', default=5, type=int, help='Number of training epochs')
     parser.add_argument('-seed', default=100, type=int, help="Seed for reproducibility")
     parser.add_argument('-dataset', default=r'data/ncbi.hf', type=str, choices=[r"data/ncbi.hf", r"data/bc5cdr.hf", r"data/bc2gm.hf"], help="\nNCBI-disease-IOB: diseases dataset,\nBC5CDR-chem-IOB: chemical dataset,\nBC2GM-IOB: genetic dataset")
@@ -14,7 +14,7 @@ def parse_args(argv):
     parser.add_argument('-budget', default=0, type=int, help="0: all the example generated (local-gen); 100-300-500 example (global-gen)")
     parser.add_argument('-exr', default=5, type=int, help="Number of example generated for each entry with at least one entity within the dataset")
     parser.add_argument('-xai', type=int, help="Sample to perform XAI on")
-    parser.add_argument('-baseline', type=str, default=None, choices=[None, 'lwtr', 'sr', 'mr'])
+    parser.add_argument('-baseline', type=str, default=None, choices=['bert', 'biobert', 'lwtr', 'sr', 'mr'])
     args = parser.parse_args(argv)
     return args
 
