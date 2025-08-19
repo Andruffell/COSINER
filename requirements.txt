@@ -7,7 +7,7 @@ datasets==2.17.1
 seqeval==1.2.2
 torch==2.2.0+cu121
 accelerate==0.23.0
-evaluate==0.4.1
+evaluate==0.4.5
 transformers-interpret==0.10.0
 openpyxl==3.1.2
 bioc==2.1
