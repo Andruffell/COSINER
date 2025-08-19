@@ -23,6 +23,7 @@ if __name__ == '__main__':
 
     baseline = args.baseline if args.baseline != None else "bert"
     train_model = args.model if args.baseline != "bert" else "bert-base-uncased"
+    revision = "86b5e0934494bd15c9632b12f734a8a67f723594" if baseline == "bert" else "551ca18efd7f052c8dfa0b01c94c2a8e68bc5488"
 
     enable_full_determinism(args.seed)
     dataset_name = args.dataset.split('/')[-1].split('.')[0]
@@ -55,6 +56,7 @@ if __name__ == '__main__':
 
     model = AutoModelForTokenClassification.from_pretrained(
                                                         train_model,
+                                                        revision=revision,
                                                         cache_dir=None,
                                                         num_labels=len(label_list), 
                                                         id2label=id2label, 
@@ -74,6 +76,7 @@ if __name__ == '__main__':
                                 full_determinism=True)
     
     tokenizer = AutoTokenizer.from_pretrained(train_model, 
+                                              revision=revision,
                                               local_files_only=True, 
                                               padding=True, 
                                               num_labels=len(label_list))

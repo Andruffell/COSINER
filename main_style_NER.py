@@ -11,7 +11,7 @@ from datasets import Dataset
 from datasets import load_from_disk, Sequence
 from transformers import AutoTokenizer
 from transformers import DataCollatorForTokenClassification
-from transformers import AutoConfig,AutoModelForTokenClassification, TrainingArguments, Trainer, enable_full_determinism
+from transformers import AutoModelForTokenClassification, TrainingArguments, Trainer, enable_full_determinism
 
 from datasets import concatenate_datasets
 import os
@@ -95,6 +95,7 @@ if __name__ == '__main__':
     print(dataset['train'])
 
     tokenizer = AutoTokenizer.from_pretrained(args.model, 
+                                              revision="551ca18efd7f052c8dfa0b01c94c2a8e68bc5488",
                                               local_files_only=True, 
                                               padding=True, 
                                               num_labels=len(label_list))
@@ -102,6 +103,7 @@ if __name__ == '__main__':
     data_collator = DataCollatorForTokenClassification(tokenizer=tokenizer)
 
     model = AutoModelForTokenClassification.from_pretrained(args.model,
+                                                        revision="551ca18efd7f052c8dfa0b01c94c2a8e68bc5488",
                                                         cache_dir=None,
                                                         num_labels=len(label_list), 
                                                         id2label=id2label, 
@@ -109,16 +111,6 @@ if __name__ == '__main__':
                                                         token=None,
                                                         )
     model.to(device)
-
-    config = AutoConfig.from_pretrained(
-        args.model,
-        num_labels=len(label_list),
-        label2id=label2id,
-        id2label={i: l for l, i in label2id.items()},
-        finetuning_task='ner',
-        cache_dir=None,
-        revision="main",
-    )
 
     training_args = TrainingArguments(
                                 optim="adamw_torch",

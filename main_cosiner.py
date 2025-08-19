@@ -21,8 +21,7 @@ import time
 if __name__ == '__main__':
     args = utils.parse_args(sys.argv[1:])
     device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
-    print(device)
-    print(args)
+
     enable_full_determinism(args.seed)
     dataset_name = args.dataset.split('/')[-1].split('.')[0]
 
@@ -57,6 +56,7 @@ if __name__ == '__main__':
 
     model = AutoModelForTokenClassification.from_pretrained(
                                                         args.model,
+                                                        revision="551ca18efd7f052c8dfa0b01c94c2a8e68bc5488",
                                                         cache_dir=None,
                                                         num_labels=len(label_list), 
                                                         id2label=id2label, 
@@ -65,6 +65,7 @@ if __name__ == '__main__':
                                                         )
     
     tokenizer = AutoTokenizer.from_pretrained(args.model, 
+                                              revision="551ca18efd7f052c8dfa0b01c94c2a8e68bc5488",
                                               local_files_only=True, 
                                               padding=True, 
                                               num_labels=len(label_list))

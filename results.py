@@ -139,7 +139,7 @@ if __name__=="__main__":
                 print(x)
                 styleNER_results.append(x)
 
-    ### LWTR; MR; SR
+    ### bert, biobert, LWTR; MR; SR
     print("Baselines results")
     baseline_results = []
     baseline_path = os.path.join(results_path, "baselines")
@@ -152,7 +152,7 @@ if __name__=="__main__":
         if ".gitignore" in files: files.remove(".gitignore")
         
         dataset_name = list(set([x.split("_")[0] for x in files]))              # dataset name
-        baseline_name = ["lwtr", "mr", "sr"]
+        baseline_name = ["bert", "biobert", "lwtr", "mr", "sr"]
         dataset_length = sorted(list(set([x.split("_")[2] for x in files])))    # few-shot scenario
 
         for d in dataset_name:
