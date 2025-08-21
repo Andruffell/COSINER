@@ -49,23 +49,22 @@ if __name__ == '__main__':
     # Counterfactual set generation
     start_time = time.time()
     lexicon = LexiconGenerator("cosiner").lexicon_generation_method(dataset['train']) #Lexicon generation using entities
-    embeddings = cosiner.embedding_extraction(args.model, dataset['train'], lexicon)
+    embeddings = cosiner.embedding_extraction(dataset['train'], lexicon)
     similarityList = cosiner.cosine_similarity(embeddings, args.exr, args.reverse)
     counterfactual_set = cosiner.augment_dataset(dataset['train'], args.exr, similarityList, args.budget, args.reverse, label_list)
     augmentation_time = time.time() - start_time
 
     model = AutoModelForTokenClassification.from_pretrained(
-                                                        args.model,
-                                                        revision="551ca18efd7f052c8dfa0b01c94c2a8e68bc5488",
+                                                        "models/BioBERT",
                                                         cache_dir=None,
                                                         num_labels=len(label_list), 
                                                         id2label=id2label, 
                                                         label2id=label2id,
                                                         token=None,
+                                                        local_files_only=True
                                                         )
     
-    tokenizer = AutoTokenizer.from_pretrained(args.model, 
-                                              revision="551ca18efd7f052c8dfa0b01c94c2a8e68bc5488",
+    tokenizer = AutoTokenizer.from_pretrained("models/BioBERT/TOKENIZER", 
                                               local_files_only=True, 
                                               padding=True, 
                                               num_labels=len(label_list))

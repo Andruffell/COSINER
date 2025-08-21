@@ -5,7 +5,6 @@ from transformers_interpret import TokenClassificationExplainer
 
 def parse_args(argv):
     parser = argparse.ArgumentParser()
-    parser.add_argument('-model', default="dmis-lab/biobert-v1.1", choices=["bert-base-uncased", "dmis-lab/biobert-v1.1"], type=str, help="Model name")
     parser.add_argument('-epochs', default=5, type=int, help='Number of training epochs')
     parser.add_argument('-seed', default=100, type=int, help="Seed for reproducibility")
     parser.add_argument('-dataset', default=r'data/ncbi.hf', type=str, choices=[r"data/ncbi.hf", r"data/bc5cdr.hf", r"data/bc2gm.hf"], help="\nNCBI-disease-IOB: diseases dataset,\nBC5CDR-chem-IOB: chemical dataset,\nBC2GM-IOB: genetic dataset")

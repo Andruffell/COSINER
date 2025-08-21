@@ -22,9 +22,8 @@ if __name__ == '__main__':
     device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 
     baseline = args.baseline if args.baseline != None else "bert"
-    train_model = args.model if args.baseline != "bert" else "bert-base-uncased"
-    revision = "86b5e0934494bd15c9632b12f734a8a67f723594" if baseline == "bert" else "551ca18efd7f052c8dfa0b01c94c2a8e68bc5488"
-
+    train_model = "models/BioBERT" if args.baseline != "bert" else "models/BERT"
+    print(train_model)
     enable_full_determinism(args.seed)
     dataset_name = args.dataset.split('/')[-1].split('.')[0]
 
@@ -56,12 +55,12 @@ if __name__ == '__main__':
 
     model = AutoModelForTokenClassification.from_pretrained(
                                                         train_model,
-                                                        revision=revision,
                                                         cache_dir=None,
                                                         num_labels=len(label_list), 
                                                         id2label=id2label, 
                                                         label2id=label2id,
                                                         token=None,
+                                                        local_files_only=True
                                                         )
 
 
@@ -75,11 +74,11 @@ if __name__ == '__main__':
                                 seed=args.seed,
                                 full_determinism=True)
     
-    tokenizer = AutoTokenizer.from_pretrained(train_model, 
-                                              revision=revision,
+    tokenizer = AutoTokenizer.from_pretrained(train_model+"/TOKENIZER", 
                                               local_files_only=True, 
                                               padding=True, 
-                                              num_labels=len(label_list))
+                                              num_labels=len(label_list)
+                                              )
 
     train_dataset_tokenized = dataset['train'].map(
                         utils.tokenize_and_align_labels,
@@ -106,7 +105,7 @@ if __name__ == '__main__':
 
     trainer = Trainer(
             model=model.to(device),
-            train_dataset=concatenate_datasets([train_dataset_tokenized, counterfactual_set_tokenized]).shuffle(args.seed) if baseline != "bert" and baseline != "biobert" else train_dataset_tokenized,
+            train_dataset=concatenate_datasets([train_dataset_tokenized, counterfactual_set_tokenized]).shuffle(args.seed) if baseline != "bert" and baseline != "biobert" else train_dataset_tokenized.shuffle(args.seed),
             tokenizer=tokenizer,
             data_collator=data_collator,
             compute_metrics=utils.compute_metrics_wrapper(label_list, metric),

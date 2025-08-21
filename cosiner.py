@@ -15,9 +15,9 @@ def update_v_concept(V_concept, V_context, C_concept):
     V_concept += lr * (1-sim) * V_context
     return V_concept
 
-def embedding_extraction(model_type, training_set, ontology):
-    tokenizer = AutoTokenizer.from_pretrained(model_type, padding=True)
-    pipe = pipeline('feature-extraction', model=model_type, tokenizer=tokenizer)
+def embedding_extraction(training_set, ontology):
+    tokenizer = AutoTokenizer.from_pretrained("models/BioBERT/TOKENIZER", padding=True, local_files_only=True)
+    pipe = pipeline('feature-extraction', model="models/BioBERT", tokenizer=tokenizer)
     embeddings = {}
     for entity, info in ontology.items():
         joinedEntity = ' '.join(entity)        
