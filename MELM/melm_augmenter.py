@@ -1,4 +1,6 @@
 import os
+import sys
+import subprocess
 
 class MELMAugmenter():
     def __init__(self, seed, train_data, valid_data):
@@ -21,12 +23,12 @@ class MELMAugmenter():
 
     def fit(self):
         os.chdir('MELM-COSINER')
-        os.system("01_train.sh")
+        subprocess.run([sys.executable, "01_train.py"], check=True)
         os.chdir('..')
 
     def augment_dataset(self):
         os.chdir('MELM-COSINER')
-        os.system("02_generate.sh {}".format(self.seed))
+        subprocess.run([sys.executable, "02_generate.py"], check=True)
         final_json = []
         with open('data/aug.entity', 'r') as outfile:
             tokens = []
