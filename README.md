@@ -3,9 +3,12 @@
 
 Python ≥ 3.10
 
+git-lfs
+
 `venv` module (comes with Python standard library)
 
 CUDA-compatible GPU (for GPU acceleration)
+
 
 ## 1. Clone the repository
 Include all submodules:
@@ -47,7 +50,6 @@ COSINER experiments:
 Baselines experiments:
 
 `./experiments_baselines.sh`
-
 
 
 # Common problems:
