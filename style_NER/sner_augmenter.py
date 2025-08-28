@@ -1,4 +1,6 @@
 import os
+import sys
+import subprocess
 import json
 import utils
 from datasets import Dataset
@@ -112,8 +114,8 @@ class SNER_Augmenter():
                 print(file=f_out)
         os.chdir('..')
 
-        os.system(f"python -m style_NER.src.commons.preproc_domain --input_dir ner/{source_name} --output_file linearized_domain/{source_name}")
-        os.system(f"python -m style_NER.src.commons.preproc_domain --input_dir ner/{target_name} --output_file linearized_domain/{target_name}")
+        subprocess.run([sys.executable, "-m", "style_NER.src.commons.preproc_domain", "--input_dir", f"ner/{source_name}", "--output_file", f"linearized_domain/{source_name}"])
+        subprocess.run([sys.executable, "-m", "style_NER.src.commons.preproc_domain", "--input_dir", f"ner/{target_name}", "--output_file", f"linearized_domain/{target_name}"])
 
     def fit(self):
 
@@ -126,7 +128,7 @@ class SNER_Augmenter():
             json.dump(data, f, indent=4)
 
         # Run to learn the style
-        os.system(f"python -m style_NER.src.exp_domain.main --config configs/exp_domain/{self.target_name}.json")
+        subprocess.run([sys.executable, "-m", "style_NER.src.exp_domain.main", "--config", f"configs/exp_domain/{self.target_name}.json"])
 
         with open(f'style_NER/configs/exp_domain/{self.target_name}.json', 'r', encoding='utf-8') as f:
             data = json.load(f)
@@ -137,15 +139,13 @@ class SNER_Augmenter():
             json.dump(data, f, indent=4)
         
         # Run for cross-domain
-        os.system(f"echo 1 | python -m style_NER.src.exp_domain.main --config configs/exp_domain/{self.target_name}.json | echo 1")
+        subprocess.run([sys.executable, "-m", "style_NER.src.exp_domain.main", "--config", f"configs/exp_domain/{self.target_name}.json"],input="1\n", shell=True, text=True)
 
     def augment_dataset(self):
-
         # Generation of augmented data
-        os.system(f"echo 1 | python -m style_NER.src.exp_domain.main --config configs/exp_domain/{self.target_name}.json --mode generate --replicable")
-        os.system(f"python -m style_NER.src.commons.postproc_domain --inp_file style_NER/checkpoints/{self.source_name}-{self.target_name}/predictions/src_train_src2tgt_greedy.txt --out_file style_NER/data/ner/{self.target_name}/aug1.conll")
-        os.system(f"python -m style_NER.src.commons.postproc_domain --inp_file style_NER/checkpoints/{self.source_name}-{self.target_name}/predictions/src_train_src2tgt_top5.txt --out_file style_NER/data/ner/{self.target_name}/aug2.conll")
-
+        subprocess.run([sys.executable, "-m", "style_NER.src.exp_domain.main", "--config", f"configs/exp_domain/{self.target_name}.json", "--mode", "generate", "--replicable"], input="1\n", shell=True, text=True)
+        subprocess.run([sys.executable, "-m", "style_NER.src.commons.postproc_domain", "--inp_file", f"style_NER/checkpoints/{self.source_name}-{self.target_name}/predictions/src_train_src2tgt_greedy.txt", "--out_file", f"style_NER/data/ner/{self.target_name}/aug1.conll"])        
+        subprocess.run([sys.executable, "-m", "style_NER.src.commons.postproc_domain", "--inp_file", f"style_NER/checkpoints/{self.source_name}-{self.target_name}/predictions/src_train_src2tgt_top5.txt", "--out_file", f"style_NER/data/ner/{self.target_name}/aug2.conll"])
         final_json = []
         with open(f'style_NER/data/ner/{self.target_name}/aug1.conll', 'r') as outfile:
             tokens = []
