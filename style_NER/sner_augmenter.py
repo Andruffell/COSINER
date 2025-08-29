@@ -139,11 +139,11 @@ class SNER_Augmenter():
             json.dump(data, f, indent=4)
         
         # Run for cross-domain
-        subprocess.run([sys.executable, "-m", "style_NER.src.exp_domain.main", "--config", f"configs/exp_domain/{self.target_name}.json"],input="1\n", shell=True, text=True)
+        subprocess.run([sys.executable, "-m", "style_NER.src.exp_domain.main", "--config", f"configs/exp_domain/{self.target_name}.json"],input="1\n", text=True)
 
     def augment_dataset(self):
         # Generation of augmented data
-        subprocess.run([sys.executable, "-m", "style_NER.src.exp_domain.main", "--config", f"configs/exp_domain/{self.target_name}.json", "--mode", "generate", "--replicable"], input="1\n", shell=True, text=True)
+        subprocess.run([sys.executable, "-m", "style_NER.src.exp_domain.main", "--config", f"configs/exp_domain/{self.target_name}.json", "--mode", "generate", "--replicable"], input="1\n", text=True)
         subprocess.run([sys.executable, "-m", "style_NER.src.commons.postproc_domain", "--inp_file", f"style_NER/checkpoints/{self.source_name}-{self.target_name}/predictions/src_train_src2tgt_greedy.txt", "--out_file", f"style_NER/data/ner/{self.target_name}/aug1.conll"])        
         subprocess.run([sys.executable, "-m", "style_NER.src.commons.postproc_domain", "--inp_file", f"style_NER/checkpoints/{self.source_name}-{self.target_name}/predictions/src_train_src2tgt_top5.txt", "--out_file", f"style_NER/data/ner/{self.target_name}/aug2.conll"])
         final_json = []
