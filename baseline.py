@@ -150,7 +150,7 @@ class Baseline():
                             newDisease = oldEntities[idx][0]
 
                             while newDisease == oldEntities[idx][0]:
-                                randomTuple = random.sample(lexicon[oldEntities[idx][1]],1)
+                                randomTuple = random.sample(sorted(lexicon[oldEntities[idx][1]]),1)
                                 newDisease = [list(i) for i in randomTuple][0]
 
                             for idx, word in enumerate(newDisease):
