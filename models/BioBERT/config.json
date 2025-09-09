@@ -1,5 +1,5 @@
 {
-  "_name_or_path": "bert-base-uncased",
+  "_name_or_path": "dmis-lab/biobert-v1.1",
   "architectures": [
     "BertModel"
   ],
@@ -22,5 +22,5 @@
   "transformers_version": "4.37.2",
   "type_vocab_size": 2,
   "use_cache": true,
-  "vocab_size": 30522
+  "vocab_size": 28996
 }
