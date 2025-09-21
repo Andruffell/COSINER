@@ -3,6 +3,8 @@ import os
 import pandas as pd
 import numpy as np
 import scipy.stats as st
+import latex_transform
+
 class Result:
     def __init__(self, method:str, dataset:str, scenario:int, precision:tuple, recall:tuple, f1:tuple, time:tuple, budget=0, exr=0, reverse=0):
         self.result_dict = {
@@ -60,7 +62,7 @@ if __name__=="__main__":
 
         ### For baselines there is also baseline name
         dataset_name = list(set([x.split("_")[0] for x in files]))              # dataset name
-        dataset_length = sorted(list(set([x.split("_")[1] for x in files])))    # few-shot scenario
+        dataset_length = sorted(list(set([int(x.split("_")[1]) for x in files])))    # few-shot scenario
         exr = [2, 5, 10]                                                        # new examples per sentence
         budget = [0, 100, 300, 500]                                             # local 0 - global 100, 300, 500
         reverse = [0, 1]                                                        # max similarity - min similarity
@@ -76,7 +78,6 @@ if __name__=="__main__":
                                 scenario = 2 if l == min(dataset_length) else 10 if l == max(dataset_length) else 5
                                 recall, precision, f1, augmentation_time = confidence_intervals(dataset_path, found)
                                 x = Result("cosiner", d, scenario, list(precision), list(recall), list(f1), list(augmentation_time), b, e, r).result_dict
-                                print(x)
                                 cosiner_results.append(x)
 
     ### MELM
@@ -92,21 +93,15 @@ if __name__=="__main__":
         if ".gitignore" in files: files.remove(".gitignore")
         
         dataset_name = list(set([x.split("_")[0] for x in files]))              # dataset name
-        dataset_length = sorted(list(set([x.split("_")[1] for x in files])))    # few-shot scenario
+        dataset_length = sorted(list(set([int(x.split("_")[1]) for x in files])))    # few-shot scenario
 
         for d in dataset_name:
             for l in dataset_length:
                 file_name = f"{d}_{l}_"
-                print(file_name)
                 found = [f for f in files if file_name in f]
                 scenario = 2 if l == min(dataset_length) else 10 if l == max(dataset_length) else 5
                 recall, precision, f1, augmentation_time = confidence_intervals(dataset_path, found)
-                print(f"Recall: {recall}")
-                print(f"Precision: {precision}")
-                print(f"F1: {f1}")
-                print(f"Augmentation time: {augmentation_time} seconds")
                 x = Result("melm", d, scenario, list(precision), list(recall), list(f1), list(augmentation_time), 0, 0, 0).result_dict
-                print(x)
                 melm_results.append(x)
 
     ### Style_NER
@@ -122,25 +117,18 @@ if __name__=="__main__":
         if ".gitignore" in files: files.remove(".gitignore")
         
         dataset_name = list(set([x.split("_")[0] for x in files]))              # dataset name
-        dataset_length = sorted(list(set([x.split("_")[1] for x in files])))    # few-shot scenario
+        dataset_length = sorted(list(set([int(x.split("_")[1]) for x in files])))    # few-shot scenario
 
         for d in dataset_name:
             for l in dataset_length:
                 file_name = f"{d}_{l}_"
-                print(file_name)
                 found = [f for f in files if file_name in f]
                 scenario = 2 if l == min(dataset_length) else 10 if l == max(dataset_length) else 5
                 recall, precision, f1, augmentation_time = confidence_intervals(dataset_path, found)
-                print(f"Recall: {recall}")
-                print(f"Precision: {precision}")
-                print(f"F1: {f1}")
-                print(f"Augmentation time: {augmentation_time} seconds")
                 x = Result("style_NER", d, scenario, list(precision), list(recall), list(f1), list(augmentation_time), 0, 0, 0).result_dict
-                print(x)
                 styleNER_results.append(x)
 
     ### bert, biobert, LWTR; MR; SR
-    print("Baselines results")
     baseline_results = []
     baseline_path = os.path.join(results_path, "baselines")
     os.chdir(baseline_path)
@@ -153,26 +141,41 @@ if __name__=="__main__":
         
         dataset_name = list(set([x.split("_")[0] for x in files]))              # dataset name
         baseline_name = ["bert", "biobert", "lwtr", "mr", "sr"]
-        dataset_length = sorted(list(set([x.split("_")[2] for x in files])))    # few-shot scenario
+        dataset_length = sorted(list(set([int(x.split("_")[2]) for x in files])))    # few-shot scenario
 
         for d in dataset_name:
             for bs in baseline_name:
                 for l in dataset_length:
                     file_name = f"{d}_{bs}_{l}_"
-                    print(file_name)
                     found = [f for f in files if file_name in f]
                     scenario = 2 if l == min(dataset_length) else 10 if l == max(dataset_length) else 5
                     recall, precision, f1, augmentation_time = confidence_intervals(dataset_path, found)
-                    print(f"Recall: {recall}")
-                    print(f"Precision: {precision}")
-                    print(f"F1: {f1}")
-                    print(f"Augmentation time: {augmentation_time} seconds")
                     x = Result(bs, d, scenario, list(precision), list(recall), list(f1), list(augmentation_time), 0, 0, 0).result_dict
-                    print(x)
                     baseline_results.append(x)
     
-    cosiner_results.extend(melm_results)
-    cosiner_results.extend(styleNER_results)
-    cosiner_results.extend(baseline_results)
+    os.chdir(results_path)
     
     df = pd.DataFrame.from_records(cosiner_results)
+    latex_table_1, correlations_latex = latex_transform.convert_to_latex_t1(df)
+
+    with open('table_1.tex', 'w') as f:
+        f.writelines(latex_table_1)
+
+    with open('table_1_correlations.tex', 'w') as f:
+        f.writelines(correlations_latex)
+
+    best_max_local = df[
+            (df["method"] == "cosiner") 
+          & (df["budget"] == 0) 
+          & (df["max_min_similarity"] == "max")
+          ]
+    
+    best_max_local["f1_mean"] = best_max_local["f1"].apply(lambda x: x[0])
+    best_max_local = best_max_local.loc[best_max_local.groupby(["dataset", "scenario"])["f1_mean"].idxmax()]    
+    latex_table_2, correlations_table_2_latex = latex_transform.convert_to_latex_t2(best_max_local, pd.DataFrame.from_records(melm_results), pd.DataFrame.from_records(styleNER_results), pd.DataFrame.from_records(baseline_results))
+
+    with open('table_2.tex', 'w') as f:
+        f.writelines(latex_table_2)
+
+    with open('table_2_correlation.tex', 'w') as f:
+        f.writelines(correlations_table_2_latex)
