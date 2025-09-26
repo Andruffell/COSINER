@@ -53,7 +53,6 @@ if __name__=="__main__":
     results_path = os.path.join(base_directory, "results")
     
     ### COSINER
-    print("COSINER results")
     cosiner_results = []
     cosiner_path = os.path.join(results_path, "cosiner")
     os.chdir(cosiner_path)
@@ -85,7 +84,6 @@ if __name__=="__main__":
                                 cosiner_results.append(x)
 
     ### MELM
-    print("MELM results")
     melm_results = []
     melm_path = os.path.join(results_path, "melm")
     os.chdir(melm_path)
@@ -109,7 +107,6 @@ if __name__=="__main__":
                 melm_results.append(x)
 
     ### Style_NER
-    print("Style_NER results")
     styleNER_results = []
     style_path = os.path.join(results_path, "style_NER")
     os.chdir(style_path)
@@ -164,9 +161,11 @@ if __name__=="__main__":
 
     with open('table_1.tex', 'w') as f:
         f.writelines(latex_table_1)
+        print(f"{f.name} generated")
 
     with open('table_1_correlations.tex', 'w') as f:
         f.writelines(correlations_latex)
+        print(f"{f.name} generated")
 
     best_max_local = df[
             (df["method"] == "cosiner") 
@@ -180,15 +179,14 @@ if __name__=="__main__":
 
     with open('table_2.tex', 'w') as f:
         f.writelines(latex_table_2)
+        print(f"{f.name} generated")
 
     with open('table_2_correlation.tex', 'w') as f:
         f.writelines(correlations_table_2_latex)
+        print(f"{f.name} generated")
 
-    print(df[
-            (df["method"] == "cosiner") 
-          & (df["budget"] == 0) 
-          & (df["max_min_similarity"] == "max")
-          ])
     latex_table_times = latex_transform.convert_to_latex_aug(df[(df["method"] == "cosiner") & (df["budget"] == 0) & (df["max_min_similarity"] == "max")], pd.DataFrame.from_records(melm_results), pd.DataFrame.from_records(styleNER_results), pd.DataFrame.from_records(baseline_results))
+    
     with open('table_times.tex', 'w') as f:
         f.writelines(latex_table_times)
+        print(f"{f.name} generated")

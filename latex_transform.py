@@ -693,7 +693,7 @@ def convert_to_latex_t2(cosiner_df, melm_df, styleNER_df, baseline_df):
         },
         }
 
-        methods = ["No Augmentation", "No Augmentation (BioBERT)", "MR", "LwTR", "SR", "MELM", "style_NER", "COSINER (ours)"]
+        methods = ["No Augmentation", "No Augmentation (BioBERT)", "MR", "LwTR", "SR", "MELM", "style\_NER", "COSINER (ours)"]
         table_2 = dict_to_latex_table_2(data, methods)
 
         data_original = [
@@ -733,8 +733,6 @@ def convert_to_latex_t2(cosiner_df, melm_df, styleNER_df, baseline_df):
 
         df_original = pd.DataFrame(data_original, columns=["Dataset size", "Method", "NCBI Disease", "BC5CDR", "BC2GM"])
         df_new = pd.DataFrame(data_new, columns=["Dataset size", "Method", "NCBI Disease", "BC5CDR", "BC2GM"])
-        print(df_original)
-        print(df_new)
 
         results = []
         datasets = ["NCBI Disease", "BC5CDR", "BC2GM"]
@@ -755,7 +753,6 @@ def convert_to_latex_t2(cosiner_df, melm_df, styleNER_df, baseline_df):
                                 })
     
         correlations = pd.DataFrame(results)
-        print(correlations)
         return table_2, correlations.to_latex(index=False, float_format="%.6f")
 
 
@@ -809,8 +806,8 @@ def convert_to_latex_aug(cosiner_df, melm_df, styleNER_df, baseline_df):
         f"{melm_df[(melm_df['dataset'] == 'ncbi') & (melm_df['scenario'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {melm_df[(melm_df['dataset'] == 'ncbi') & (melm_df['scenario'] == 2)]['time'].to_numpy()[0][1]:.3f}",
         f"{styleNER_df[(styleNER_df['dataset'] == 'ncbi') & (styleNER_df['scenario'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {styleNER_df[(styleNER_df['dataset'] == 'ncbi') & (styleNER_df['scenario'] == 2)]['time'].to_numpy()[0][1]:.3f}",
         f"{cosiner_df[(cosiner_df['dataset'] == 'ncbi') & (cosiner_df['scenario'] == 2) & (cosiner_df['exr'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'ncbi') & (cosiner_df['scenario'] == 2) & (cosiner_df['exr'] == 2)]['time'].to_numpy()[0][1]:.3f}",
-        f"{cosiner_df[(cosiner_df['dataset'] == 'ncbi') & (cosiner_df['scenario'] == 2) & (cosiner_df['exr'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'ncbi') & (cosiner_df['scenario'] == 5) & (cosiner_df['exr'] == 2)]['time'].to_numpy()[0][1]:.3f}",
-        f"{cosiner_df[(cosiner_df['dataset'] == 'ncbi') & (cosiner_df['scenario'] == 2) & (cosiner_df['exr'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'ncbi') & (cosiner_df['scenario'] == 10) & (cosiner_df['exr'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{cosiner_df[(cosiner_df['dataset'] == 'ncbi') & (cosiner_df['scenario'] == 2) & (cosiner_df['exr'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'ncbi') & (cosiner_df['scenario'] == 2) & (cosiner_df['exr'] == 5)]['time'].to_numpy()[0][1]:.3f}",
+        f"{cosiner_df[(cosiner_df['dataset'] == 'ncbi') & (cosiner_df['scenario'] == 2) & (cosiner_df['exr'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'ncbi') & (cosiner_df['scenario'] == 2) & (cosiner_df['exr'] == 10)]['time'].to_numpy()[0][1]:.3f}",
 
 
         f"{baseline_df[(baseline_df['method'] == 'bert') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'bert') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][1]:.3f}",
@@ -934,15 +931,14 @@ def convert_to_latex_aug(cosiner_df, melm_df, styleNER_df, baseline_df):
     \centering
     \caption{Run times (s) for data augmentation with 95\% confidence intervals. Comparison with baselines and budgets.}
     \label{tab:tempi-aug}
-    \rotatebox{90}{\begin{tabular}{@{}cp{0.4\textwidth}p{0.3\textwidth}p{0.2\textwidth}p{0.2\textwidth}@{}}
+    \rotatebox{90}{\begin{tabular}{@{}cp{0.4\textwidth}p{0.3\textwidth}p{0.3\textwidth}p{0.3\textwidth}@{}}
     \toprule
-    \textbf{Dataset size} & \textbf{Method} & \textbf{NCBI Disease} & \textbf{BC5CDR} & \textbf{BC2GM} \\\midrule
+    \textbf{Dataset size} & \textbf{Method} & \textbf{NCBI Disease} & \textbf{BC5CDR} & \textbf{BC2GM} \\
     """ + "\n".join(rows) + r"""\bottomrule
     \end{tabular}}
     \end{table}
     """
 
-    print(latex_table)
     return latex_table
 
 
