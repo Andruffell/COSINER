@@ -703,7 +703,7 @@ def convert_to_latex_t2(cosiner_df, melm_df, styleNER_df, baseline_df):
              (2, "LwTR", 0.677, 0.828, 0.642),
              (2, "SR", 0.692, 0.813, 0.662),
              (2, "MELM", 0.578, 0.754, 0.566),
-             (2, "style_NER", 0.581, 0.752, 0.581),
+             (2, "style\_NER", 0.581, 0.752, 0.581),
              (2, "COSINER (ours)", 0.689, 0.832, 0.665),
 
              (5, "No Augmentation", 0.621, 0.757, 0.612),
@@ -712,7 +712,7 @@ def convert_to_latex_t2(cosiner_df, melm_df, styleNER_df, baseline_df):
              (5, "LwTR", 0.743, 0.860, 0.699),
              (5, "SR", 0.758, 0.858, 0.719),
              (5, "MELM", 0.678, 0.800, 0.629),
-             (5, "style_NER", 0.687, 0.805, 0.640),
+             (5, "style\_NER", 0.687, 0.805, 0.640),
              (5, "COSINER (ours)", 0.760, 0.863, 0.726),
 
              (10, "No Augmentation", 0.712, 0.804, 0.669),
@@ -721,7 +721,7 @@ def convert_to_latex_t2(cosiner_df, melm_df, styleNER_df, baseline_df):
              (10, "LwTR", 0.789, 0.882, 0.741),
              (10, "SR", 0.803, 0.883, 0.763),
              (10, "MELM", 0.740, 0.841, 0.685),
-             (10, "style_NER", 0.745, 0.838, 0.694),
+             (10, "style\_NER", 0.745, 0.838, 0.694),
              (10, "COSINER (ours)", 0.816, 0.882, 0.767)
         ]
 
@@ -739,13 +739,11 @@ def convert_to_latex_t2(cosiner_df, melm_df, styleNER_df, baseline_df):
         results = []
         datasets = ["NCBI Disease", "BC5CDR", "BC2GM"]
         techniques = df_original['Method'].drop_duplicates().values.tolist()
-        print(techniques)
-        
+
         for dataset in datasets:
                 for method in techniques:
                         valsA = df_original[(df_original['Method'] == method)][dataset].values
-                        valsB = df_new[(df_original['Method'] == method)][dataset].values
-                        print(valsA)
+                        valsB = df_new[(df_new['Method'] == method)][dataset].values
                         if len(valsA) == len(valsB) and len(valsA) == 3:
                                 pearson_corr = pearsonr(valsA, valsB)[0]
                                 spearman_corr = spearmanr(valsA, valsB)[0]
@@ -755,7 +753,7 @@ def convert_to_latex_t2(cosiner_df, melm_df, styleNER_df, baseline_df):
                                 "Pearson": pearson_corr,
                                 "Spearman": spearman_corr
                                 })
-                
+    
         correlations = pd.DataFrame(results)
         print(correlations)
         return table_2, correlations.to_latex(index=False, float_format="%.6f")
@@ -799,4 +797,153 @@ def dict_to_latex_table_2(data, methods):
     )
 
     return table
+
+def convert_to_latex_aug(cosiner_df, melm_df, styleNER_df, baseline_df):
+    data = {"NCBI Disease": 
+                {"time": [
+        f"{baseline_df[(baseline_df['method'] == 'bert') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'bert') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'biobert') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'biobert') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'mr') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'mr') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'lwtr') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'lwtr') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'sr') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'sr') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{melm_df[(melm_df['dataset'] == 'ncbi') & (melm_df['scenario'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {melm_df[(melm_df['dataset'] == 'ncbi') & (melm_df['scenario'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{styleNER_df[(styleNER_df['dataset'] == 'ncbi') & (styleNER_df['scenario'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {styleNER_df[(styleNER_df['dataset'] == 'ncbi') & (styleNER_df['scenario'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{cosiner_df[(cosiner_df['dataset'] == 'ncbi') & (cosiner_df['scenario'] == 2) & (cosiner_df['exr'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'ncbi') & (cosiner_df['scenario'] == 2) & (cosiner_df['exr'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{cosiner_df[(cosiner_df['dataset'] == 'ncbi') & (cosiner_df['scenario'] == 2) & (cosiner_df['exr'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'ncbi') & (cosiner_df['scenario'] == 5) & (cosiner_df['exr'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{cosiner_df[(cosiner_df['dataset'] == 'ncbi') & (cosiner_df['scenario'] == 2) & (cosiner_df['exr'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'ncbi') & (cosiner_df['scenario'] == 10) & (cosiner_df['exr'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+
+
+        f"{baseline_df[(baseline_df['method'] == 'bert') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'bert') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'biobert') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'biobert') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'mr') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'mr') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'lwtr') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'lwtr') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'sr') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'sr') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][1]:.3f}",
+        f"{melm_df[(melm_df['dataset'] == 'ncbi') & (melm_df['scenario'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {melm_df[(melm_df['dataset'] == 'ncbi') & (melm_df['scenario'] == 5)]['time'].to_numpy()[0][1]:.3f}",
+        f"{styleNER_df[(styleNER_df['dataset'] == 'ncbi') & (styleNER_df['scenario'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {styleNER_df[(styleNER_df['dataset'] == 'ncbi') & (styleNER_df['scenario'] == 5)]['time'].to_numpy()[0][1]:.3f}",
+        f"{cosiner_df[(cosiner_df['dataset'] == 'ncbi') & (cosiner_df['scenario'] == 5) & (cosiner_df['exr'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'ncbi') & (cosiner_df['scenario'] == 5) & (cosiner_df['exr'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{cosiner_df[(cosiner_df['dataset'] == 'ncbi') & (cosiner_df['scenario'] == 5) & (cosiner_df['exr'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'ncbi') & (cosiner_df['scenario'] == 5) & (cosiner_df['exr'] == 5)]['time'].to_numpy()[0][1]:.3f}",
+        f"{cosiner_df[(cosiner_df['dataset'] == 'ncbi') & (cosiner_df['scenario'] == 5) & (cosiner_df['exr'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'ncbi') & (cosiner_df['scenario'] == 5) & (cosiner_df['exr'] == 10)]['time'].to_numpy()[0][1]:.3f}",
+
+        f"{baseline_df[(baseline_df['method'] == 'bert') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'bert') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 10)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'biobert') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'biobert') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 10)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'mr') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'mr') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 10)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'lwtr') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'lwtr') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 10)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'sr') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'sr') & (baseline_df['dataset'] == 'ncbi') & (baseline_df['scenario'] == 10)]['time'].to_numpy()[0][1]:.3f}",
+        f"{melm_df[(melm_df['dataset'] == 'ncbi') & (melm_df['scenario'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {melm_df[(melm_df['dataset'] == 'ncbi') & (melm_df['scenario'] == 10)]['time'].to_numpy()[0][1]:.3f}",
+        f"{styleNER_df[(styleNER_df['dataset'] == 'ncbi') & (styleNER_df['scenario'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {styleNER_df[(styleNER_df['dataset'] == 'ncbi') & (styleNER_df['scenario'] == 10)]['time'].to_numpy()[0][1]:.3f}",
+        f"{cosiner_df[(cosiner_df['dataset'] == 'ncbi') & (cosiner_df['scenario'] == 10) & (cosiner_df['exr'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'ncbi') & (cosiner_df['scenario'] == 10) & (cosiner_df['exr'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{cosiner_df[(cosiner_df['dataset'] == 'ncbi') & (cosiner_df['scenario'] == 10) & (cosiner_df['exr'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'ncbi') & (cosiner_df['scenario'] == 10) & (cosiner_df['exr'] == 5)]['time'].to_numpy()[0][1]:.3f}",
+        f"{cosiner_df[(cosiner_df['dataset'] == 'ncbi') & (cosiner_df['scenario'] == 10) & (cosiner_df['exr'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'ncbi') & (cosiner_df['scenario'] == 10) & (cosiner_df['exr'] == 10)]['time'].to_numpy()[0][1]:.3f}",
+                        ],
+                },
+
+        "BC5CDR": {"time": [
+        f"{baseline_df[(baseline_df['method'] == 'bert') & (baseline_df['dataset'] == 'bc5cdr') & (baseline_df['scenario'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'bert') & (baseline_df['dataset'] == 'bc5cdr') & (baseline_df['scenario'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'biobert') & (baseline_df['dataset'] == 'bc5cdr') & (baseline_df['scenario'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'biobert') & (baseline_df['dataset'] == 'bc5cdr') & (baseline_df['scenario'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'mr') & (baseline_df['dataset'] == 'bc5cdr') & (baseline_df['scenario'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'mr') & (baseline_df['dataset'] == 'bc5cdr') & (baseline_df['scenario'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'lwtr') & (baseline_df['dataset'] == 'bc5cdr') & (baseline_df['scenario'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'lwtr') & (baseline_df['dataset'] == 'bc5cdr') & (baseline_df['scenario'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'sr') & (baseline_df['dataset'] == 'bc5cdr') & (baseline_df['scenario'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'sr') & (baseline_df['dataset'] == 'bc5cdr') & (baseline_df['scenario'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{melm_df[(melm_df['dataset'] == 'bc5cdr') & (melm_df['scenario'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {melm_df[(melm_df['dataset'] == 'bc5cdr') & (melm_df['scenario'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{styleNER_df[(styleNER_df['dataset'] == 'bc5cdr') & (styleNER_df['scenario'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {styleNER_df[(styleNER_df['dataset'] == 'bc5cdr') & (styleNER_df['scenario'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{cosiner_df[(cosiner_df['dataset'] == 'bc5cdr') & (cosiner_df['scenario'] == 2) & (cosiner_df['exr'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'bc5cdr') & (cosiner_df['scenario'] == 2) & (cosiner_df['exr'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{cosiner_df[(cosiner_df['dataset'] == 'bc5cdr') & (cosiner_df['scenario'] == 2) & (cosiner_df['exr'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'bc5cdr') & (cosiner_df['scenario'] == 2) & (cosiner_df['exr'] == 5)]['time'].to_numpy()[0][1]:.3f}",
+        f"{cosiner_df[(cosiner_df['dataset'] == 'bc5cdr') & (cosiner_df['scenario'] == 2) & (cosiner_df['exr'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'bc5cdr') & (cosiner_df['scenario'] == 2) & (cosiner_df['exr'] == 10)]['time'].to_numpy()[0][1]:.3f}",
+
+        f"{baseline_df[(baseline_df['method'] == 'bert') & (baseline_df['dataset'] == 'bc5cdr') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'bert') & (baseline_df['dataset'] == 'bc5cdr') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'biobert') & (baseline_df['dataset'] == 'bc5cdr') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'biobert') & (baseline_df['dataset'] == 'bc5cdr') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'mr') & (baseline_df['dataset'] == 'bc5cdr') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'mr') & (baseline_df['dataset'] == 'bc5cdr') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'lwtr') & (baseline_df['dataset'] == 'bc5cdr') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'lwtr') & (baseline_df['dataset'] == 'bc5cdr') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'sr') & (baseline_df['dataset'] == 'bc5cdr') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'sr') & (baseline_df['dataset'] == 'bc5cdr') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][1]:.3f}",
+        f"{melm_df[(melm_df['dataset'] == 'bc5cdr') & (melm_df['scenario'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {melm_df[(melm_df['dataset'] == 'bc5cdr') & (melm_df['scenario'] == 5)]['time'].to_numpy()[0][1]:.3f}",
+        f"{styleNER_df[(styleNER_df['dataset'] == 'bc5cdr') & (styleNER_df['scenario'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {styleNER_df[(styleNER_df['dataset'] == 'bc5cdr') & (styleNER_df['scenario'] == 5)]['time'].to_numpy()[0][1]:.3f}",
+        f"{cosiner_df[(cosiner_df['dataset'] == 'bc5cdr') & (cosiner_df['scenario'] == 5) & (cosiner_df['exr'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'bc5cdr') & (cosiner_df['scenario'] == 5) & (cosiner_df['exr'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{cosiner_df[(cosiner_df['dataset'] == 'bc5cdr') & (cosiner_df['scenario'] == 5) & (cosiner_df['exr'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'bc5cdr') & (cosiner_df['scenario'] == 5) & (cosiner_df['exr'] == 5)]['time'].to_numpy()[0][1]:.3f}",
+        f"{cosiner_df[(cosiner_df['dataset'] == 'bc5cdr') & (cosiner_df['scenario'] == 5) & (cosiner_df['exr'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'bc5cdr') & (cosiner_df['scenario'] == 5) & (cosiner_df['exr'] == 10)]['time'].to_numpy()[0][1]:.3f}",
+
+        f"{baseline_df[(baseline_df['method'] == 'bert') & (baseline_df['dataset'] == 'bc5cdr') & (baseline_df['scenario'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'bert') & (baseline_df['dataset'] == 'bc5cdr') & (baseline_df['scenario'] == 10)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'biobert') & (baseline_df['dataset'] == 'bc5cdr') & (baseline_df['scenario'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'biobert') & (baseline_df['dataset'] == 'bc5cdr') & (baseline_df['scenario'] == 10)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'mr') & (baseline_df['dataset'] == 'bc5cdr') & (baseline_df['scenario'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'mr') & (baseline_df['dataset'] == 'bc5cdr') & (baseline_df['scenario'] == 10)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'lwtr') & (baseline_df['dataset'] == 'bc5cdr') & (baseline_df['scenario'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'lwtr') & (baseline_df['dataset'] == 'bc5cdr') & (baseline_df['scenario'] == 10)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'sr') & (baseline_df['dataset'] == 'bc5cdr') & (baseline_df['scenario'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'sr') & (baseline_df['dataset'] == 'bc5cdr') & (baseline_df['scenario'] == 10)]['time'].to_numpy()[0][1]:.3f}",
+        f"{melm_df[(melm_df['dataset'] == 'bc5cdr') & (melm_df['scenario'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {melm_df[(melm_df['dataset'] == 'bc5cdr') & (melm_df['scenario'] == 10)]['time'].to_numpy()[0][1]:.3f}",
+        f"{styleNER_df[(styleNER_df['dataset'] == 'bc5cdr') & (styleNER_df['scenario'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {styleNER_df[(styleNER_df['dataset'] == 'bc5cdr') & (styleNER_df['scenario'] == 10)]['time'].to_numpy()[0][1]:.3f}",
+        f"{cosiner_df[(cosiner_df['dataset'] == 'bc5cdr') & (cosiner_df['scenario'] == 10) & (cosiner_df['exr'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'bc5cdr') & (cosiner_df['scenario'] == 10) & (cosiner_df['exr'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{cosiner_df[(cosiner_df['dataset'] == 'bc5cdr') & (cosiner_df['scenario'] == 10) & (cosiner_df['exr'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'bc5cdr') & (cosiner_df['scenario'] == 10) & (cosiner_df['exr'] == 5)]['time'].to_numpy()[0][1]:.3f}",
+        f"{cosiner_df[(cosiner_df['dataset'] == 'bc5cdr') & (cosiner_df['scenario'] == 10) & (cosiner_df['exr'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'bc5cdr') & (cosiner_df['scenario'] == 10) & (cosiner_df['exr'] == 10)]['time'].to_numpy()[0][1]:.3f}",
+            ],
+        },
+                    
+        "BC2GM": {"time": [
+        f"{baseline_df[(baseline_df['method'] == 'bert') & (baseline_df['dataset'] == 'bc2gm') & (baseline_df['scenario'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'bert') & (baseline_df['dataset'] == 'bc2gm') & (baseline_df['scenario'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'biobert') & (baseline_df['dataset'] == 'bc2gm') & (baseline_df['scenario'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'biobert') & (baseline_df['dataset'] == 'bc2gm') & (baseline_df['scenario'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'mr') & (baseline_df['dataset'] == 'bc2gm') & (baseline_df['scenario'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'mr') & (baseline_df['dataset'] == 'bc2gm') & (baseline_df['scenario'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'lwtr') & (baseline_df['dataset'] == 'bc2gm') & (baseline_df['scenario'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'lwtr') & (baseline_df['dataset'] == 'bc2gm') & (baseline_df['scenario'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'sr') & (baseline_df['dataset'] == 'bc2gm') & (baseline_df['scenario'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'sr') & (baseline_df['dataset'] == 'bc2gm') & (baseline_df['scenario'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{melm_df[(melm_df['dataset'] == 'bc2gm') & (melm_df['scenario'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {melm_df[(melm_df['dataset'] == 'bc2gm') & (melm_df['scenario'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{styleNER_df[(styleNER_df['dataset'] == 'bc2gm') & (styleNER_df['scenario'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {styleNER_df[(styleNER_df['dataset'] == 'bc2gm') & (styleNER_df['scenario'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{cosiner_df[(cosiner_df['dataset'] == 'bc2gm') & (cosiner_df['scenario'] == 2) & (cosiner_df['exr'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'bc2gm') & (cosiner_df['scenario'] == 2) & (cosiner_df['exr'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{cosiner_df[(cosiner_df['dataset'] == 'bc2gm') & (cosiner_df['scenario'] == 2) & (cosiner_df['exr'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'bc2gm') & (cosiner_df['scenario'] == 2) & (cosiner_df['exr'] == 5)]['time'].to_numpy()[0][1]:.3f}",
+        f"{cosiner_df[(cosiner_df['dataset'] == 'bc2gm') & (cosiner_df['scenario'] == 2) & (cosiner_df['exr'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'bc2gm') & (cosiner_df['scenario'] == 2) & (cosiner_df['exr'] == 10)]['time'].to_numpy()[0][1]:.3f}",
+
+        f"{baseline_df[(baseline_df['method'] == 'bert') & (baseline_df['dataset'] == 'bc2gm') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'bert') & (baseline_df['dataset'] == 'bc2gm') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'biobert') & (baseline_df['dataset'] == 'bc2gm') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'biobert') & (baseline_df['dataset'] == 'bc2gm') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'mr') & (baseline_df['dataset'] == 'bc2gm') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'mr') & (baseline_df['dataset'] == 'bc2gm') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'lwtr') & (baseline_df['dataset'] == 'bc2gm') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'lwtr') & (baseline_df['dataset'] == 'bc2gm') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'sr') & (baseline_df['dataset'] == 'bc2gm') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'sr') & (baseline_df['dataset'] == 'bc2gm') & (baseline_df['scenario'] == 5)]['time'].to_numpy()[0][1]:.3f}",
+        f"{melm_df[(melm_df['dataset'] == 'bc2gm') & (melm_df['scenario'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {melm_df[(melm_df['dataset'] == 'bc2gm') & (melm_df['scenario'] == 5)]['time'].to_numpy()[0][1]:.3f}",
+        f"{styleNER_df[(styleNER_df['dataset'] == 'bc2gm') & (styleNER_df['scenario'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {styleNER_df[(styleNER_df['dataset'] == 'bc2gm') & (styleNER_df['scenario'] == 5)]['time'].to_numpy()[0][1]:.3f}",
+        f"{cosiner_df[(cosiner_df['dataset'] == 'bc2gm') & (cosiner_df['scenario'] == 5) & (cosiner_df['exr'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'bc2gm') & (cosiner_df['scenario'] == 5) & (cosiner_df['exr'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{cosiner_df[(cosiner_df['dataset'] == 'bc2gm') & (cosiner_df['scenario'] == 5) & (cosiner_df['exr'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'bc2gm') & (cosiner_df['scenario'] == 5) & (cosiner_df['exr'] == 5)]['time'].to_numpy()[0][1]:.3f}",
+        f"{cosiner_df[(cosiner_df['dataset'] == 'bc2gm') & (cosiner_df['scenario'] == 5) & (cosiner_df['exr'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'bc2gm') & (cosiner_df['scenario'] == 5) & (cosiner_df['exr'] == 10)]['time'].to_numpy()[0][1]:.3f}",
+
+        f"{baseline_df[(baseline_df['method'] == 'bert') & (baseline_df['dataset'] == 'bc2gm') & (baseline_df['scenario'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'bert') & (baseline_df['dataset'] == 'bc2gm') & (baseline_df['scenario'] == 10)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'biobert') & (baseline_df['dataset'] == 'bc2gm') & (baseline_df['scenario'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'biobert') & (baseline_df['dataset'] == 'bc2gm') & (baseline_df['scenario'] == 10)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'mr') & (baseline_df['dataset'] == 'bc2gm') & (baseline_df['scenario'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'mr') & (baseline_df['dataset'] == 'bc2gm') & (baseline_df['scenario'] == 10)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'lwtr') & (baseline_df['dataset'] == 'bc2gm') & (baseline_df['scenario'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'lwtr') & (baseline_df['dataset'] == 'bc2gm') & (baseline_df['scenario'] == 10)]['time'].to_numpy()[0][1]:.3f}",
+        f"{baseline_df[(baseline_df['method'] == 'sr') & (baseline_df['dataset'] == 'bc2gm') & (baseline_df['scenario'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {baseline_df[(baseline_df['method'] == 'sr') & (baseline_df['dataset'] == 'bc2gm') & (baseline_df['scenario'] == 10)]['time'].to_numpy()[0][1]:.3f}",
+        f"{melm_df[(melm_df['dataset'] == 'bc2gm') & (melm_df['scenario'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {melm_df[(melm_df['dataset'] == 'bc2gm') & (melm_df['scenario'] == 10)]['time'].to_numpy()[0][1]:.3f}",
+        f"{styleNER_df[(styleNER_df['dataset'] == 'bc2gm') & (styleNER_df['scenario'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {styleNER_df[(styleNER_df['dataset'] == 'bc2gm') & (styleNER_df['scenario'] == 10)]['time'].to_numpy()[0][1]:.3f}",
+        f"{cosiner_df[(cosiner_df['dataset'] == 'bc2gm') & (cosiner_df['scenario'] == 10) & (cosiner_df['exr'] == 2)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'bc2gm') & (cosiner_df['scenario'] == 10) & (cosiner_df['exr'] == 2)]['time'].to_numpy()[0][1]:.3f}",
+        f"{cosiner_df[(cosiner_df['dataset'] == 'bc2gm') & (cosiner_df['scenario'] == 10) & (cosiner_df['exr'] == 5)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'bc2gm') & (cosiner_df['scenario'] == 10) & (cosiner_df['exr'] == 5)]['time'].to_numpy()[0][1]:.3f}",
+        f"{cosiner_df[(cosiner_df['dataset'] == 'bc2gm') & (cosiner_df['scenario'] == 10) & (cosiner_df['exr'] == 10)]['time'].to_numpy()[0][0]:.3f} $\pm$ {cosiner_df[(cosiner_df['dataset'] == 'bc2gm') & (cosiner_df['scenario'] == 10) & (cosiner_df['exr'] == 10)]['time'].to_numpy()[0][1]:.3f}",
+                ],
+            }            
+        }
+
+    methods = ["No Augmentation", "No Augmentation (BioBERT)", "MR", "LwTR", "SR", "MELM", "style\_NER", "COSINER (small)", "COSINER (medium)", "COSINER (large)"]
+    size = ["2\%", "5\%", "10\%"]
+    datasets = list(data.keys())
+
+    rows = []
+    for i, method in enumerate(methods*3):
+        row_values = []
+        if i % len(methods) == 0:
+                rows.append(r"\midrule")
+        for ds in datasets:
+            row_values.append(data[ds]["time"][i])
+        if i % len(methods) == 0:
+                s = size[int(i/len(methods))]
+                row = r"\multirow{10}{*}{" + s + "} & " + method + " & " + " & ".join(row_values) + " \\\\"
+        else:
+                row = "&" + method + " & " + " & ".join(row_values) + " \\\\"
+        rows.append(row)
+
+    latex_table = r"""
+    \begin{table}
+    \footnotesize
+    \centering
+    \caption{Run times (s) for data augmentation with 95\% confidence intervals. Comparison with baselines and budgets.}
+    \label{tab:tempi-aug}
+    \rotatebox{90}{\begin{tabular}{@{}cp{0.4\textwidth}p{0.3\textwidth}p{0.2\textwidth}p{0.2\textwidth}@{}}
+    \toprule
+    \textbf{Dataset size} & \textbf{Method} & \textbf{NCBI Disease} & \textbf{BC5CDR} & \textbf{BC2GM} \\\midrule
+    """ + "\n".join(rows) + r"""\bottomrule
+    \end{tabular}}
+    \end{table}
+    """
+
+    print(latex_table)
+    return latex_table
+
+
 

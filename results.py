@@ -38,9 +38,13 @@ def confidence_intervals(path, files, confidence=0.95):
     f1 = st.t.interval(confidence, len(df_test_concat['test_overall_f1'])-1, loc=mean_f1, scale=st.sem(df_test_concat['test_overall_f1']))
     f1_interval = f1[1]-mean_f1
 
-    mean_augmentation_time = np.mean(df_test_concat['AUGMENTATION_TIME'])
-    augmentation_time = st.t.interval(confidence, len(df_test_concat['AUGMENTATION_TIME'])-1, loc=mean_augmentation_time, scale=st.sem(df_test_concat['AUGMENTATION_TIME']))
-    augmentation_time_interval = augmentation_time[1]-mean_augmentation_time
+    if "bert" not in files[0] and "biobert" not in files[0]:
+        mean_augmentation_time = np.mean(df_test_concat['AUGMENTATION_TIME'])
+        augmentation_time = st.t.interval(confidence, len(df_test_concat['AUGMENTATION_TIME'])-1, loc=mean_augmentation_time, scale=st.sem(df_test_concat['AUGMENTATION_TIME']))
+        augmentation_time_interval = augmentation_time[1]-mean_augmentation_time
+    else: 
+        mean_augmentation_time = 0
+        augmentation_time_interval = 0
 
     return (round(mean_recall, 3), round(recall_interval, 3)), (round(mean_precision, 3), round(precision_interval, 3)), (round(mean_f1, 3), round(f1_interval, 3)), (round(mean_augmentation_time, 3), round(augmentation_time_interval, 3))
 
@@ -168,7 +172,7 @@ if __name__=="__main__":
             (df["method"] == "cosiner") 
           & (df["budget"] == 0) 
           & (df["max_min_similarity"] == "max")
-          ]
+          ].copy()
     
     best_max_local["f1_mean"] = best_max_local["f1"].apply(lambda x: x[0])
     best_max_local = best_max_local.loc[best_max_local.groupby(["dataset", "scenario"])["f1_mean"].idxmax()]    
@@ -179,3 +183,12 @@ if __name__=="__main__":
 
     with open('table_2_correlation.tex', 'w') as f:
         f.writelines(correlations_table_2_latex)
+
+    print(df[
+            (df["method"] == "cosiner") 
+          & (df["budget"] == 0) 
+          & (df["max_min_similarity"] == "max")
+          ])
+    latex_table_times = latex_transform.convert_to_latex_aug(df[(df["method"] == "cosiner") & (df["budget"] == 0) & (df["max_min_similarity"] == "max")], pd.DataFrame.from_records(melm_results), pd.DataFrame.from_records(styleNER_results), pd.DataFrame.from_records(baseline_results))
+    with open('table_times.tex', 'w') as f:
+        f.writelines(latex_table_times)
