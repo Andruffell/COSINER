@@ -1,553 +1,125 @@
 #!/usr/bin/env bash
+
 set -e
 
 VENV_DIR="COSINER"
 
-if [[ "$OSTYPE" == "msys" ]] || [[ "$OSTYPE" == "cygwin" ]] || [[ "$OSTYPE" == "win32" ]]; then
+if [[ -f "$VENV_DIR/Scripts/python.exe" ]]; then
     PYTHON_EXEC="$VENV_DIR/Scripts/python.exe"
-else
+elif [[ -f "$VENV_DIR/bin/python" ]]; then
     PYTHON_EXEC="$VENV_DIR/bin/python"
-fi
-
-if [[ ! -f "$PYTHON_EXEC" ]]; then
-    echo "Python executable not found at: $PYTHON_EXEC"
+else
+    echo "Python executable not found in $VENV_DIR (checked both Windows and Linux paths)"
     exit 1
 fi
 
-#### MELM
-##### NCBI
-###### 2%
-
-"$PYTHON_EXEC" main_melm.py -dataset data/ncbi.hf -length 108 -seed 100 
-"$PYTHON_EXEC" main_melm.py -dataset data/ncbi.hf -length 108 -seed 200
-"$PYTHON_EXEC" main_melm.py -dataset data/ncbi.hf -length 108 -seed 300
-"$PYTHON_EXEC" main_melm.py -dataset data/ncbi.hf -length 108 -seed 400
-"$PYTHON_EXEC" main_melm.py -dataset data/ncbi.hf -length 108 -seed 500
-
-###### 5%
-
-"$PYTHON_EXEC" main_melm.py -dataset data/ncbi.hf -length 271 -seed 100 
-"$PYTHON_EXEC" main_melm.py -dataset data/ncbi.hf -length 271 -seed 200
-"$PYTHON_EXEC" main_melm.py -dataset data/ncbi.hf -length 271 -seed 300
-"$PYTHON_EXEC" main_melm.py -dataset data/ncbi.hf -length 271 -seed 400
-"$PYTHON_EXEC" main_melm.py -dataset data/ncbi.hf -length 271 -seed 500
-
-###### 10%
-
-"$PYTHON_EXEC" main_melm.py -dataset data/ncbi.hf -length 542 -seed 100 
-"$PYTHON_EXEC" main_melm.py -dataset data/ncbi.hf -length 542 -seed 200
-"$PYTHON_EXEC" main_melm.py -dataset data/ncbi.hf -length 542 -seed 300
-"$PYTHON_EXEC" main_melm.py -dataset data/ncbi.hf -length 542 -seed 400
-"$PYTHON_EXEC" main_melm.py -dataset data/ncbi.hf -length 542 -seed 500
-
-##### BC5CDR
-###### 2%
-
-"$PYTHON_EXEC" main_melm.py -dataset data/bc5cdr.hf -length 91 -seed 100 
-"$PYTHON_EXEC" main_melm.py -dataset data/bc5cdr.hf -length 91 -seed 200
-"$PYTHON_EXEC" main_melm.py -dataset data/bc5cdr.hf -length 91 -seed 300
-"$PYTHON_EXEC" main_melm.py -dataset data/bc5cdr.hf -length 91 -seed 400
-"$PYTHON_EXEC" main_melm.py -dataset data/bc5cdr.hf -length 91 -seed 500
-
-###### 5%
-
-"$PYTHON_EXEC" main_melm.py -dataset data/bc5cdr.hf -length 228 -seed 100 
-"$PYTHON_EXEC" main_melm.py -dataset data/bc5cdr.hf -length 228 -seed 200
-"$PYTHON_EXEC" main_melm.py -dataset data/bc5cdr.hf -length 228 -seed 300
-"$PYTHON_EXEC" main_melm.py -dataset data/bc5cdr.hf -length 228 -seed 400
-"$PYTHON_EXEC" main_melm.py -dataset data/bc5cdr.hf -length 228 -seed 500
-
-###### 10%
-
-"$PYTHON_EXEC" main_melm.py -dataset data/bc5cdr.hf -length 456 -seed 100 
-"$PYTHON_EXEC" main_melm.py -dataset data/bc5cdr.hf -length 456 -seed 200
-"$PYTHON_EXEC" main_melm.py -dataset data/bc5cdr.hf -length 456 -seed 300
-"$PYTHON_EXEC" main_melm.py -dataset data/bc5cdr.hf -length 456 -seed 400
-"$PYTHON_EXEC" main_melm.py -dataset data/bc5cdr.hf -length 456 -seed 500
-
-##### BC2GM
-###### 2%
-
-"$PYTHON_EXEC" main_melm.py -dataset data/bc2gm.hf -length 251 -seed 100 
-"$PYTHON_EXEC" main_melm.py -dataset data/bc2gm.hf -length 251 -seed 200
-"$PYTHON_EXEC" main_melm.py -dataset data/bc2gm.hf -length 251 -seed 300
-"$PYTHON_EXEC" main_melm.py -dataset data/bc2gm.hf -length 251 -seed 400
-"$PYTHON_EXEC" main_melm.py -dataset data/bc2gm.hf -length 251 -seed 500
-
-###### 5%
-
-"$PYTHON_EXEC" main_melm.py -dataset data/bc2gm.hf -length 628 -seed 100 
-"$PYTHON_EXEC" main_melm.py -dataset data/bc2gm.hf -length 628 -seed 200
-"$PYTHON_EXEC" main_melm.py -dataset data/bc2gm.hf -length 628 -seed 300
-"$PYTHON_EXEC" main_melm.py -dataset data/bc2gm.hf -length 628 -seed 400
-"$PYTHON_EXEC" main_melm.py -dataset data/bc2gm.hf -length 628 -seed 500
-
-###### 10%
-
-"$PYTHON_EXEC" main_melm.py -dataset data/bc2gm.hf -length 1257 -seed 100 
-"$PYTHON_EXEC" main_melm.py -dataset data/bc2gm.hf -length 1257 -seed 200
-"$PYTHON_EXEC" main_melm.py -dataset data/bc2gm.hf -length 1257 -seed 300
-"$PYTHON_EXEC" main_melm.py -dataset data/bc2gm.hf -length 1257 -seed 400
-"$PYTHON_EXEC" main_melm.py -dataset data/bc2gm.hf -length 1257 -seed 500
-
-
-
-#### style_NER
-##### NCBI
-###### 2%
-
-"$PYTHON_EXEC" main_style_NER.py -dataset data/ncbi.hf -length 108 -seed 100 
-"$PYTHON_EXEC" main_style_NER.py -dataset data/ncbi.hf -length 108 -seed 200
-"$PYTHON_EXEC" main_style_NER.py -dataset data/ncbi.hf -length 108 -seed 300
-"$PYTHON_EXEC" main_style_NER.py -dataset data/ncbi.hf -length 108 -seed 400
-"$PYTHON_EXEC" main_style_NER.py -dataset data/ncbi.hf -length 108 -seed 500
-
-###### 5%
-
-"$PYTHON_EXEC" main_style_NER.py -dataset data/ncbi.hf -length 271 -seed 100 
-"$PYTHON_EXEC" main_style_NER.py -dataset data/ncbi.hf -length 271 -seed 200
-"$PYTHON_EXEC" main_style_NER.py -dataset data/ncbi.hf -length 271 -seed 300
-"$PYTHON_EXEC" main_style_NER.py -dataset data/ncbi.hf -length 271 -seed 400
-"$PYTHON_EXEC" main_style_NER.py -dataset data/ncbi.hf -length 271 -seed 500
-
-###### 10%
-
-"$PYTHON_EXEC" main_style_NER.py -dataset data/ncbi.hf -length 542 -seed 100 
-"$PYTHON_EXEC" main_style_NER.py -dataset data/ncbi.hf -length 542 -seed 200
-"$PYTHON_EXEC" main_style_NER.py -dataset data/ncbi.hf -length 542 -seed 300
-"$PYTHON_EXEC" main_style_NER.py -dataset data/ncbi.hf -length 542 -seed 400
-"$PYTHON_EXEC" main_style_NER.py -dataset data/ncbi.hf -length 542 -seed 500
-
-##### BC5CDR
-###### 2%
-
-"$PYTHON_EXEC" main_style_NER.py -dataset data/bc5cdr.hf -length 91 -seed 100 
-"$PYTHON_EXEC" main_style_NER.py -dataset data/bc5cdr.hf -length 91 -seed 200
-"$PYTHON_EXEC" main_style_NER.py -dataset data/bc5cdr.hf -length 91 -seed 300
-"$PYTHON_EXEC" main_style_NER.py -dataset data/bc5cdr.hf -length 91 -seed 400
-"$PYTHON_EXEC" main_style_NER.py -dataset data/bc5cdr.hf -length 91 -seed 500
-
-###### 5%
-
-"$PYTHON_EXEC" main_style_NER.py -dataset data/bc5cdr.hf -length 228 -seed 100 
-"$PYTHON_EXEC" main_style_NER.py -dataset data/bc5cdr.hf -length 228 -seed 200
-"$PYTHON_EXEC" main_style_NER.py -dataset data/bc5cdr.hf -length 228 -seed 300
-"$PYTHON_EXEC" main_style_NER.py -dataset data/bc5cdr.hf -length 228 -seed 400
-"$PYTHON_EXEC" main_style_NER.py -dataset data/bc5cdr.hf -length 228 -seed 500
-
-###### 10%
-
-"$PYTHON_EXEC" main_style_NER.py -dataset data/bc5cdr.hf -length 456 -seed 100 
-"$PYTHON_EXEC" main_style_NER.py -dataset data/bc5cdr.hf -length 456 -seed 200
-"$PYTHON_EXEC" main_style_NER.py -dataset data/bc5cdr.hf -length 456 -seed 300
-"$PYTHON_EXEC" main_style_NER.py -dataset data/bc5cdr.hf -length 456 -seed 400
-"$PYTHON_EXEC" main_style_NER.py -dataset data/bc5cdr.hf -length 456 -seed 500
-
-##### BC2GM
-###### 2%
-
-"$PYTHON_EXEC" main_style_NER.py -dataset data/bc2gm.hf -length 251 -seed 100 
-"$PYTHON_EXEC" main_style_NER.py -dataset data/bc2gm.hf -length 251 -seed 200
-"$PYTHON_EXEC" main_style_NER.py -dataset data/bc2gm.hf -length 251 -seed 300
-"$PYTHON_EXEC" main_style_NER.py -dataset data/bc2gm.hf -length 251 -seed 400
-"$PYTHON_EXEC" main_style_NER.py -dataset data/bc2gm.hf -length 251 -seed 500
-
-###### 5%
-
-"$PYTHON_EXEC" main_style_NER.py -dataset data/bc2gm.hf -length 628 -seed 100 
-"$PYTHON_EXEC" main_style_NER.py -dataset data/bc2gm.hf -length 628 -seed 200
-"$PYTHON_EXEC" main_style_NER.py -dataset data/bc2gm.hf -length 628 -seed 300
-"$PYTHON_EXEC" main_style_NER.py -dataset data/bc2gm.hf -length 628 -seed 400
-"$PYTHON_EXEC" main_style_NER.py -dataset data/bc2gm.hf -length 628 -seed 500
-
-###### 10%
-
-"$PYTHON_EXEC" main_style_NER.py -dataset data/bc2gm.hf -length 1257 -seed 100 
-"$PYTHON_EXEC" main_style_NER.py -dataset data/bc2gm.hf -length 1257 -seed 200
-"$PYTHON_EXEC" main_style_NER.py -dataset data/bc2gm.hf -length 1257 -seed 300
-"$PYTHON_EXEC" main_style_NER.py -dataset data/bc2gm.hf -length 1257 -seed 400
-"$PYTHON_EXEC" main_style_NER.py -dataset data/bc2gm.hf -length 1257 -seed 500
-
-#### No augmentation - BERT
-##### NCBI
-###### 2%
-
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/ncbi.hf -length 108 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/ncbi.hf -length 108 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/ncbi.hf -length 108 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/ncbi.hf -length 108 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/ncbi.hf -length 108 -seed 500
-
-###### 5%
-
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/ncbi.hf -length 271 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/ncbi.hf -length 271 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/ncbi.hf -length 271 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/ncbi.hf -length 271 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/ncbi.hf -length 271 -seed 500
-
-###### 10%
-
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/ncbi.hf -length 542 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/ncbi.hf -length 542 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/ncbi.hf -length 542 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/ncbi.hf -length 542 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/ncbi.hf -length 542 -seed 500
-
-##### BC5CDR
-###### 2%
-
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/bc5cdr.hf -length 91 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/bc5cdr.hf -length 91 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/bc5cdr.hf -length 91 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/bc5cdr.hf -length 91 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/bc5cdr.hf -length 91 -seed 500
-
-###### 5%
-
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/bc5cdr.hf -length 228 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/bc5cdr.hf -length 228 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/bc5cdr.hf -length 228 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/bc5cdr.hf -length 228 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/bc5cdr.hf -length 228 -seed 500
-
-###### 10%
-
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/bc5cdr.hf -length 456 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/bc5cdr.hf -length 456 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/bc5cdr.hf -length 456 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/bc5cdr.hf -length 456 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/bc5cdr.hf -length 456 -seed 500
-
-##### BC2GM
-###### 2%
-
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/bc2gm.hf -length 251 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/bc2gm.hf -length 251 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/bc2gm.hf -length 251 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/bc2gm.hf -length 251 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/bc2gm.hf -length 251 -seed 500
-
-###### 5%
-
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/bc2gm.hf -length 628 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/bc2gm.hf -length 628 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/bc2gm.hf -length 628 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/bc2gm.hf -length 628 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/bc2gm.hf -length 628 -seed 500
-
-###### 10%
-
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/bc2gm.hf -length 1257 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/bc2gm.hf -length 1257 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/bc2gm.hf -length 1257 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/bc2gm.hf -length 1257 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline bert -dataset data/bc2gm.hf -length 1257 -seed 500
-
-#### No augmentation - BioBERT
-##### NCBI
-###### 2%
-
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/ncbi.hf -length 108 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/ncbi.hf -length 108 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/ncbi.hf -length 108 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/ncbi.hf -length 108 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/ncbi.hf -length 108 -seed 500
-
-###### 5%
-
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/ncbi.hf -length 271 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/ncbi.hf -length 271 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/ncbi.hf -length 271 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/ncbi.hf -length 271 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/ncbi.hf -length 271 -seed 500
-
-###### 10%
-
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/ncbi.hf -length 542 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/ncbi.hf -length 542 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/ncbi.hf -length 542 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/ncbi.hf -length 542 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/ncbi.hf -length 542 -seed 500
-
-##### BC5CDR
-###### 2%
-
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/bc5cdr.hf -length 91 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/bc5cdr.hf -length 91 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/bc5cdr.hf -length 91 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/bc5cdr.hf -length 91 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/bc5cdr.hf -length 91 -seed 500
-
-###### 5%
-
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/bc5cdr.hf -length 228 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/bc5cdr.hf -length 228 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/bc5cdr.hf -length 228 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/bc5cdr.hf -length 228 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/bc5cdr.hf -length 228 -seed 500
-
-###### 10%
-
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/bc5cdr.hf -length 456 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/bc5cdr.hf -length 456 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/bc5cdr.hf -length 456 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/bc5cdr.hf -length 456 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/bc5cdr.hf -length 456 -seed 500
-
-##### BC2GM
-###### 2%
-
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/bc2gm.hf -length 251 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/bc2gm.hf -length 251 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/bc2gm.hf -length 251 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/bc2gm.hf -length 251 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/bc2gm.hf -length 251 -seed 500
-
-###### 5%
-
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/bc2gm.hf -length 628 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/bc2gm.hf -length 628 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/bc2gm.hf -length 628 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/bc2gm.hf -length 628 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/bc2gm.hf -length 628 -seed 500
-
-###### 10%
-
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/bc2gm.hf -length 1257 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/bc2gm.hf -length 1257 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/bc2gm.hf -length 1257 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/bc2gm.hf -length 1257 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline biobert -dataset data/bc2gm.hf -length 1257 -seed 500
-
-#### LWTR
-##### NCBI
-###### 2%
-
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/ncbi.hf -length 108 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/ncbi.hf -length 108 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/ncbi.hf -length 108 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/ncbi.hf -length 108 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/ncbi.hf -length 108 -seed 500
-
-###### 5%
-
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/ncbi.hf -length 271 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/ncbi.hf -length 271 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/ncbi.hf -length 271 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/ncbi.hf -length 271 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/ncbi.hf -length 271 -seed 500
-
-###### 10%
-
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/ncbi.hf -length 542 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/ncbi.hf -length 542 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/ncbi.hf -length 542 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/ncbi.hf -length 542 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/ncbi.hf -length 542 -seed 500
-
-##### BC5CDR
-###### 2%
-
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/bc5cdr.hf -length 91 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/bc5cdr.hf -length 91 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/bc5cdr.hf -length 91 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/bc5cdr.hf -length 91 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/bc5cdr.hf -length 91 -seed 500
-
-###### 5%
-
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/bc5cdr.hf -length 228 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/bc5cdr.hf -length 228 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/bc5cdr.hf -length 228 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/bc5cdr.hf -length 228 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/bc5cdr.hf -length 228 -seed 500
-
-###### 10%
-
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/bc5cdr.hf -length 456 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/bc5cdr.hf -length 456 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/bc5cdr.hf -length 456 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/bc5cdr.hf -length 456 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/bc5cdr.hf -length 456 -seed 500
-
-##### BC2GM
-###### 2%
-
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/bc2gm.hf -length 251 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/bc2gm.hf -length 251 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/bc2gm.hf -length 251 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/bc2gm.hf -length 251 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/bc2gm.hf -length 251 -seed 500
-
-###### 5%
-
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/bc2gm.hf -length 628 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/bc2gm.hf -length 628 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/bc2gm.hf -length 628 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/bc2gm.hf -length 628 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/bc2gm.hf -length 628 -seed 500
-
-###### 10%
-
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/bc2gm.hf -length 1257 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/bc2gm.hf -length 1257 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/bc2gm.hf -length 1257 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/bc2gm.hf -length 1257 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline lwtr -dataset data/bc2gm.hf -length 1257 -seed 500
-
-
-
-#### mr
-##### NCBI
-###### 2%
-
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/ncbi.hf -length 108 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/ncbi.hf -length 108 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/ncbi.hf -length 108 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/ncbi.hf -length 108 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/ncbi.hf -length 108 -seed 500
-
-###### 5%
-
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/ncbi.hf -length 271 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/ncbi.hf -length 271 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/ncbi.hf -length 271 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/ncbi.hf -length 271 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/ncbi.hf -length 271 -seed 500
-
-###### 10%
-
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/ncbi.hf -length 542 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/ncbi.hf -length 542 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/ncbi.hf -length 542 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/ncbi.hf -length 542 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/ncbi.hf -length 542 -seed 500
-
-##### BC5CDR
-###### 2%
-
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/bc5cdr.hf -length 91 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/bc5cdr.hf -length 91 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/bc5cdr.hf -length 91 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/bc5cdr.hf -length 91 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/bc5cdr.hf -length 91 -seed 500
-
-###### 5%
-
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/bc5cdr.hf -length 228 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/bc5cdr.hf -length 228 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/bc5cdr.hf -length 228 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/bc5cdr.hf -length 228 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/bc5cdr.hf -length 228 -seed 500
-
-###### 10%
-
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/bc5cdr.hf -length 456 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/bc5cdr.hf -length 456 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/bc5cdr.hf -length 456 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/bc5cdr.hf -length 456 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/bc5cdr.hf -length 456 -seed 500
-
-##### BC2GM
-###### 2%
-
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/bc2gm.hf -length 251 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/bc2gm.hf -length 251 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/bc2gm.hf -length 251 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/bc2gm.hf -length 251 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/bc2gm.hf -length 251 -seed 500
-
-###### 5%
-
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/bc2gm.hf -length 628 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/bc2gm.hf -length 628 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/bc2gm.hf -length 628 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/bc2gm.hf -length 628 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/bc2gm.hf -length 628 -seed 500
-
-###### 10%
-
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/bc2gm.hf -length 1257 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/bc2gm.hf -length 1257 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/bc2gm.hf -length 1257 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/bc2gm.hf -length 1257 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline mr -dataset data/bc2gm.hf -length 1257 -seed 500
-
-
-
-#### sr
-##### NCBI
-###### 2%
-
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/ncbi.hf -length 108 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/ncbi.hf -length 108 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/ncbi.hf -length 108 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/ncbi.hf -length 108 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/ncbi.hf -length 108 -seed 500
-
-###### 5%
-
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/ncbi.hf -length 271 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/ncbi.hf -length 271 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/ncbi.hf -length 271 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/ncbi.hf -length 271 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/ncbi.hf -length 271 -seed 500
-
-###### 10%
-
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/ncbi.hf -length 542 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/ncbi.hf -length 542 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/ncbi.hf -length 542 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/ncbi.hf -length 542 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/ncbi.hf -length 542 -seed 500
-
-##### BC5CDR
-###### 2%
-
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/bc5cdr.hf -length 91 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/bc5cdr.hf -length 91 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/bc5cdr.hf -length 91 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/bc5cdr.hf -length 91 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/bc5cdr.hf -length 91 -seed 500
-
-###### 5%
-
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/bc5cdr.hf -length 228 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/bc5cdr.hf -length 228 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/bc5cdr.hf -length 228 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/bc5cdr.hf -length 228 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/bc5cdr.hf -length 228 -seed 500
-
-###### 10%
-
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/bc5cdr.hf -length 456 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/bc5cdr.hf -length 456 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/bc5cdr.hf -length 456 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/bc5cdr.hf -length 456 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/bc5cdr.hf -length 456 -seed 500
-
-##### BC2GM
-###### 2%
-
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/bc2gm.hf -length 251 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/bc2gm.hf -length 251 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/bc2gm.hf -length 251 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/bc2gm.hf -length 251 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/bc2gm.hf -length 251 -seed 500
-
-###### 5%
-
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/bc2gm.hf -length 628 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/bc2gm.hf -length 628 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/bc2gm.hf -length 628 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/bc2gm.hf -length 628 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/bc2gm.hf -length 628 -seed 500
-
-###### 10%
-
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/bc2gm.hf -length 1257 -seed 100 
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/bc2gm.hf -length 1257 -seed 200
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/bc2gm.hf -length 1257 -seed 300
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/bc2gm.hf -length 1257 -seed 400
-"$PYTHON_EXEC" main_baseline.py -baseline sr -dataset data/bc2gm.hf -length 1257 -seed 500
+baselines=("bert" "biobert" "lwtr" "mr" "sr")
+datasets=("ncbi" "bc5cdr" "bc2gm")
+percentages=(2 5 10)
+seeds=(100 200 300 400 500)
+
+declare -A lengths
+# NCBI
+lengths["ncbi_2"]=108
+lengths["ncbi_5"]=271
+lengths["ncbi_10"]=542
+# BC5CDR
+lengths["bc5cdr_2"]=91
+lengths["bc5cdr_5"]=228
+lengths["bc5cdr_10"]=456
+# BC2GM
+lengths["bc2gm_2"]=251
+lengths["bc2gm_5"]=628
+lengths["bc2gm_10"]=1257
+
+
+total=$(( (${#baselines[@]} * ${#datasets[@]} * ${#percentages[@]} * ${#seeds[@]}) + (2 * ${#datasets[@]} * ${#percentages[@]} * ${#seeds[@]}) ))
+count=0
+
+echo "Total experiments to check: $total"
+echo "-----------------------------------"
+
+for baseline in "${baselines[@]}"; do
+    for dataset in "${datasets[@]}"; do
+        for pct in "${percentages[@]}"; do
+            length=${lengths["${dataset}_${pct}"]}
+            for seed in "${seeds[@]}"; do
+                count=$((count + 1))
+
+                result_file="./results/baselines/${dataset}/${dataset}_${baseline}_${length}_${seed}.xlsx"
+
+                echo -n "[$count/$total]"
+
+                if [[ -f "$result_file" ]]; then
+                    echo "SKIP (exists): $result_file"
+                    continue
+                fi
+
+                echo "RUN: $baseline | $dataset | ${pct}% | seed=$seed"
+                "$PYTHON_EXEC" main_baseline.py \
+                    -baseline "$baseline" \
+                    -dataset "data/${dataset}.hf" \
+                    -length "$length" \
+                    -seed "$seed"
+            done
+        done
+    done
+done
+echo "-----------------------------------"
+echo "Simple baseline experiments processed"
+echo "MELM starting"
+
+for dataset in "${datasets[@]}"; do
+    for pct in "${percentages[@]}"; do
+        length=${lengths["${dataset}_${pct}"]}
+        for seed in "${seeds[@]}"; do
+            count=$((count + 1))
+
+            result_file="./results/melm/${dataset}/${dataset}_${length}_${seed}.xlsx"
+
+            echo -n "[$count/$total]"
+
+            if [[ -f "$result_file" ]]; then
+                echo "SKIP (exists): $result_file"
+                continue
+            fi
+
+            echo "RUN: MELM | $dataset | ${pct}% | seed=$seed"
+            "$PYTHON_EXEC" main_melm.py \
+                -dataset "data/${dataset}.hf" \
+                -length "$length" \
+                -seed "$seed"
+        done
+    done
+done
+
+echo "-----------------------------------"
+echo "MELM baseline experiments processed"
+echo "Style_NER starting"
+
+for dataset in "${datasets[@]}"; do
+    for pct in "${percentages[@]}"; do
+        length=${lengths["${dataset}_${pct}"]}
+        for seed in "${seeds[@]}"; do
+            count=$((count + 1))
+
+            result_file="./results/style_NER/${dataset}/${dataset}_${length}_${seed}.xlsx"
+
+            echo -n "[$count/$total]"
+
+            if [[ -f "$result_file" ]]; then
+                echo "SKIP (exists): $result_file"
+                continue
+            fi
+
+            echo "RUN: style_NER | $dataset | ${pct}% | seed=$seed"
+            "$PYTHON_EXEC" main_style_NER.py \
+                -dataset "data/${dataset}.hf" \
+                -length "$length" \
+                -seed "$seed"
+        done
+    done
+done
+
+echo "-----------------------------------"
+echo "All baseline experiments processed"

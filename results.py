@@ -51,7 +51,7 @@ def confidence_intervals(path, files, confidence=0.95):
 if __name__=="__main__":
     base_directory = os.getcwd()
     results_path = os.path.join(base_directory, "results")
-    
+
     ### COSINER
     cosiner_results = []
     cosiner_path = os.path.join(results_path, "cosiner")
@@ -93,7 +93,7 @@ if __name__=="__main__":
         os.chdir(dataset_path)
         files = os.listdir()
         if ".gitignore" in files: files.remove(".gitignore")
-        
+
         dataset_name = list(set([x.split("_")[0] for x in files]))              # dataset name
         dataset_length = sorted(list(set([int(x.split("_")[1]) for x in files])))    # few-shot scenario
 
@@ -116,7 +116,7 @@ if __name__=="__main__":
         os.chdir(dataset_path)
         files = os.listdir()
         if ".gitignore" in files: files.remove(".gitignore")
-        
+
         dataset_name = list(set([x.split("_")[0] for x in files]))              # dataset name
         dataset_length = sorted(list(set([int(x.split("_")[1]) for x in files])))    # few-shot scenario
 
@@ -139,7 +139,7 @@ if __name__=="__main__":
         os.chdir(dataset_path)
         files = os.listdir()
         if ".gitignore" in files: files.remove(".gitignore")
-        
+
         dataset_name = list(set([x.split("_")[0] for x in files]))              # dataset name
         baseline_name = ["bert", "biobert", "lwtr", "mr", "sr"]
         dataset_length = sorted(list(set([int(x.split("_")[2]) for x in files])))    # few-shot scenario
@@ -153,9 +153,9 @@ if __name__=="__main__":
                     recall, precision, f1, augmentation_time = confidence_intervals(dataset_path, found)
                     x = Result(bs, d, scenario, list(precision), list(recall), list(f1), list(augmentation_time), 0, 0, 0).result_dict
                     baseline_results.append(x)
-    
+
     os.chdir(results_path)
-    
+
     df = pd.DataFrame.from_records(cosiner_results)
     latex_table_1, correlations_latex = latex_transform.convert_to_latex_t1(df)
 
@@ -172,7 +172,7 @@ if __name__=="__main__":
           & (df["budget"] == 0) 
           & (df["max_min_similarity"] == "max")
           ].copy()
-    
+
     best_max_local["f1_mean"] = best_max_local["f1"].apply(lambda x: x[0])
     best_max_local = best_max_local.loc[best_max_local.groupby(["dataset", "scenario"])["f1_mean"].idxmax()]    
     latex_table_2, correlations_table_2_latex = latex_transform.convert_to_latex_t2(best_max_local, pd.DataFrame.from_records(melm_results), pd.DataFrame.from_records(styleNER_results), pd.DataFrame.from_records(baseline_results))
@@ -186,7 +186,7 @@ if __name__=="__main__":
         print(f"{f.name} generated")
 
     latex_table_times = latex_transform.convert_to_latex_aug(df[(df["method"] == "cosiner") & (df["budget"] == 0) & (df["max_min_similarity"] == "max")], pd.DataFrame.from_records(melm_results), pd.DataFrame.from_records(styleNER_results), pd.DataFrame.from_records(baseline_results))
-    
+
     with open('table_times.tex', 'w') as f:
         f.writelines(latex_table_times)
         print(f"{f.name} generated")

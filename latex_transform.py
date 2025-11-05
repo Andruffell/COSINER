@@ -430,7 +430,14 @@ def convert_to_latex_t1(df):
     \label{tab:methods_comp}
     \end{table}
     """
-    return latex_table, correlations.to_latex(index=False, float_format="%.6f")
+
+    corr_table = (r"""\begin{table}
+    \footnotesize
+    \centering
+    \caption{Correlation between COSINER techniques.}"""
+    + correlations.to_latex(index=False, float_format="%.6f")
+    + r"""\end{table}""")
+    return latex_table, corr_table
 
 def convert_to_latex_t2(cosiner_df, melm_df, styleNER_df, baseline_df):
 
@@ -753,7 +760,13 @@ def convert_to_latex_t2(cosiner_df, melm_df, styleNER_df, baseline_df):
                                 })
     
         correlations = pd.DataFrame(results)
-        return table_2, correlations.to_latex(index=False, float_format="%.6f")
+        corr_table = (r"""\begin{table}
+        \footnotesize
+        \centering
+        \caption{Correlation between COSINER and baselines.}""" 
+        + correlations.to_latex(index=False, float_format="%.6f")
+        + r"""\end{table}""")
+        return table_2, corr_table
 
 
 def dict_to_latex_table_2(data, methods):
