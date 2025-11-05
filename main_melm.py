@@ -76,14 +76,14 @@ if __name__ == '__main__':
     dataset['train'] = dataset['train'].select(samples_num) if args.length > 0 else dataset['train']
     print(dataset['train'])
 
-    tokenizer = AutoTokenizer.from_pretrained("models/BioBERT/TOKENIZER", 
+    tokenizer = AutoTokenizer.from_pretrained("models/BERT/TOKENIZER", 
                                               local_files_only=True, 
                                               padding=True, 
                                               num_labels=len(label_list))
     
     data_collator = DataCollatorForTokenClassification(tokenizer=tokenizer)
 
-    model = AutoModelForTokenClassification.from_pretrained("models/BioBERT",
+    model = AutoModelForTokenClassification.from_pretrained("models/BERT",
                                                         cache_dir=None,
                                                         num_labels=len(label_list), 
                                                         id2label=id2label, 
@@ -95,7 +95,7 @@ if __name__ == '__main__':
 
     training_args = TrainingArguments(
                                 optim="adamw_torch",
-                                num_train_epochs=args.epochs,
+                                num_train_epochs=20,
                                 output_dir = str("./output"),
                                 evaluation_strategy="no",
                                 save_strategy="no",

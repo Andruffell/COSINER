@@ -1,0 +1,45 @@
+
+    \begin{table}
+    \footnotesize
+    \centering
+    \caption{Run times (s) for data augmentation with 95\% confidence intervals. Comparison with baselines and budgets.}
+    \label{tab:tempi-aug}
+    \rotatebox{90}{\begin{tabular}{@{}cp{0.4\textwidth}p{0.3\textwidth}p{0.3\textwidth}p{0.3\textwidth}@{}}
+    \toprule
+    \textbf{Dataset size} & \textbf{Method} & \textbf{NCBI Disease} & \textbf{BC5CDR} & \textbf{BC2GM} \\
+    \midrule
+\multirow{10}{*}{2\%} & No Augmentation & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 \\
+&No Augmentation (BioBERT) & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 \\
+&MR & 0.023 $\pm$ 0.001 & 0.021 $\pm$ 0.001 & 0.052 $\pm$ 0.003 \\
+&LwTR & 0.031 $\pm$ 0.002 & 0.028 $\pm$ 0.002 & 0.067 $\pm$ 0.002 \\
+&SR & 0.900 $\pm$ 0.021 & 0.880 $\pm$ 0.011 & 0.999 $\pm$ 0.029 \\
+&MELM & 102.791 $\pm$ 4.766 & 89.757 $\pm$ 2.865 & 253.738 $\pm$ 2.920 \\
+&style\_NER & 737.161 $\pm$ 24.048 & 2727.706 $\pm$ 814.153 & 2434.888 $\pm$ 354.222 \\
+&COSINER (small) & 6.093 $\pm$ 3.239 & 4.853 $\pm$ 0.913 & 22.341 $\pm$ 3.404 \\
+&COSINER (medium) & 4.240 $\pm$ 0.679 & 4.359 $\pm$ 0.854 & 13.574 $\pm$ 3.659 \\
+&COSINER (large) & 4.328 $\pm$ 0.643 & 4.446 $\pm$ 1.000 & 22.682 $\pm$ 1.926 \\
+\midrule
+\multirow{10}{*}{5\%} & No Augmentation & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 \\
+&No Augmentation (BioBERT) & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 \\
+&MR & 0.049 $\pm$ 0.001 & 0.046 $\pm$ 0.005 & 0.145 $\pm$ 0.007 \\
+&LwTR & 0.069 $\pm$ 0.003 & 0.060 $\pm$ 0.003 & 0.156 $\pm$ 0.005 \\
+&SR & 0.962 $\pm$ 0.016 & 0.958 $\pm$ 0.013 & 1.310 $\pm$ 0.061 \\
+&MELM & 315.338 $\pm$ 22.439 & 237.813 $\pm$ 3.328 & 669.392 $\pm$ 7.302 \\
+&style\_NER & 877.055 $\pm$ 16.772 & 3016.315 $\pm$ 489.417 & 2644.449 $\pm$ 99.201 \\
+&COSINER (small) & 15.431 $\pm$ 4.470 & 11.979 $\pm$ 2.007 & 36.068 $\pm$ 2.987 \\
+&COSINER (medium) & 10.292 $\pm$ 1.049 & 10.743 $\pm$ 1.845 & 34.046 $\pm$ 3.081 \\
+&COSINER (large) & 12.659 $\pm$ 4.277 & 10.781 $\pm$ 1.785 & 37.939 $\pm$ 11.567 \\
+\midrule
+\multirow{10}{*}{10\%} & No Augmentation & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 \\
+&No Augmentation (BioBERT) & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 \\
+&MR & 0.097 $\pm$ 0.001 & 0.086 $\pm$ 0.002 & 0.397 $\pm$ 0.029 \\
+&LwTR & 0.131 $\pm$ 0.001 & 0.113 $\pm$ 0.002 & 0.300 $\pm$ 0.005 \\
+&SR & 1.050 $\pm$ 0.010 & 1.104 $\pm$ 0.110 & 1.868 $\pm$ 0.282 \\
+&MELM & 694.772 $\pm$ 82.233 & 755.496 $\pm$ 403.938 & 1374.176 $\pm$ 75.200 \\
+&style\_NER & 1326.820 $\pm$ 414.080 & 4793.327 $\pm$ 1334.615 & 4556.011 $\pm$ 1383.077 \\
+&COSINER (small) & 21.523 $\pm$ 2.813 & 23.659 $\pm$ 2.250 & 77.890 $\pm$ 10.940 \\
+&COSINER (medium) & 23.928 $\pm$ 7.643 & 26.431 $\pm$ 11.356 & 118.904 $\pm$ 28.702 \\
+&COSINER (large) & 23.072 $\pm$ 9.776 & 35.309 $\pm$ 4.583 & 126.579 $\pm$ 10.416 \\\bottomrule
+    \end{tabular}}
+    \end{table}
+    
