@@ -354,7 +354,7 @@ def convert_to_latex_t1(df):
 
     (10, "Maximum", "Global", 0.807, 0.880, 0.760),
     (10, "Minimum", "Global", 0.807, 0.873, 0.761),
-    (10, "Maximum", "Local",  0.816, 0.860, 0.767),
+    (10, "Maximum", "Local",  0.816, 0.882, 0.767),
     (10, "Minimum", "Local",  0.807, 0.876, 0.760),
     ]
 
