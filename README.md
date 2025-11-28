@@ -155,7 +155,7 @@ If you use COSINER in your research, please cite the original papers and relevan
 ```
 ## Datasets
 ```
-"""@article{ncbi,
+@article{ncbi,
           author = {Dogan, Rezarta Islamaj and Leaman, Robert and Lu, Zhiyong},
           title = {NCBI Disease Corpus},
           year = {2014},
@@ -168,7 +168,7 @@ If you use COSINER in your research, please cite the original papers and relevan
           journal = {J. of Biomedical Informatics},
           month = {feb},
           pages = {1–10},
-          numpages = {10}}"""
+          numpages = {10}}
 
 @article{article,
           author = {Li, Jiao and Sun, Yueping and Johnson, Robin and Sciaky, Daniela and Wei, Chih-Hsuan and Leaman, Robert and Davis, Allan Peter and Mattingly, Carolyn and Wiegers, Thomas and lu, Zhiyong},
