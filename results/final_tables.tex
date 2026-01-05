@@ -1,0 +1,190 @@
+\documentclass{article}
+
+    \usepackage{booktabs}
+    \usepackage{longtable}
+    \usepackage{array}
+    \usepackage{multirow}
+    \usepackage{graphicx}
+    \usepackage{amsmath}
+    \usepackage{amssymb}
+
+    \begin{document}
+
+% ===== Begin table_1.tex =====
+\begin{table}
+    \footnotesize
+    \centering
+    \caption{\textbf{COSINER techniques}. Comparative results between COSINER techniques with their best budget (Win-Desktop-1).}
+    \begin{tabular}{@{}cp{0.15\textwidth}p{0.12\textwidth}lll@{}}
+    \toprule
+    \textbf{Dataset size} & \textbf{Similarity} & \textbf{Strategy} &
+    \textbf{NCBI Disease} & \textbf{BC5CDR} & \textbf{BC2GM} \\ \midrule
+    \multirow{4}{*}{2\%} & Maximum & Global & 0.692 $\pm$ 0.049 & 0.832 $\pm$ 0.014 & 0.661 $\pm$ 0.011 \\
+ & Minimum & Global & 0.697 $\pm$ 0.039 & 0.829 $\pm$ 0.011 & 0.653 $\pm$ 0.013 \\
+ & Maximum & Local & 0.691 $\pm$ 0.052 & 0.830 $\pm$ 0.022 & 0.666 $\pm$ 0.008 \\
+ & Minimum & Local & 0.688 $\pm$ 0.045 & 0.828 $\pm$ 0.010 & 0.658 $\pm$ 0.011 \\
+\midrule
+\multirow{4}{*}{5\%} & Maximum & Global & 0.768 $\pm$ 0.017 & 0.855 $\pm$ 0.016 & 0.717 $\pm$ 0.006 \\
+ & Minimum & Global & 0.757 $\pm$ 0.025 & 0.853 $\pm$ 0.010 & 0.712 $\pm$ 0.013 \\
+ & Maximum & Local & 0.770 $\pm$ 0.026 & 0.862 $\pm$ 0.013 & 0.723 $\pm$ 0.002 \\
+ & Minimum & Local & 0.764 $\pm$ 0.043 & 0.857 $\pm$ 0.014 & 0.714 $\pm$ 0.002 \\
+\midrule
+\multirow{4}{*}{10\%} & Maximum & Global & 0.806 $\pm$ 0.005 & 0.881 $\pm$ 0.007 & 0.761 $\pm$ 0.009 \\
+ & Minimum & Global & 0.804 $\pm$ 0.019 & 0.876 $\pm$ 0.010 & 0.758 $\pm$ 0.008 \\
+ & Maximum & Local & 0.811 $\pm$ 0.014 & 0.884 $\pm$ 0.003 & 0.762 $\pm$ 0.007 \\
+ & Minimum & Local & 0.807 $\pm$ 0.019 & 0.879 $\pm$ 0.013 & 0.760 $\pm$ 0.005 \\
+    \bottomrule
+    \end{tabular}
+    \label{tab:methods_comp}
+    \end{table}
+% ===== End table_1.tex =====
+
+% ===== Begin table_1_correlation.tex =====
+\begin{table}
+    \footnotesize
+    \centering
+    \caption{Correlation between COSINER techniques.}\begin{tabular}{lllrr}
+\toprule
+Dataset & Similarity & Strategy & Pearson & Spearman \\
+\midrule
+NCBI Disease & Maximum & Global & 0.999760 & 1.000000 \\
+NCBI Disease & Minimum & Global & 0.999487 & 1.000000 \\
+NCBI Disease & Maximum & Local & 0.993651 & 1.000000 \\
+NCBI Disease & Minimum & Local & 0.999899 & 1.000000 \\
+BC5CDR & Maximum & Global & 0.994544 & 1.000000 \\
+BC5CDR & Minimum & Global & 0.994733 & 1.000000 \\
+BC5CDR & Maximum & Local & 0.999514 & 1.000000 \\
+BC5CDR & Minimum & Local & 0.990295 & 1.000000 \\
+BC2GM & Maximum & Global & 0.999776 & 1.000000 \\
+BC2GM & Minimum & Global & 0.999997 & 1.000000 \\
+BC2GM & Maximum & Local & 0.999988 & 1.000000 \\
+BC2GM & Minimum & Local & 0.999987 & 1.000000 \\
+\bottomrule
+\end{tabular}
+\end{table}
+% ===== End table_1_correlation.tex =====
+
+% ===== Begin table_2.tex =====
+\begin{table}
+        \footnotesize
+        \centering
+        \caption{\textbf{COSINER vs Baselines}. Comparative results between the local augmentation strategy with the maximum similarity technique and baselines (Win-Desktop-1).}
+        \scalebox{0.73}{\rotatebox{90}{\begin{tabular}{cllll|lll|lll}
+        \toprule
+        \textbf{Dataset size} & \multicolumn{1}{c}{\textbf{Method}} & \multicolumn{3}{c}{\textbf{NCBI-Disease}}                                                                                            & \multicolumn{3}{c}{\textbf{BC5CDR}}                                                                                                  & \multicolumn{3}{c}{\textbf{BC2GM}}                                                                                                   \\\midrule
+        \multicolumn{1}{l}{}  &                                     & \multicolumn{1}{c}{F1}                     & \multicolumn{1}{c}{Precision}              & \multicolumn{1}{c}{Recall}                 & \multicolumn{1}{c}{F1}                     & \multicolumn{1}{c}{Precision}              & \multicolumn{1}{c}{Recall}                 & \multicolumn{1}{c}{F1}                     & \multicolumn{1}{c}{Precision}              & \multicolumn{1}{c}{Recall}                 \\ \midrule
+\multirow{8}{*}{2\%} & No Augmentation & 0.562 $\pm$ 0.033 & 0.502 $\pm$ 0.035 & 0.641 $\pm$ 0.057 & 0.723 $\pm$ 0.027 & 0.693 $\pm$ 0.037 & 0.759 $\pm$ 0.063 & 0.545 $\pm$ 0.006 & 0.492 $\pm$ 0.018 & 0.611 $\pm$ 0.017 \\
+&No Augmentation (BioBERT) & 0.646 $\pm$ 0.054 & 0.614 $\pm$ 0.049 & 0.682 $\pm$ 0.065 & 0.796 $\pm$ 0.024 & 0.794 $\pm$ 0.032 & 0.801 $\pm$ 0.054 & 0.636 $\pm$ 0.014 & 0.596 $\pm$ 0.017 & 0.682 $\pm$ 0.026 \\
+&MR & 0.668 $\pm$ 0.050 & 0.618 $\pm$ 0.051 & 0.728 $\pm$ 0.049 & 0.809 $\pm$ 0.024 & 0.797 $\pm$ 0.017 & 0.823 $\pm$ 0.049 & 0.639 $\pm$ 0.019 & 0.601 $\pm$ 0.027 & 0.682 $\pm$ 0.026 \\
+&LwTR & 0.659 $\pm$ 0.042 & 0.618 $\pm$ 0.054 & 0.707 $\pm$ 0.053 & 0.830 $\pm$ 0.018 & 0.823 $\pm$ 0.017 & 0.839 $\pm$ 0.048 & 0.641 $\pm$ 0.010 & 0.599 $\pm$ 0.021 & 0.690 $\pm$ 0.017 \\
+&SR & 0.683 $\pm$ 0.057 & 0.642 $\pm$ 0.083 & 0.734 $\pm$ 0.043 & 0.827 $\pm$ 0.016 & 0.823 $\pm$ 0.027 & 0.832 $\pm$ 0.050 & 0.659 $\pm$ 0.011 & 0.616 $\pm$ 0.026 & 0.710 $\pm$ 0.026 \\
+&MELM & 0.657 $\pm$ 0.079 & 0.643 $\pm$ 0.046 & 0.675 $\pm$ 0.119 & 0.834 $\pm$ 0.014 & 0.804 $\pm$ 0.027 & 0.866 $\pm$ 0.019 & 0.658 $\pm$ 0.015 & 0.634 $\pm$ 0.022 & 0.687 $\pm$ 0.046 \\
+&style\_NER & 0.654 $\pm$ 0.049 & 0.623 $\pm$ 0.058 & 0.692 $\pm$ 0.067 & 0.808 $\pm$ 0.032 & 0.779 $\pm$ 0.059 & 0.842 $\pm$ 0.054 & 0.620 $\pm$ 0.029 & 0.589 $\pm$ 0.017 & 0.654 $\pm$ 0.046 \\
+&COSINER (ours) & 0.691 $\pm$ 0.052 & 0.644 $\pm$ 0.045 & 0.745 $\pm$ 0.065 & 0.830 $\pm$ 0.022 & 0.819 $\pm$ 0.023 & 0.844 $\pm$ 0.052 & 0.666 $\pm$ 0.008 & 0.615 $\pm$ 0.012 & 0.727 $\pm$ 0.017 \\
+\midrule
+\multirow{8}{*}{5\%} & No Augmentation & 0.679 $\pm$ 0.014 & 0.638 $\pm$ 0.007 & 0.725 $\pm$ 0.034 & 0.788 $\pm$ 0.011 & 0.760 $\pm$ 0.021 & 0.818 $\pm$ 0.032 & 0.621 $\pm$ 0.009 & 0.573 $\pm$ 0.009 & 0.677 $\pm$ 0.016 \\
+&No Augmentation (BioBERT) & 0.735 $\pm$ 0.015 & 0.704 $\pm$ 0.029 & 0.770 $\pm$ 0.013 & 0.844 $\pm$ 0.008 & 0.843 $\pm$ 0.008 & 0.845 $\pm$ 0.013 & 0.709 $\pm$ 0.007 & 0.673 $\pm$ 0.005 & 0.748 $\pm$ 0.017 \\
+&MR & 0.749 $\pm$ 0.025 & 0.722 $\pm$ 0.019 & 0.779 $\pm$ 0.037 & 0.851 $\pm$ 0.008 & 0.835 $\pm$ 0.016 & 0.867 $\pm$ 0.009 & 0.713 $\pm$ 0.011 & 0.675 $\pm$ 0.006 & 0.756 $\pm$ 0.024 \\
+&LwTR & 0.749 $\pm$ 0.024 & 0.713 $\pm$ 0.019 & 0.790 $\pm$ 0.031 & 0.864 $\pm$ 0.018 & 0.853 $\pm$ 0.022 & 0.877 $\pm$ 0.024 & 0.694 $\pm$ 0.006 & 0.660 $\pm$ 0.011 & 0.731 $\pm$ 0.017 \\
+&SR & 0.767 $\pm$ 0.013 & 0.732 $\pm$ 0.014 & 0.805 $\pm$ 0.030 & 0.857 $\pm$ 0.013 & 0.839 $\pm$ 0.016 & 0.876 $\pm$ 0.020 & 0.720 $\pm$ 0.011 & 0.694 $\pm$ 0.018 & 0.748 $\pm$ 0.013 \\
+&MELM & 0.755 $\pm$ 0.011 & 0.739 $\pm$ 0.020 & 0.773 $\pm$ 0.036 & 0.864 $\pm$ 0.018 & 0.857 $\pm$ 0.023 & 0.872 $\pm$ 0.043 & 0.720 $\pm$ 0.010 & 0.693 $\pm$ 0.014 & 0.750 $\pm$ 0.020 \\
+&style\_NER & 0.738 $\pm$ 0.023 & 0.729 $\pm$ 0.011 & 0.748 $\pm$ 0.048 & 0.851 $\pm$ 0.017 & 0.845 $\pm$ 0.031 & 0.858 $\pm$ 0.027 & 0.691 $\pm$ 0.006 & 0.665 $\pm$ 0.005 & 0.719 $\pm$ 0.010 \\
+&COSINER (ours) & 0.770 $\pm$ 0.026 & 0.724 $\pm$ 0.023 & 0.823 $\pm$ 0.030 & 0.862 $\pm$ 0.013 & 0.844 $\pm$ 0.023 & 0.882 $\pm$ 0.027 & 0.723 $\pm$ 0.002 & 0.685 $\pm$ 0.010 & 0.764 $\pm$ 0.015 \\
+\midrule
+\multirow{8}{*}{10\%} & No Augmentation & 0.741 $\pm$ 0.009 & 0.709 $\pm$ 0.013 & 0.777 $\pm$ 0.013 & 0.817 $\pm$ 0.008 & 0.789 $\pm$ 0.015 & 0.848 $\pm$ 0.025 & 0.676 $\pm$ 0.011 & 0.637 $\pm$ 0.010 & 0.720 $\pm$ 0.020 \\
+&No Augmentation (BioBERT) & 0.795 $\pm$ 0.011 & 0.763 $\pm$ 0.011 & 0.830 $\pm$ 0.016 & 0.876 $\pm$ 0.011 & 0.862 $\pm$ 0.013 & 0.889 $\pm$ 0.009 & 0.752 $\pm$ 0.010 & 0.723 $\pm$ 0.015 & 0.784 $\pm$ 0.014 \\
+&MR & 0.797 $\pm$ 0.014 & 0.765 $\pm$ 0.022 & 0.832 $\pm$ 0.012 & 0.878 $\pm$ 0.007 & 0.864 $\pm$ 0.008 & 0.893 $\pm$ 0.016 & 0.757 $\pm$ 0.010 & 0.730 $\pm$ 0.013 & 0.786 $\pm$ 0.015 \\
+&LwTR & 0.787 $\pm$ 0.007 & 0.752 $\pm$ 0.013 & 0.826 $\pm$ 0.007 & 0.884 $\pm$ 0.009 & 0.868 $\pm$ 0.009 & 0.900 $\pm$ 0.013 & 0.738 $\pm$ 0.008 & 0.710 $\pm$ 0.013 & 0.768 $\pm$ 0.004 \\
+&SR & 0.810 $\pm$ 0.010 & 0.781 $\pm$ 0.009 & 0.842 $\pm$ 0.016 & 0.883 $\pm$ 0.007 & 0.872 $\pm$ 0.004 & 0.894 $\pm$ 0.012 & 0.768 $\pm$ 0.011 & 0.742 $\pm$ 0.020 & 0.796 $\pm$ 0.008 \\
+&MELM & 0.790 $\pm$ 0.022 & 0.793 $\pm$ 0.007 & 0.788 $\pm$ 0.048 & 0.882 $\pm$ 0.014 & 0.887 $\pm$ 0.002 & 0.876 $\pm$ 0.027 & 0.759 $\pm$ 0.006 & 0.741 $\pm$ 0.010 & 0.777 $\pm$ 0.020 \\
+&style\_NER & 0.794 $\pm$ 0.012 & 0.787 $\pm$ 0.020 & 0.802 $\pm$ 0.015 & 0.868 $\pm$ 0.014 & 0.859 $\pm$ 0.025 & 0.877 $\pm$ 0.015 & 0.747 $\pm$ 0.010 & 0.722 $\pm$ 0.009 & 0.773 $\pm$ 0.017 \\
+&COSINER (ours) & 0.811 $\pm$ 0.014 & 0.774 $\pm$ 0.021 & 0.852 $\pm$ 0.022 & 0.884 $\pm$ 0.003 & 0.861 $\pm$ 0.012 & 0.908 $\pm$ 0.014 & 0.762 $\pm$ 0.007 & 0.730 $\pm$ 0.010 & 0.798 $\pm$ 0.009 \\\bottomrule
+        \end{tabular}}}
+        \label{tab:baselines_comp}
+        \end{table}
+% ===== End table_2.tex =====
+
+% ===== Begin table_2_correlation.tex =====
+\begin{table}
+        \footnotesize
+        \centering
+        \caption{Correlation between COSINER and baselines.}\begin{tabular}{llrr}
+\toprule
+Dataset & Method & Pearson & Spearman \\
+\midrule
+NCBI Disease & No Augmentation & 0.999652 & 1.000000 \\
+NCBI Disease & No Augmentation (BioBERT) & 0.999995 & 1.000000 \\
+NCBI Disease & MR & 0.999553 & 1.000000 \\
+NCBI Disease & LwTR & 0.991864 & 1.000000 \\
+NCBI Disease & SR & 0.997153 & 1.000000 \\
+NCBI Disease & MELM & 0.991255 & 1.000000 \\
+NCBI Disease & style\_NER & 0.998625 & 1.000000 \\
+NCBI Disease & COSINER (ours) & 0.993651 & 1.000000 \\
+BC5CDR & No Augmentation & 0.998980 & 1.000000 \\
+BC5CDR & No Augmentation (BioBERT) & 0.993881 & 1.000000 \\
+BC5CDR & MR & 0.999777 & 1.000000 \\
+BC5CDR & LwTR & 0.999115 & 1.000000 \\
+BC5CDR & SR & 0.992534 & 1.000000 \\
+BC5CDR & MELM & 0.993936 & 1.000000 \\
+BC5CDR & style\_NER & 0.993770 & 1.000000 \\
+BC5CDR & COSINER (ours) & 0.999514 & 1.000000 \\
+BC2GM & No Augmentation & 0.997573 & 1.000000 \\
+BC2GM & No Augmentation (BioBERT) & 0.998590 & 1.000000 \\
+BC2GM & MR & 0.999889 & 1.000000 \\
+BC2GM & LwTR & 0.999431 & 1.000000 \\
+BC2GM & SR & 0.999985 & 1.000000 \\
+BC2GM & MELM & 0.995321 & 1.000000 \\
+BC2GM & style\_NER & 0.999095 & 1.000000 \\
+BC2GM & COSINER (ours) & 0.999988 & 1.000000 \\
+\bottomrule
+\end{tabular}
+\end{table}
+% ===== End table_2_correlation.tex =====
+
+% ===== Begin table_times.tex =====
+\begin{table}
+    \footnotesize
+    \centering
+    \caption{\textbf{Data augmentation times}. Run times (s) for data augmentation with 95\% confidence intervals. Comparison with baselines and budgets (Win-Desktop-1).}
+    \label{tab:tempi-aug}
+    \rotatebox{90}{\begin{tabular}{@{}cp{0.4\textwidth}p{0.3\textwidth}p{0.3\textwidth}p{0.3\textwidth}@{}}
+    \toprule
+    \textbf{Dataset size} & \textbf{Method} & \textbf{NCBI Disease} & \textbf{BC5CDR} & \textbf{BC2GM} \\
+    \midrule
+\multirow{10}{*}{2\%} & No Augmentation & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 \\
+&No Augmentation (BioBERT) & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 \\
+&MR & 0.023 $\pm$ 0.001 & 0.021 $\pm$ 0.001 & 0.052 $\pm$ 0.003 \\
+&LwTR & 0.031 $\pm$ 0.002 & 0.028 $\pm$ 0.002 & 0.067 $\pm$ 0.002 \\
+&SR & 0.900 $\pm$ 0.021 & 0.880 $\pm$ 0.011 & 0.999 $\pm$ 0.029 \\
+&MELM & 102.791 $\pm$ 4.766 & 89.757 $\pm$ 2.865 & 253.738 $\pm$ 2.920 \\
+&style\_NER & 783.898 $\pm$ 146.760 & 2727.706 $\pm$ 814.153 & 2434.888 $\pm$ 354.222 \\
+&COSINER (small) & 6.093 $\pm$ 3.239 & 4.853 $\pm$ 0.913 & 22.341 $\pm$ 3.404 \\
+&COSINER (medium) & 4.240 $\pm$ 0.679 & 4.359 $\pm$ 0.854 & 13.574 $\pm$ 3.659 \\
+&COSINER (large) & 4.328 $\pm$ 0.643 & 4.446 $\pm$ 1.000 & 22.682 $\pm$ 1.926 \\
+\midrule
+\multirow{10}{*}{5\%} & No Augmentation & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 \\
+&No Augmentation (BioBERT) & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 \\
+&MR & 0.049 $\pm$ 0.001 & 0.046 $\pm$ 0.005 & 0.145 $\pm$ 0.007 \\
+&LwTR & 0.069 $\pm$ 0.003 & 0.060 $\pm$ 0.003 & 0.156 $\pm$ 0.005 \\
+&SR & 0.962 $\pm$ 0.016 & 0.958 $\pm$ 0.013 & 1.310 $\pm$ 0.061 \\
+&MELM & 315.338 $\pm$ 22.439 & 237.813 $\pm$ 3.328 & 669.392 $\pm$ 7.302 \\
+&style\_NER & 877.055 $\pm$ 16.772 & 3016.315 $\pm$ 489.417 & 2644.449 $\pm$ 99.201 \\
+&COSINER (small) & 15.431 $\pm$ 4.470 & 11.979 $\pm$ 2.007 & 36.068 $\pm$ 2.987 \\
+&COSINER (medium) & 10.292 $\pm$ 1.049 & 10.743 $\pm$ 1.845 & 34.046 $\pm$ 3.081 \\
+&COSINER (large) & 12.659 $\pm$ 4.277 & 10.781 $\pm$ 1.785 & 37.939 $\pm$ 11.567 \\
+\midrule
+\multirow{10}{*}{10\%} & No Augmentation & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 \\
+&No Augmentation (BioBERT) & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 & 0.000 $\pm$ 0.000 \\
+&MR & 0.097 $\pm$ 0.001 & 0.086 $\pm$ 0.002 & 0.397 $\pm$ 0.029 \\
+&LwTR & 0.131 $\pm$ 0.001 & 0.113 $\pm$ 0.002 & 0.300 $\pm$ 0.005 \\
+&SR & 1.050 $\pm$ 0.010 & 1.104 $\pm$ 0.110 & 1.868 $\pm$ 0.282 \\
+&MELM & 694.772 $\pm$ 82.233 & 755.496 $\pm$ 403.938 & 1374.176 $\pm$ 75.200 \\
+&style\_NER & 1326.820 $\pm$ 414.080 & 4793.327 $\pm$ 1334.615 & 4556.011 $\pm$ 1383.077 \\
+&COSINER (small) & 21.523 $\pm$ 2.813 & 23.659 $\pm$ 2.250 & 77.890 $\pm$ 10.940 \\
+&COSINER (medium) & 23.928 $\pm$ 7.643 & 26.431 $\pm$ 11.356 & 118.904 $\pm$ 28.702 \\
+&COSINER (large) & 23.072 $\pm$ 9.776 & 35.309 $\pm$ 4.583 & 126.579 $\pm$ 10.416 \\\bottomrule
+    \end{tabular}}
+    \end{table}
+% ===== End table_times.tex =====
+
+\end{document}

@@ -1,8 +1,7 @@
 \begin{table}
         \footnotesize
         \centering
-        \makegapedcells
-        \caption{Comparative results between the local augmentation strategy with maximum similarity technique and baselines.}
+        \caption{\textbf{COSINER vs Baselines}. Comparative results between the local augmentation strategy with the maximum similarity technique and baselines (Win-Desktop-1).}
         \scalebox{0.73}{\rotatebox{90}{\begin{tabular}{cllll|lll|lll}
         \toprule
         \textbf{Dataset size} & \multicolumn{1}{c}{\textbf{Method}} & \multicolumn{3}{c}{\textbf{NCBI-Disease}}                                                                                            & \multicolumn{3}{c}{\textbf{BC5CDR}}                                                                                                  & \multicolumn{3}{c}{\textbf{BC2GM}}                                                                                                   \\\midrule
@@ -13,7 +12,7 @@
 &LwTR & 0.659 $\pm$ 0.042 & 0.618 $\pm$ 0.054 & 0.707 $\pm$ 0.053 & 0.830 $\pm$ 0.018 & 0.823 $\pm$ 0.017 & 0.839 $\pm$ 0.048 & 0.641 $\pm$ 0.010 & 0.599 $\pm$ 0.021 & 0.690 $\pm$ 0.017 \\
 &SR & 0.683 $\pm$ 0.057 & 0.642 $\pm$ 0.083 & 0.734 $\pm$ 0.043 & 0.827 $\pm$ 0.016 & 0.823 $\pm$ 0.027 & 0.832 $\pm$ 0.050 & 0.659 $\pm$ 0.011 & 0.616 $\pm$ 0.026 & 0.710 $\pm$ 0.026 \\
 &MELM & 0.657 $\pm$ 0.079 & 0.643 $\pm$ 0.046 & 0.675 $\pm$ 0.119 & 0.834 $\pm$ 0.014 & 0.804 $\pm$ 0.027 & 0.866 $\pm$ 0.019 & 0.658 $\pm$ 0.015 & 0.634 $\pm$ 0.022 & 0.687 $\pm$ 0.046 \\
-&style\_NER & 0.519 $\pm$ 0.363 & 0.491 $\pm$ 0.345 & 0.552 $\pm$ 0.389 & 0.808 $\pm$ 0.032 & 0.779 $\pm$ 0.059 & 0.842 $\pm$ 0.054 & 0.620 $\pm$ 0.029 & 0.589 $\pm$ 0.017 & 0.654 $\pm$ 0.046 \\
+&style\_NER & 0.654 $\pm$ 0.049 & 0.623 $\pm$ 0.058 & 0.692 $\pm$ 0.067 & 0.808 $\pm$ 0.032 & 0.779 $\pm$ 0.059 & 0.842 $\pm$ 0.054 & 0.620 $\pm$ 0.029 & 0.589 $\pm$ 0.017 & 0.654 $\pm$ 0.046 \\
 &COSINER (ours) & 0.691 $\pm$ 0.052 & 0.644 $\pm$ 0.045 & 0.745 $\pm$ 0.065 & 0.830 $\pm$ 0.022 & 0.819 $\pm$ 0.023 & 0.844 $\pm$ 0.052 & 0.666 $\pm$ 0.008 & 0.615 $\pm$ 0.012 & 0.727 $\pm$ 0.017 \\
 \midrule
 \multirow{8}{*}{5\%} & No Augmentation & 0.679 $\pm$ 0.014 & 0.638 $\pm$ 0.007 & 0.725 $\pm$ 0.034 & 0.788 $\pm$ 0.011 & 0.760 $\pm$ 0.021 & 0.818 $\pm$ 0.032 & 0.621 $\pm$ 0.009 & 0.573 $\pm$ 0.009 & 0.677 $\pm$ 0.016 \\

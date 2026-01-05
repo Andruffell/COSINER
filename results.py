@@ -163,7 +163,7 @@ if __name__=="__main__":
         f.writelines(latex_table_1)
         print(f"{f.name} generated")
 
-    with open('table_1_correlations.tex', 'w') as f:
+    with open('table_1_correlation.tex', 'w') as f:
         f.writelines(correlations_latex)
         print(f"{f.name} generated")
 
@@ -190,3 +190,50 @@ if __name__=="__main__":
     with open('table_times.tex', 'w') as f:
         f.writelines(latex_table_times)
         print(f"{f.name} generated")
+
+    latex_files = [
+        "table_1.tex",
+        "table_1_correlation.tex",
+        "table_2.tex",
+        "table_2_correlation.tex",
+        "table_times.tex",
+    ]
+
+    output_file = "final_tables.tex"
+
+    preamble = r"""
+    \documentclass{article}
+
+    \usepackage{booktabs}
+    \usepackage{longtable}
+    \usepackage{array}
+    \usepackage{multirow}
+    \usepackage{graphicx}
+    \usepackage{amsmath}
+    \usepackage{amssymb}
+
+    \begin{document}
+    """
+
+    ending = r"""
+    \end{document}
+    """
+
+    with open(output_file, "w", encoding="utf-8") as out:
+        out.write(preamble.strip() + "\n\n")
+
+        for fname in latex_files:
+            with open(fname, "r", encoding="utf-8") as f:
+                content = f.read()
+
+            # Strip document environment if present
+            content = content.replace(r"\begin{document}", "")
+            content = content.replace(r"\end{document}", "")
+
+            out.write(f"% ===== Begin {fname} =====\n")
+            out.write(content.strip() + "\n")
+            out.write(f"% ===== End {fname} =====\n\n")
+
+        out.write(ending.strip())
+
+    print(f"Generated {output_file}")

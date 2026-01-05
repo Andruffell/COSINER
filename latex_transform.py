@@ -419,7 +419,7 @@ def convert_to_latex_t1(df):
     \begin{table}
     \footnotesize
     \centering
-    \caption{Comparative results between COSINER techniques with their best budget.}
+    \caption{\textbf{COSINER techniques}. Comparative results between COSINER techniques with their best budget (Win-Desktop-1).}
     \begin{tabular}{@{}cp{0.15\textwidth}p{0.12\textwidth}lll@{}}
     \toprule
     \textbf{Dataset size} & \textbf{Similarity} & \textbf{Strategy} &
@@ -793,8 +793,7 @@ def dict_to_latex_table_2(data, methods):
         r"""\begin{table}
         \footnotesize
         \centering
-        \makegapedcells
-        \caption{Comparative results between the local augmentation strategy with maximum similarity technique and baselines.}
+        \caption{\textbf{COSINER vs Baselines}. Comparative results between the local augmentation strategy with the maximum similarity technique and baselines (Win-Desktop-1).}
         \scalebox{0.73}{\rotatebox{90}{\begin{tabular}{cllll|lll|lll}
         \toprule
         \textbf{Dataset size} & \multicolumn{1}{c}{\textbf{Method}} & \multicolumn{3}{c}{\textbf{NCBI-Disease}}                                                                                            & \multicolumn{3}{c}{\textbf{BC5CDR}}                                                                                                  & \multicolumn{3}{c}{\textbf{BC2GM}}                                                                                                   \\\midrule
@@ -938,11 +937,10 @@ def convert_to_latex_aug(cosiner_df, melm_df, styleNER_df, baseline_df):
                 row = "&" + method + " & " + " & ".join(row_values) + " \\\\"
         rows.append(row)
 
-    latex_table = r"""
-    \begin{table}
+    latex_table = r"""\begin{table}
     \footnotesize
     \centering
-    \caption{Run times (s) for data augmentation with 95\% confidence intervals. Comparison with baselines and budgets.}
+    \caption{\textbf{Data augmentation times}. Run times (s) for data augmentation with 95\% confidence intervals. Comparison with baselines and budgets (Win-Desktop-1).}
     \label{tab:tempi-aug}
     \rotatebox{90}{\begin{tabular}{@{}cp{0.4\textwidth}p{0.3\textwidth}p{0.3\textwidth}p{0.3\textwidth}@{}}
     \toprule
