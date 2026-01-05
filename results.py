@@ -1,4 +1,4 @@
-import matplotlib.pyplot as plt
+from datetime import datetime
 import os
 import pandas as pd
 import numpy as np
@@ -201,18 +201,26 @@ if __name__=="__main__":
 
     output_file = "final_tables.tex"
 
-    preamble = r"""
-    \documentclass{article}
+    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-    \usepackage{booktabs}
-    \usepackage{longtable}
-    \usepackage{array}
-    \usepackage{multirow}
-    \usepackage{graphicx}
-    \usepackage{amsmath}
-    \usepackage{amssymb}
+    preamble = rf"""
+    \documentclass{{article}}
 
-    \begin{document}
+    \usepackage{{booktabs}}
+    \usepackage{{multirow}}
+    \usepackage{{graphicx}}
+    \usepackage{{amsmath}}
+    \usepackage{{amssymb}}
+    \usepackage{{placeins}}
+
+    \begin{{document}}
+    \noindent
+    \textbf{{Compiled on:}} {now}
+    \par\medskip
+    \hrule
+    \medskip
+
+    \FloatBarrier
     """
 
     ending = r"""
