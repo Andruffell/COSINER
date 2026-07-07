@@ -49,7 +49,7 @@ for dataset in "${datasets[@]}"; do
                 for seed in "${seeds[@]}"; do
                     count=$((count + 1))
 
-                    result_file="./results/cosiner/${dataset}/${dataset}_${length}_${e}_${budget}_${reverse}_${seed}.xlsx"
+                    result_file="./results/cosiner/${dataset}/${dataset}_${length}_${e}_${budget}_${r}_${seed}.xlsx"
 
                     echo -n "[$count/$total]"
 
@@ -87,7 +87,7 @@ for dataset in "${datasets[@]}"; do
                 for seed in "${seeds[@]}"; do
                     count=$((count + 1))
 
-                    result_file="./results/cosiner/${dataset}/${dataset}_${length}_${exr}_${b}_${reverse}_${seed}.xlsx"
+                    result_file="./results/cosiner/${dataset}/${dataset}_${length}_${exr}_${b}_${r}_${seed}.xlsx"
 
                     echo -n "[$count/$total]"
 
