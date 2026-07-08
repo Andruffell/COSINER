@@ -24,7 +24,9 @@ git clone --recursive https://github.com/Andruffell/COSINER.git
 cd COSINER
 ```
 
-**Note**: The `--recursive` flag is essential as it includes all necessary submodules and dependencies.
+**Note 1**: The `--recursive` flag is essential as it includes all necessary submodules and dependencies.
+
+**Note 2**: Cloning this repository requires Git LFS. If model weights appear as text stubs, run `git lfs pull` or `python models/download_models_from_hf.py` to download the full weight files.
 
 ### 2. Virtual Environment Setup
 
